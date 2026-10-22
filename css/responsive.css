@@ -1,0 +1,52 @@
+@media (max-width: 575.98px) {
+    #home h1 {
+        font-size: clamp(2.25rem, 11vw, 3.25rem);
+    }
+
+    #home {
+        background-position: 58% center !important;
+    }
+
+    #cars .card-img-top {
+        height: 220px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-content {
+        min-height: 0;
+    }
+
+    .hero-note {
+        max-width: 420px;
+        margin: 0;
+    }
+
+    .hero-bottomline {
+        margin-top: 2.5rem;
+    }
+
+    .discovery-heading {
+        margin-bottom: 2rem;
+    }
+
+    .section-intro {
+        margin: 0;
+    }
+
+    .discovery-number {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}

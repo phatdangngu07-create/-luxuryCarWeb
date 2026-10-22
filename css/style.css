@@ -24,64 +24,6 @@ a {
     text-underline-offset: 0.2em;
 }
 
-header {
-    position: fixed;
-    z-index: 1030;
-    top: 1rem;
-    right: 0;
-    left: 0;
-}
-
-.navbar {
-    padding: 0;
-    background: transparent !important;
-    border: 0;
-}
-
-.navbar > .container {
-    width: calc(100% - 2rem);
-    max-width: 1140px;
-    min-height: 62px;
-    padding: 0.45rem 1rem;
-    background: rgb(10 10 10 / 94%);
-    border: 1px solid rgb(255 255 255 / 14%);
-    border-radius: 999px;
-    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 24%);
-    backdrop-filter: blur(12px);
-}
-
-.navbar-brand {
-    display: inline-flex;
-    align-items: center;
-    letter-spacing: 0.04em;
-    gap: 0.5rem;
-}
-
-.navbar-brand img {
-    display: block;
-    width: 38px;
-    height: 38px;
-    border-radius: 0.35rem;
-    object-fit: cover;
-}
-
-.navbar .nav-link {
-    padding-right: 0.85rem;
-    padding-left: 0.85rem;
-    color: rgb(255 255 255 / 78%);
-    transition: color 160ms ease;
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link:focus,
-.navbar .nav-link.active {
-    color: var(--luxury-red);
-}
-
-.navbar .navbar-toggler {
-    border-color: rgb(255 255 255 / 30%);
-}
-
 main:not(.home-main) {
     padding-top: 6rem;
 }
@@ -264,59 +206,239 @@ main:not(.home-main) {
     color: var(--luxury-dark);
 }
 
-footer.bg-dark {
-    background-color: var(--luxury-dark) !important;
+.hero-content {
+    min-height: min(72vh, 680px);
 }
 
-footer .container {
-    padding-top: 1.25rem !important;
-    padding-bottom: 1.25rem !important;
+#home .hero-kicker,
+.section-eyebrow {
+    color: var(--luxury-red);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
 }
 
-@media (max-width: 991.98px) {
-    .navbar > .container {
-        border-radius: 1.25rem;
-    }
-
-    .navbar-collapse {
-        padding: 0.25rem 0.5rem 0.5rem;
-    }
+#home h1 {
+    max-width: 850px;
+    font-size: clamp(3.1rem, 7vw, 6.4rem);
+    line-height: 0.99;
+    letter-spacing: -0.065em;
 }
 
-@media (max-width: 575.98px) {
-    header {
-        top: 0.5rem;
-    }
-
-    .navbar > .container {
-        width: calc(100% - 1rem);
-    }
-
-    .navbar .nav-link {
-        padding: 0.65rem 0;
-    }
-
-    #home h1 {
-        font-size: clamp(2.25rem, 11vw, 3.25rem);
-    }
-
-    #home {
-        background-position: 58% center !important;
-    }
-
-    #cars .card-img-top {
-        height: 220px;
-    }
+#home h1 span {
+    color: rgb(255 255 255 / 72%);
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+#home .lead {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+}
 
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-    }
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.hero-actions .btn {
+    padding: 0.85rem 1.2rem;
+    font-size: 0.95rem;
+}
+
+.hero-actions .btn span,
+.hero-note a span,
+.marque-link span {
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 180ms ease;
+}
+
+.hero-actions .btn:hover span,
+.hero-note a:hover span,
+.marque-link:hover span {
+    transform: translateX(4px);
+}
+
+.hero-secondary-link,
+.hero-note a {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hero-secondary-link:hover,
+.hero-secondary-link:focus,
+.hero-note a:hover,
+.hero-note a:focus {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--luxury-red);
+}
+
+.hero-note {
+    max-width: 290px;
+    margin: 0 0 0 auto;
+    padding: 1.25rem 0 0 1.25rem;
+    border-top: 1px solid rgb(255 255 255 / 42%);
+}
+
+.hero-note-label {
+    color: rgb(255 255 255 / 58%);
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.hero-note p {
+    margin: 0.7rem 0 1rem;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.hero-bottomline {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(255 255 255 / 28%);
+    color: rgb(255 255 255 / 68%);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.discovery-section {
+    padding: clamp(4rem, 9vw, 7.5rem) 0;
+    background: #fff;
+}
+
+.discovery-heading {
+    margin-bottom: 3rem;
+}
+
+.section-eyebrow {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.discovery-heading h2,
+.marque-section h2 {
+    margin: 0;
+    color: var(--luxury-dark);
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+}
+
+.section-intro {
+    max-width: 470px;
+    margin: 0 0 0 auto;
+    color: #62676c;
+    line-height: 1.8;
+}
+
+.discovery-card {
+    height: 100%;
+    min-height: 220px;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    background: #f5f5f3;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.discovery-card:hover {
+    transform: translateY(-4px);
+    background: #efefec;
+}
+
+.discovery-number {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    color: var(--luxury-red);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.discovery-card h3 {
+    margin-bottom: 0.7rem;
+    color: var(--luxury-dark);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.discovery-card p {
+    max-width: 340px;
+    margin: 0;
+    color: #656a6f;
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.marque-section {
+    padding: clamp(3rem, 7vw, 6rem) 0;
+    background: #f3f2ef;
+}
+
+.marque-image-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #d9d9d7;
+}
+
+.marque-image-wrap img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.35;
+    object-fit: cover;
+}
+
+.marque-image-caption {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.55rem 0.75rem;
+    background: rgb(10 10 10 / 72%);
+    color: #fff;
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.marque-section .section-eyebrow {
+    margin-bottom: 1.2rem;
+}
+
+.marque-section h2 {
+    margin-bottom: 1.25rem;
+}
+
+.marque-copy {
+    max-width: 440px;
+    margin-bottom: 1.5rem;
+    color: #62676c;
+    line-height: 1.8;
+}
+
+.marque-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--luxury-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration-color: var(--luxury-red);
+    text-underline-offset: 0.35em;
+}
+
+.marque-link:hover,
+.marque-link:focus {
+    color: var(--luxury-red-dark);
+}
+
+.collection-search-status {
+    margin: -1rem 0 1.5rem;
+    color: var(--luxury-muted);
 }

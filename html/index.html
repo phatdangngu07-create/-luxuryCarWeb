@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Khám phá và tìm hiểu những mẫu siêu xe đẳng cấp tại Luxury Cars.">
-    <title>Luxury Cars - Siêu xe của bạn</title>
+    <title>Luxury Cars - Cẩm nang siêu xe</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
 </head>
 <body>
     <header>
@@ -21,10 +24,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavigation">
+                    <form class="navbar-search" action="collection.html" method="get" role="search">
+                        <label class="visually-hidden" for="siteSearch">Tìm kiếm siêu xe</label>
+                        <input id="siteSearch" class="form-control" type="search" name="search" placeholder="Tìm kiếm siêu xe..." autocomplete="off">
+                        <button class="navbar-search-button" type="submit" aria-label="Tìm kiếm">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                                <circle cx="10.8" cy="10.8" r="6.3"></circle>
+                                <path d="m15.5 15.5 4.2 4.2"></path>
+                            </svg>
+                        </button>
+                    </form>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#home">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="collection.html">Bộ sưu tập</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
                         <li class="nav-item"><a class="nav-link" href="register.html">Đăng ký</a></li>
                     </ul>
@@ -34,24 +46,118 @@
     </header>
 
     <main class="home-main">
-        <section id="home" class="bg-dark text-white">
+        <section id="home" class="bg-dark text-white" aria-labelledby="hero-title">
             <div class="container py-5">
-                <div class="row align-items-center gy-4">
+                <div class="row align-items-end gy-5 hero-content">
                     <div class="col-lg-8">
-                        <p class="text-uppercase fw-semibold text-danger mb-2">Luxury Cars</p>
-                        <h1 class="display-4 fw-bold">Khám phá những siêu xe đẳng cấp</h1>
-                        <p class="lead text-light">Tìm chiếc xe phù hợp với phong cách và dấu ấn riêng của bạn.</p>
-                        <a class="btn btn-danger btn-lg mt-2" href="collection.html">Xem bộ sưu tập</a>
+                        <p class="hero-kicker text-uppercase fw-semibold mb-3">The supercar index</p>
+                        <h1 id="hero-title" class="display-4 fw-bold">Thế giới siêu xe.<br><span>Khám phá mọi góc nhìn.</span></h1>
+                        <p class="lead">Tìm hiểu câu chuyện, thiết kế và những thông tin nổi bật làm nên sức hút của các dòng siêu xe.</p>
+                        <div class="hero-actions">
+                            <a class="btn btn-danger btn-lg" href="collection.html">Khám phá bộ sưu tập <span aria-hidden="true">&rarr;</span></a>
+                            <a class="hero-secondary-link" href="#discover">Khám phá trang web <span aria-hidden="true">&darr;</span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <aside class="hero-note">
+                            <span class="hero-note-label">Một thế giới đáng khám phá</span>
+                            <p>Nơi đam mê tốc độ gặp gỡ nghệ thuật chế tác và dấu ấn của từng thương hiệu.</p>
+                            <a href="#discover" aria-label="Tìm hiểu về Luxury Cars">Tìm hiểu thêm <span aria-hidden="true">&rarr;</span></a>
+                        </aside>
+                    </div>
+                </div>
+                <div class="hero-bottomline" aria-hidden="true">
+                    <span>Luxury Cars</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="discover" class="discovery-section" aria-labelledby="discover-title">
+            <div class="container">
+                <div class="row align-items-end gy-3 discovery-heading">
+                    <div class="col-lg-7">
+                        <p class="section-eyebrow">CẨM NANG SIÊU XE</p>
+                        <h2 id="discover-title">Không chỉ là một chiếc xe.</h2>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="section-intro">Mỗi mẫu siêu xe là sự kết hợp của kỹ thuật, thẩm mỹ và bản sắc thương hiệu. Hãy bắt đầu hành trình tìm hiểu từ những điều làm nên khác biệt.</p>
+                    </div>
+                </div>
+
+                <div class="row g-3 discovery-grid">
+                    <div class="col-md-4">
+                        <article class="discovery-card">
+                            <span class="discovery-number">01</span>
+                            <h3>Thương hiệu</h3>
+                            <p>Khám phá cá tính và câu chuyện riêng phía sau những cái tên nổi bật trong thế giới siêu xe.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="discovery-card">
+                            <span class="discovery-number">02</span>
+                            <h3>Hiệu năng</h3>
+                            <p>Tìm hiểu những yếu tố tạo nên trải nghiệm vận hành và sức hấp dẫn của từng dòng xe.</p>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="discovery-card">
+                            <span class="discovery-number">03</span>
+                            <h3>Thiết kế</h3>
+                            <p>Nhìn gần hơn vào ngôn ngữ tạo hình, chất liệu và dấu ấn thủ công đặc trưng.</p>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="marque-section" aria-labelledby="marque-title">
+            <div class="container">
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-7">
+                        <div class="marque-image-wrap">
+                            <img src="/assets/images/lamboghini.jpg" alt="Thiết kế mạnh mẽ của một siêu xe Lamborghini">
+                            <span class="marque-image-caption">A closer look at automotive design</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="section-eyebrow">ĐIỂM NHẤN &nbsp; / &nbsp; 01</p>
+                        <h2 id="marque-title">Lamborghini</h2>
+                        <p class="marque-copy">Đường nét táo bạo, diện mạo không thể nhầm lẫn. Khám phá mẫu xe Lamborghini trong bộ sưu tập và tìm hiểu thêm về sức hút của thương hiệu.</p>
+                        <a class="marque-link" href="collection.html">Xem thông tin xe <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-dark text-white">
-        <div class="container py-3 text-center">
-            <p class="mb-0">&copy; 2026 Luxury Cars. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 footer-content">
+                <div class="col-lg-4 col-md-6">
+                    <a class="footer-brand" href="#home">Luxury Cars<span>.</span></a>
+                    <p class="footer-about">Không gian dành cho những ai muốn khám phá câu chuyện, thiết kế và thế giới siêu xe.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-heading">Thông tin liên hệ</h2>
+                    <address class="footer-contact">
+                        <span>Địa chỉ: TP. Hồ Chí Minh, Việt Nam</span>
+                        <a href="tel:0999456789">Hotline: 0999.456.789</a>
+                        <a href="mailto:contact@luxurycars.vn">Email: contact@luxurycars.vn</a>
+                    </address>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-heading">Kết nối với chúng tôi</h2>
+                    <nav class="footer-social" aria-label="Mạng xã hội">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">&nearr;</span></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">&nearr;</span></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">&nearr;</span></a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Luxury Cars. All rights reserved.</span>
+                <a href="#home">Trở về đầu trang &uarr;</a>
+            </div>
         </div>
     </footer>
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>

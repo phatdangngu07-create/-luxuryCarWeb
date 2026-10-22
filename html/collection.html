@@ -6,7 +6,10 @@
     <meta name="description" content="Khám phá bộ sưu tập siêu xe nổi bật tại Luxury Cars.">
     <title>Bộ sưu tập - Luxury Cars</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
 </head>
 <body>
     <header>
@@ -21,10 +24,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavigation">
+                    <form class="navbar-search" action="collection.html" method="get" role="search">
+                        <label class="visually-hidden" for="siteSearch">Tìm kiếm siêu xe</label>
+                        <input id="siteSearch" class="form-control" type="search" name="search" placeholder="Tìm kiếm siêu xe..." autocomplete="off">
+                        <button class="navbar-search-button" type="submit" aria-label="Tìm kiếm">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                                <circle cx="10.8" cy="10.8" r="6.3"></circle>
+                                <path d="m15.5 15.5 4.2 4.2"></path>
+                            </svg>
+                        </button>
+                    </form>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html#home">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link active" href="collection.html" aria-current="page">Bộ sưu tập</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
                         <li class="nav-item"><a class="nav-link" href="register.html">Đăng ký</a></li>
                     </ul>
@@ -41,15 +53,16 @@
                     <h1 class="display-6 fw-bold">Siêu xe nổi bật</h1>
                     <p class="text-secondary mb-0">Khám phá mẫu xe được nhiều khách hàng yêu thích.</p>
                 </div>
+                <p id="collectionSearchStatus" class="collection-search-status text-center" aria-live="polite" hidden></p>
                 <div class="row justify-content-center">
                     <div class="col-sm-10 col-md-8 col-lg-5">
-                        <article class="card h-100 shadow-sm">
+                        <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Siêu xe Lamborghini màu xám">
                             <div class="card-body d-flex flex-column">
                                 <h2 class="card-title h4">Lamborghini</h2>
                                 <p class="card-text text-secondary">Thiết kế mạnh mẽ, hiệu suất ấn tượng và phong cách không thể nhầm lẫn.</p>
                                 <p class="fw-bold fs-5">Giá: 20.000.000.000 VNĐ</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="contact.html">Liên hệ tư vấn</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
                             </div>
                         </article>
                     </div>
@@ -58,11 +71,37 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white">
-        <div class="container py-3 text-center">
-            <p class="mb-0">&copy; 2026 Luxury Cars. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 footer-content">
+                <div class="col-lg-4 col-md-6">
+                    <a class="footer-brand" href="index.html#home">Luxury Cars<span>.</span></a>
+                    <p class="footer-about">Không gian dành cho những ai muốn khám phá câu chuyện, thiết kế và thế giới siêu xe.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-heading">Thông tin liên hệ</h2>
+                    <address class="footer-contact">
+                        <span>Địa chỉ: TP. Hồ Chí Minh, Việt Nam</span>
+                        <a href="tel:0999456789">Hotline: 0999.456.789</a>
+                        <a href="mailto:contact@luxurycars.vn">Email: contact@luxurycars.vn</a>
+                    </address>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-heading">Kết nối với chúng tôi</h2>
+                    <nav class="footer-social" aria-label="Mạng xã hội">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">&nearr;</span></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">&nearr;</span></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">&nearr;</span></a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Luxury Cars. All rights reserved.</span>
+                <a href="index.html#home">Trở về đầu trang &uarr;</a>
+            </div>
         </div>
     </footer>
+    <script src="/js/main.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
