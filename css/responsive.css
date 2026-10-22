@@ -3,8 +3,9 @@
         font-size: clamp(2.25rem, 11vw, 3.25rem);
     }
 
-    #home {
-        background-position: 58% center !important;
+    .hero-media img,
+    .hero-media video {
+        object-position: 58% center;
     }
 
     #cars .card-img-top {
@@ -20,10 +21,6 @@
     .hero-note {
         max-width: 420px;
         margin: 0;
-    }
-
-    .hero-bottomline {
-        margin-top: 2.5rem;
     }
 
     .discovery-heading {

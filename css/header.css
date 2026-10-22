@@ -53,6 +53,40 @@ header {
     color: var(--luxury-red);
 }
 
+.navbar .nav-account-register .nav-link {
+    margin-left: 0.15rem;
+    padding-left: 0.75rem;
+    background: linear-gradient(rgb(255 255 255 / 35%), rgb(255 255 255 / 35%)) left center / 1px 0.9em no-repeat;
+}
+
+.navbar .nav-item.dropdown > .nav-link {
+    border: 0;
+    background: transparent;
+    font: inherit;
+}
+
+.brand-menu {
+    min-width: 12rem;
+    padding: 0.45rem;
+    border: 1px solid rgb(255 255 255 / 12%);
+    border-radius: 0.75rem;
+    background: #151719;
+    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 28%);
+}
+
+.brand-menu .dropdown-item {
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.4rem;
+    color: rgb(255 255 255 / 78%);
+    font-size: 0.88rem;
+}
+
+.brand-menu .dropdown-item:hover,
+.brand-menu .dropdown-item:focus {
+    background: rgb(255 255 255 / 8%);
+    color: #fff;
+}
+
 .navbar .navbar-toggler {
     border-color: rgb(255 255 255 / 30%);
 }
@@ -135,12 +169,18 @@ header {
     .navbar-nav {
         margin-left: 0 !important;
     }
+
+    .navbar-nav .brand-menu {
+        width: max-content;
+        max-width: calc(100vw - 4rem);
+        min-width: 12rem;
+    }
 }
 
 @media (min-width: 992px) {
     .navbar-search {
         position: absolute;
-        left: 50%;
+        left: 38%;
         width: min(320px, 28vw);
         max-width: none;
         margin: 0;

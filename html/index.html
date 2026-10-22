@@ -37,8 +37,20 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#home">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="collection.html">Bộ sưu tập</a></li>
+                        <li class="nav-item dropdown">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hãng xe
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end brand-menu">
+                                <li><a class="dropdown-item" href="collection.html?search=Lamborghini">Lamborghini</a></li>
+                                <li><a class="dropdown-item" href="collection.html?search=Ferrari">Ferrari</a></li>
+                                <li><a class="dropdown-item" href="collection.html?search=McLaren">McLaren</a></li>
+                                <li><a class="dropdown-item" href="collection.html?search=Porsche">Porsche</a></li>
+                                <li><a class="dropdown-item" href="collection.html?search=Bugatti">Bugatti</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register.html">Đăng ký</a></li>
+                        <li class="nav-item nav-account-register"><a class="nav-link" href="register.html">Đăng ký</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,6 +59,12 @@
 
     <main class="home-main">
         <section id="home" class="bg-dark text-white" aria-labelledby="hero-title">
+            <div class="hero-media" aria-hidden="true">
+                <img src="/assets/images/lamboghini.jpg" alt="">
+                <video muted playsinline preload="auto" poster="/assets/images/lamboghini.jpg">
+                    <source src="/assets/video/sieuxe.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="container py-5">
                 <div class="row align-items-end gy-5 hero-content">
                     <div class="col-lg-8">
@@ -65,9 +83,6 @@
                             <a href="#discover" aria-label="Tìm hiểu về Luxury Cars">Tìm hiểu thêm <span aria-hidden="true">&rarr;</span></a>
                         </aside>
                     </div>
-                </div>
-                <div class="hero-bottomline" aria-hidden="true">
-                    <span>Luxury Cars</span>
                 </div>
             </div>
         </section>
@@ -161,5 +176,6 @@
         </div>
     </footer>
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
