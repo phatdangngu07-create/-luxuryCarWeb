@@ -36,7 +36,7 @@ if (collectionSearch && document.querySelector("[data-car-card]")) {
     const status = document.querySelector("#collectionSearchStatus");
 
     cards.forEach((card) => {
-        card.closest(".col-sm-10").hidden = !visibleCards.includes(card);
+        card.closest("[data-car-item]").hidden = !visibleCards.includes(card);
     });
 
     if (status) {

@@ -177,6 +177,20 @@ main:not(.home-main) {
     font-weight: 700;
 }
 
+.car-brand-label {
+    margin: 0 0 0.45rem;
+    color: var(--luxury-red-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+#cars .card-body > .btn {
+    white-space: normal;
+    text-align: left;
+}
+
 #contact {
     background:
         linear-gradient(135deg, #fff 0%, #f5f5f5 100%) !important;
