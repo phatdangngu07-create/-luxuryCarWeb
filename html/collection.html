@@ -35,18 +35,14 @@
                         </button>
                     </form>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html#home">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="collection.html" aria-current="page">Bộ sưu tập</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
                         <li class="nav-item dropdown">
-                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Hãng xe
-                            </button>
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Khám phá</button>
                             <ul class="dropdown-menu dropdown-menu-end brand-menu">
-                                <li><a class="dropdown-item" href="collection.html?search=Lamborghini">Lamborghini</a></li>
-                                <li><a class="dropdown-item" href="collection.html?search=Ferrari">Ferrari</a></li>
-                                <li><a class="dropdown-item" href="collection.html?search=McLaren">McLaren</a></li>
-                                <li><a class="dropdown-item" href="collection.html?search=Porsche">Porsche</a></li>
-                                <li><a class="dropdown-item" href="collection.html?search=Bugatti">Bugatti</a></li>
+                                <li><a class="dropdown-item active" href="collection.html" aria-current="page">Thư viện siêu xe</a></li>
+                                <li><a class="dropdown-item" href="brands.html">Thương hiệu</a></li>
+                                <li><a class="dropdown-item" href="knowledge.html">Cẩm nang kiến thức</a></li>
+                                <li><a class="dropdown-item" href="journal.html">Tin tức &amp; bài viết</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
@@ -63,95 +59,140 @@
                 <div class="text-center mb-4">
                     <p class="text-uppercase fw-semibold text-danger mb-2">Bộ sưu tập</p>
                     <h1 class="display-6 fw-bold">Siêu xe nổi bật</h1>
-                    <p class="text-secondary mb-0">Khám phá mẫu xe được nhiều khách hàng yêu thích.</p>
+                    <p class="text-secondary mb-0">Tìm kiếm, lọc và so sánh những mẫu xe hiệu suất cao từ các thương hiệu nổi tiếng.</p>
                 </div>
                 <p id="collectionSearchStatus" class="collection-search-status text-center" aria-live="polite" hidden></p>
+                <form class="collection-filters row g-3 align-items-end mb-4" aria-label="Lọc và sắp xếp siêu xe">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <label class="form-label" for="brandFilter">Thương hiệu</label>
+                        <select class="form-select" id="brandFilter" name="brand">
+                            <option value="">Tất cả thương hiệu</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="McLaren">McLaren</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Bugatti">Bugatti</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <label class="form-label" for="engineFilter">Loại động cơ</label>
+                        <select class="form-select" id="engineFilter" name="engine">
+                            <option value="">Tất cả động cơ</option>
+                            <option value="hybrid">Hybrid</option>
+                            <option value="v6">V6</option>
+                            <option value="flat6">Flat-6</option>
+                            <option value="v8">V8</option>
+                            <option value="v10">V10</option>
+                            <option value="v12">V12</option>
+                            <option value="w16">W16</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <label class="form-label" for="segmentFilter">Phân khúc</label>
+                        <select class="form-select" id="segmentFilter" name="segment">
+                            <option value="">Tất cả phân khúc</option>
+                            <option value="supercar">Supercar</option>
+                            <option value="hypercar">Hypercar</option>
+                            <option value="gt">Grand tourer</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <label class="form-label" for="sortCars">Sắp xếp theo</label>
+                        <select class="form-select" id="sortCars" name="sort">
+                            <option value="">Mặc định</option>
+                            <option value="speed">Tốc độ tối đa</option>
+                            <option value="power">Công suất</option>
+                            <option value="year">Năm ra mắt</option>
+                        </select>
+                    </div>
+                </form>
                 <div class="row g-4">
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Lamborghini" data-engine="hybrid v12" data-segment="hypercar" data-speed="350" data-power="1015" data-year="2023">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Lamborghini Revuelto">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Lamborghini</p>
                                 <h2 class="card-title h4">Revuelto</h2>
                                 <p class="card-text text-secondary">Siêu xe thể thao với thiết kế góc cạnh và phong cách đặc trưng của Lamborghini.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=revuelto">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Lamborghini" data-engine="v10" data-segment="supercar" data-speed="325" data-power="640" data-year="2022">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Lamborghini Huracán">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Lamborghini</p>
                                 <h2 class="card-title h4">Huracán</h2>
                                 <p class="card-text text-secondary">Dòng xe nổi bật với dáng vẻ thể thao, đường nét sắc sảo và trải nghiệm lái giàu cảm xúc.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=huracan-tecnica">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Ferrari" data-engine="hybrid v6" data-segment="supercar" data-speed="330" data-power="830" data-year="2021">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Ferrari 296 GTB">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Ferrari</p>
                                 <h2 class="card-title h4">296 GTB</h2>
                                 <p class="card-text text-secondary">Mẫu berlinetta hai chỗ mang ngôn ngữ thiết kế hiện đại và dấu ấn đặc trưng của Ferrari.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=296-gtb">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Ferrari" data-engine="hybrid v8" data-segment="hypercar" data-speed="340" data-power="1000" data-year="2019">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Ferrari SF90 Stradale">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Ferrari</p>
                                 <h2 class="card-title h4">SF90 Stradale</h2>
                                 <p class="card-text text-secondary">Siêu xe mang phong cách khí động học cùng thiết kế giàu tính biểu tượng của Ferrari.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=sf90-stradale">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="McLaren" data-engine="v8" data-segment="supercar" data-speed="332" data-power="750" data-year="2023">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa McLaren 750S">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">McLaren</p>
                                 <h2 class="card-title h4">750S</h2>
                                 <p class="card-text text-secondary">Thiết kế nhẹ và tối giản kết hợp với diện mạo đậm chất xe thể thao Anh Quốc.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=750s">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Porsche" data-engine="flat6" data-segment="supercar" data-speed="330" data-power="650" data-year="2020">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Porsche 911 Turbo S">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Porsche</p>
                                 <h2 class="card-title h4">911 Turbo S</h2>
                                 <p class="card-text text-secondary">Thiết kế 911 kinh điển kết hợp dáng vẻ mạnh mẽ của phiên bản Turbo S.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=911-turbo-s">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Bugatti" data-engine="w16" data-segment="hypercar" data-speed="420" data-power="1500" data-year="2016">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Bugatti Chiron">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Bugatti</p>
                                 <h2 class="card-title h4">Chiron</h2>
                                 <p class="card-text text-secondary">Mẫu grand tourer hiệu suất cao gây ấn tượng bởi tỷ lệ thiết kế và sự chăm chút thủ công.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=chiron">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-sm-6 col-lg-3" data-car-item>
+                    <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Aston Martin" data-engine="v8" data-segment="gt" data-speed="325" data-power="680" data-year="2023">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="/assets/images/lamboghini.jpg" alt="Ảnh minh họa Aston Martin DB12">
                             <div class="card-body d-flex flex-column">
                                 <p class="car-brand-label">Aston Martin</p>
                                 <h2 class="card-title h4">DB12</h2>
                                 <p class="card-text text-secondary">Grand tourer kết hợp phong thái thanh lịch với dáng vẻ thể thao hiện đại.</p>
-                                <a class="btn btn-danger mt-auto align-self-start" href="index.html#discover">Khám phá thêm về siêu xe</a>
+                                <a class="btn btn-danger mt-auto align-self-start" href="car_detail.html?car=db12">Xem chi tiết</a>
                             </div>
                         </article>
                     </div>
