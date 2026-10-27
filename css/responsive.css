@@ -41,6 +41,18 @@
         scroll-behavior: auto;
     }
 
+    #home .hero-kicker,
+    #home h1,
+    #home .lead,
+    #home .hero-actions,
+    #home .hero-note,
+    #home h1 span {
+        animation: none;
+        filter: none;
+        opacity: 1;
+        transform: none;
+    }
+
     *,
     *::before,
     *::after {

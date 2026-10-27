@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu lịch sử, triết lý thiết kế và những mẫu xe tiêu biểu của các thương hiệu siêu xe.">
+    <title>Thương hiệu - Luxury Cars</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html" aria-label="Luxury Cars - Trang chủ">
+                    <img src="/assets/images/logos.png" alt="Luxury Cars" width="46" height="40">
+                    <span>Luxury Cars</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavigation">
+                    <form class="navbar-search" action="collection.html" method="get" role="search">
+                        <label class="visually-hidden" for="siteSearch">Tìm kiếm siêu xe</label>
+                        <input id="siteSearch" class="form-control" type="search" name="search" placeholder="Tìm kiếm siêu xe..." autocomplete="off">
+                        <button class="navbar-search-button" type="submit" aria-label="Tìm kiếm">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><circle cx="10.8" cy="10.8" r="6.3"></circle><path d="m15.5 15.5 4.2 4.2"></path></svg>
+                        </button>
+                    </form>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                        <li class="nav-item dropdown">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Khám phá</button>
+                            <ul class="dropdown-menu dropdown-menu-end brand-menu">
+                                <li><a class="dropdown-item" href="collection.html">Thư viện siêu xe</a></li>
+                                <li><a class="dropdown-item active" href="brands.html" aria-current="page">Thương hiệu</a></li>
+                                <li><a class="dropdown-item" href="knowledge.html">Cẩm nang kiến thức</a></li>
+                                <li><a class="dropdown-item" href="journal.html">Tin tức &amp; bài viết</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
+                        <li class="nav-item nav-account-register"><a class="nav-link" href="register.html">Đăng ký</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="content-section content-section-muted">
+            <div class="container">
+                <div class="page-intro">
+                    <p class="section-eyebrow">NHỮNG CÁI TÊN LÀM NÊN LỊCH SỬ</p>
+                    <h1>Thế giới của các thương hiệu.</h1>
+                    <p>Mỗi hãng xe có một điểm khởi đầu, một ngôn ngữ thiết kế và cách riêng để định nghĩa hiệu suất. Chọn thương hiệu để khám phá các mẫu xe nổi bật.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-xl-4">
+                        <article class="brand-card">
+                            <span class="brand-mark" aria-hidden="true">L</span>
+                            <p class="brand-origin">Sant’Agata Bolognese, Ý</p>
+                            <h2>Lamborghini</h2>
+                            <p>Được thành lập năm 1963 bởi Ferruccio Lamborghini. Hãng nổi tiếng với thiết kế góc cạnh, tỷ lệ mạnh mẽ và tinh thần không thỏa hiệp.</p>
+                            <p><strong>Triết lý:</strong> táo bạo, giàu cảm xúc và luôn hướng đến khác biệt.</p>
+                            <p><strong>Mẫu xe tiêu biểu:</strong> Miura, Countach, Aventador, Revuelto.</p>
+                            <a class="card-text-link" href="collection.html?brand=Lamborghini">Xem xe Lamborghini <span aria-hidden="true">&rarr;</span></a>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="brand-card">
+                            <span class="brand-mark" aria-hidden="true">F</span>
+                            <p class="brand-origin">Maranello, Ý</p>
+                            <h2>Ferrari</h2>
+                            <p>Scuderia Ferrari hình thành từ năm 1929; thương hiệu xe đường phố Ferrari ra đời năm 1947. Di sản đua xe là một phần cốt lõi trong bản sắc hãng.</p>
+                            <p><strong>Triết lý:</strong> hiệu suất, cảm xúc lái và tinh thần cạnh tranh.</p>
+                            <p><strong>Mẫu xe tiêu biểu:</strong> F40, 458 Italia, 296 GTB, SF90 Stradale.</p>
+                            <a class="card-text-link" href="collection.html?brand=Ferrari">Xem xe Ferrari <span aria-hidden="true">&rarr;</span></a>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="brand-card">
+                            <span class="brand-mark" aria-hidden="true">M</span>
+                            <p class="brand-origin">Woking, Anh Quốc</p>
+                            <h2>McLaren</h2>
+                            <p>Xuất phát từ đua xe năm 1963, McLaren đưa kinh nghiệm đường đua vào cấu trúc nhẹ, khí động học và cách bố trí lấy người lái làm trung tâm.</p>
+                            <p><strong>Triết lý:</strong> tối ưu trọng lượng và hiệu quả vận hành.</p>
+                            <p><strong>Mẫu xe tiêu biểu:</strong> F1, P1, 720S, 750S.</p>
+                            <a class="card-text-link" href="collection.html?brand=McLaren">Xem xe McLaren <span aria-hidden="true">&rarr;</span></a>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="brand-card">
+                            <span class="brand-mark" aria-hidden="true">P</span>
+                            <p class="brand-origin">Stuttgart, Đức</p>
+                            <h2>Porsche</h2>
+                            <p>Thành lập năm 1931, Porsche tạo dấu ấn với kỹ thuật chính xác và dòng 911 có lịch sử lâu dài, liên tục phát triển qua nhiều thế hệ.</p>
+                            <p><strong>Triết lý:</strong> hiệu năng sử dụng được mỗi ngày, cùng khả năng vận hành cân bằng.</p>
+                            <p><strong>Mẫu xe tiêu biểu:</strong> 911, 918 Spyder, 911 Turbo S.</p>
+                            <a class="card-text-link" href="collection.html?brand=Porsche">Xem xe Porsche <span aria-hidden="true">&rarr;</span></a>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="brand-card">
+                            <span class="brand-mark" aria-hidden="true">B</span>
+                            <p class="brand-origin">Molsheim, Pháp</p>
+                            <h2>Bugatti</h2>
+                            <p>Được Ettore Bugatti sáng lập năm 1909. Bugatti kết hợp hiệu suất cực cao với sự chăm chút thủ công và tinh thần grand tourer.</p>
+                            <p><strong>Triết lý:</strong> kỹ thuật vượt giới hạn và chế tác tinh xảo.</p>
+                            <p><strong>Mẫu xe tiêu biểu:</strong> Type 35, Veyron, Chiron.</p>
+                            <a class="card-text-link" href="collection.html?brand=Bugatti">Xem xe Bugatti <span aria-hidden="true">&rarr;</span></a>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <article class="brand-card">
+                            <span class="brand-mark" aria-hidden="true">A</span>
+                            <p class="brand-origin">Gaydon, Anh Quốc</p>
+                            <h2>Aston Martin</h2>
+                            <p>Thương hiệu Anh thành lập năm 1913, gắn với những mẫu grand tourer thanh lịch, nội thất thủ công và động cơ giàu sức kéo.</p>
+                            <p><strong>Triết lý:</strong> kết hợp phong thái sang trọng với hiệu năng thể thao.</p>
+                            <p><strong>Mẫu xe tiêu biểu:</strong> DB5, Vantage, DBS, DB12.</p>
+                            <a class="card-text-link" href="collection.html?brand=Aston Martin">Xem xe Aston Martin <span aria-hidden="true">&rarr;</span></a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 footer-content">
+                <div class="col-lg-4 col-md-6"><a class="footer-brand" href="index.html">Luxury Cars<span>.</span></a><p class="footer-about">Không gian dành cho những ai muốn khám phá câu chuyện, thiết kế và thế giới siêu xe.</p></div>
+                <div class="col-lg-4 col-md-6"><h2 class="footer-heading">Thông tin liên hệ</h2><address class="footer-contact"><span>Địa chỉ: TP. Hồ Chí Minh, Việt Nam</span><a href="tel:0999456789">Hotline: 0999.456.789</a><a href="mailto:contact@luxurycars.vn">Email: contact@luxurycars.vn</a></address></div>
+                <div class="col-lg-4 col-md-6"><h2 class="footer-heading">Kết nối với chúng tôi</h2><nav class="footer-social" aria-label="Mạng xã hội"><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">&nearr;</span></a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">&nearr;</span></a><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">&nearr;</span></a></nav></div>
+            </div>
+            <div class="footer-bottom"><span>&copy; 2026 Luxury Cars. All rights reserved.</span><a href="#">Trở về đầu trang &uarr;</a></div>
+        </div>
+    </footer>
+    <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
