@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm nang siêu xe | Luxury Cars</title>
+
+    <link rel="stylesheet" href="css/camnang.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">LUXURY <span>CARS</span></a>
+
+        <nav class="navbar">
+            <a href="index.html">Trang chủ</a>
+            <a href="index.html#cars">Bộ sưu tập</a>
+            <a href="camnang.html" class="active">Cẩm nang siêu xe</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="subtitle">LUXURY CARS MAGAZINE</p>
+            <h1>KHÁM PHÁ THẾ GIỚI <span>SIÊU XE</span></h1>
+            <p>
+                Khám phá công nghệ, thiết kế, kinh nghiệm sử dụng và những câu chuyện thú vị về các dòng xe đẳng cấp.
+            </p>
+            <a href="#articles" class="hero-button">Khám phá ngay</a>
+        </div>
+    </section>
+
+    <main class="container" id="articles">
+
+        <div class="section-heading">
+            <p class="subtitle">KIẾN THỨC Ô TÔ</p>
+            <h2>CẨM NANG SIÊU XE</h2>
+            <p>Kiến thức dành cho những người yêu thích xe sang.</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm bài viết...">
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">Tất cả</button>
+            <button class="filter-btn" data-category="kien-thuc">Kiến thức</button>
+            <button class="filter-btn" data-category="cong-nghe">Công nghệ</button>
+            <button class="filter-btn" data-category="kinh-nghiem">Kinh nghiệm</button>
+            <button class="filter-btn" data-category="thuong-hieu">Thương hiệu</button>
+        </div>
+
+        <div class="article-grid" id="articleGrid"></div>
+
+        <p id="emptyMessage" class="empty-message">
+            Không tìm thấy bài viết phù hợp.
+        </p>
+
+    </main>
+
+    <section class="detail-section" id="detailSection">
+        <div class="detail-content">
+            <button id="closeDetail" class="close-btn">← Quay lại danh sách</button>
+            <p class="subtitle" id="detailCategory"></p>
+            <h2 id="detailTitle"></h2>
+            <p class="detail-date" id="detailDate"></p>
+            <div id="detailBody" class="detail-body"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h2>LUXURY CARS</h2>
+        <p>Khám phá đẳng cấp. Trải nghiệm khác biệt.</p>
+        <p>© 2026 Luxury Cars. All rights reserved.</p>
+    </footer>
+
+    <script src="js/camnang.js"></script>
+</body>
+
+</html>
