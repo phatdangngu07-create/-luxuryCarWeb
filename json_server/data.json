@@ -1,0 +1,426 @@
+{
+  "products": [
+    {
+      "id": "revuelto",
+      "name": "Revuelto",
+      "brand": "Lamborghini",
+      "engine": "Hybrid V12",
+      "segment": "Hypercar",
+      "speed": 350,
+      "power": 1015,
+      "year": 2023,
+      "description": "Siêu xe thể thao với thiết kế góc cạnh và phong cách đặc trưng của Lamborghini.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "revuelto"
+    },
+    {
+      "id": "huracan-tecnica",
+      "name": "Huracán",
+      "brand": "Lamborghini",
+      "engine": "V10",
+      "segment": "Supercar",
+      "speed": 325,
+      "power": 640,
+      "year": 2022,
+      "description": "Dòng xe nổi bật với dáng vẻ thể thao, đường nét sắc sảo và trải nghiệm lái giàu cảm xúc.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "huracan-tecnica"
+    },
+    {
+      "id": "296-gtb",
+      "name": "296 GTB",
+      "brand": "Ferrari",
+      "engine": "Hybrid V6",
+      "segment": "Supercar",
+      "speed": 330,
+      "power": 830,
+      "year": 2021,
+      "description": "Mẫu berlinetta hai chỗ mang ngôn ngữ thiết kế hiện đại và dấu ấn đặc trưng của Ferrari.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "296-gtb"
+    },
+    {
+      "id": "sf90-stradale",
+      "name": "SF90 Stradale",
+      "brand": "Ferrari",
+      "engine": "Hybrid V8",
+      "segment": "Hypercar",
+      "speed": 340,
+      "power": 1000,
+      "year": 2019,
+      "description": "Siêu xe mang phong cách khí động học cùng thiết kế giàu tính biểu tượng của Ferrari.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "sf90-stradale"
+    },
+    {
+      "id": "750s",
+      "name": "750S",
+      "brand": "McLaren",
+      "engine": "V8",
+      "segment": "Supercar",
+      "speed": 332,
+      "power": 750,
+      "year": 2023,
+      "description": "Thiết kế nhẹ và tối giản kết hợp với diện mạo đậm chất xe thể thao Anh Quốc.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "750s"
+    },
+    {
+      "id": "911-turbo-s",
+      "name": "911 Turbo S",
+      "brand": "Porsche",
+      "engine": "Flat-6",
+      "segment": "Supercar",
+      "speed": 330,
+      "power": 650,
+      "year": 2020,
+      "description": "Thiết kế 911 kinh điển kết hợp dáng vẻ mạnh mẽ của phiên bản Turbo S.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "911-turbo-s"
+    },
+    {
+      "id": "chiron",
+      "name": "Chiron",
+      "brand": "Bugatti",
+      "engine": "W16",
+      "segment": "Hypercar",
+      "speed": 420,
+      "power": 1500,
+      "year": 2016,
+      "description": "Mẫu grand tourer hiệu suất cao gây ấn tượng bởi tỷ lệ thiết kế và sự chăm chút thủ công.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "chiron"
+    },
+    {
+      "id": "db12",
+      "name": "DB12",
+      "brand": "Aston Martin",
+      "engine": "V8",
+      "segment": "Grand tourer",
+      "speed": 325,
+      "power": 680,
+      "year": 2023,
+      "description": "Grand tourer kết hợp phong thái thanh lịch với dáng vẻ thể thao hiện đại.",
+      "image": "/assets/images/lamboghini.jpg",
+      "detailId": "db12"
+    }
+  ],
+  "vehicleDetails": [
+    {
+      "id": "revuelto",
+      "name": "Lamborghini Revuelto",
+      "brand": "Lamborghini",
+      "year": 2023,
+      "engine": "V12 6,5 lít plug-in hybrid",
+      "power": "1.015 CV",
+      "torque": "725 Nm (động cơ V12)",
+      "speed": "Trên 350 km/h",
+      "acceleration": "2,5 giây",
+      "highlight": "Hệ truyền động kết hợp động cơ V12 hút khí tự nhiên với ba mô-tơ điện, tạo nên tổng công suất công bố 1.015 CV.",
+      "technology": "Kiến trúc plug-in hybrid kết hợp động cơ đốt trong đặt giữa với các mô-tơ điện và pin sạc.",
+      "source": "https://www.lamborghini.com/en-en/models/revuelto"
+    },
+    {
+      "id": "huracan-tecnica",
+      "name": "Lamborghini Huracán Tecnica",
+      "brand": "Lamborghini",
+      "year": 2022,
+      "engine": "V10 5,2 lít hút khí tự nhiên",
+      "power": "640 CV",
+      "torque": "565 Nm",
+      "speed": "325 km/h",
+      "acceleration": "3,2 giây",
+      "highlight": "Phiên bản V10 dẫn động cầu sau cân bằng giữa khả năng vận hành trên đường phố và cảm hứng từ đường đua.",
+      "technology": "Động cơ V10 hút khí tự nhiên kết hợp hộp số ly hợp kép 7 cấp và hệ thống lái bánh sau.",
+      "source": "https://www.lamborghini.com/en-en/models/huracan/huracan-tecnica"
+    },
+    {
+      "id": "296-gtb",
+      "name": "Ferrari 296 GTB",
+      "brand": "Ferrari",
+      "year": 2021,
+      "engine": "V6 3,0 lít tăng áp kép plug-in hybrid",
+      "power": "830 CV",
+      "torque": "740 Nm",
+      "speed": "Trên 330 km/h",
+      "acceleration": "2,9 giây",
+      "highlight": "Cấu hình berlinetta hai chỗ kết hợp động cơ V6 tăng áp với mô-tơ điện trong hệ truyền động plug-in hybrid.",
+      "technology": "Hệ thống hybrid có thể vận hành thuần điện trong quãng ngắn; thông số phụ thuộc điều kiện và phiên bản.",
+      "source": "https://www.ferrari.com/en-EN/auto/296-gtb"
+    },
+    {
+      "id": "sf90-stradale",
+      "name": "Ferrari SF90 Stradale",
+      "brand": "Ferrari",
+      "year": 2019,
+      "engine": "V8 4,0 lít tăng áp kép plug-in hybrid",
+      "power": "1.000 CV",
+      "torque": "800 Nm",
+      "speed": "340 km/h",
+      "acceleration": "2,5 giây",
+      "highlight": "Mẫu berlinetta plug-in hybrid dẫn động bốn bánh, kết hợp động cơ V8 tăng áp kép và ba mô-tơ điện.",
+      "technology": "Hệ thống điện hóa hỗ trợ phân bổ lực kéo và tăng cường hiệu suất của động cơ V8.",
+      "source": "https://www.ferrari.com/en-EN/auto/sf90-stradale"
+    },
+    {
+      "id": "750s",
+      "name": "McLaren 750S",
+      "brand": "McLaren",
+      "year": 2023,
+      "engine": "V8 4,0 lít tăng áp kép",
+      "power": "750 PS",
+      "torque": "800 Nm",
+      "speed": "332 km/h",
+      "acceleration": "2,8 giây",
+      "highlight": "Triết lý trọng lượng nhẹ, bố trí động cơ giữa và hệ thống treo tập trung vào phản hồi của người lái.",
+      "technology": "Động cơ V8 tăng áp kép kết hợp khung gầm sợi carbon và hệ thống treo điều khiển thủy lực.",
+      "source": "https://cars.mclaren.com/en/750s"
+    },
+    {
+      "id": "911-turbo-s",
+      "name": "Porsche 911 Turbo S",
+      "brand": "Porsche",
+      "year": 2020,
+      "engine": "Động cơ boxer 6 xi-lanh 3,7 lít tăng áp kép",
+      "power": "650 PS",
+      "torque": "800 Nm",
+      "speed": "330 km/h",
+      "acceleration": "2,7 giây",
+      "highlight": "Mẫu 911 hiệu suất cao kết hợp khả năng tăng tốc mạnh với cấu hình grand touring sử dụng hàng ngày.",
+      "technology": "Động cơ boxer đặt phía sau, hộp số PDK 8 cấp và hệ dẫn động bốn bánh.",
+      "source": "https://www.porsche.com/usa/models/911/911-turbo-models/911-turbo-s/"
+    },
+    {
+      "id": "chiron",
+      "name": "Bugatti Chiron",
+      "brand": "Bugatti",
+      "year": 2016,
+      "engine": "W16 8,0 lít tăng áp bốn",
+      "power": "1.500 PS",
+      "torque": "1.600 Nm",
+      "speed": "Tối đa 420 km/h (tùy phiên bản)",
+      "acceleration": "2,4 giây",
+      "highlight": "Hypercar grand touring sử dụng động cơ W16 tăng áp bốn và được chế tác với mức độ cá nhân hóa cao.",
+      "technology": "Hệ thống làm mát, truyền động bốn bánh và lốp chuyên dụng được thiết kế để đáp ứng mức hiệu năng rất cao.",
+      "source": "https://www.bugatti.com/models/chiron-models/chiron/"
+    },
+    {
+      "id": "db12",
+      "name": "Aston Martin DB12",
+      "brand": "Aston Martin",
+      "year": 2023,
+      "engine": "V8 4,0 lít tăng áp kép",
+      "power": "680 PS",
+      "torque": "800 Nm",
+      "speed": "325 km/h",
+      "acceleration": "3,6 giây",
+      "highlight": "Grand tourer hiệu suất cao kết hợp động cơ V8 tăng áp kép với nội thất hướng đến hành trình dài.",
+      "technology": "Khung gầm và hệ thống treo điện tử được tinh chỉnh để cân bằng sự thoải mái và khả năng kiểm soát.",
+      "source": "https://www.astonmartin.com/en/models/db12"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Quản trị viên",
+      "email": "admin@luxurycars.vn",
+      "password": "admin1234",
+      "role": "admin",
+      "createdAt": "2026-10-21T08:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Phát Phan Xuân",
+      "email": "phat@gmail.com",
+      "password": "user1234",
+      "role": "user",
+      "createdAt": "2026-10-22T09:30:00.000Z"
+    },
+    {
+      "name": "Phát Phan Xuân",
+      "email": "phatdangngu07@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "createdAt": "2026-10-28T17:16:34.522Z",
+      "id": "YPASwgxHDxY"
+    }
+  ],
+  "brands": [
+    {
+      "id": "lamborghini",
+      "name": "Lamborghini",
+      "country": "italy",
+      "countryLabel": "ITALY",
+      "location": "Sant’Agata Bolognese, Ý",
+      "founded": 1963,
+      "description": "Được thành lập năm 1963, Lamborghini chinh phục thế giới bằng thiết kế góc cạnh, dáng xe đầy uy lực và tinh thần không thỏa hiệp. Mỗi mẫu xe là sự kết hợp giữa công nghệ hiện đại và cảm xúc lái mãnh liệt.",
+      "tag": "BOLD BY NATURE",
+      "models": [
+        "Miura",
+        "Countach",
+        "Aventador",
+        "Revuelto"
+      ],
+      "logo": "https://cdn.simpleicons.org/lamborghini",
+      "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1000&q=85"
+    },
+    {
+      "id": "ferrari",
+      "name": "Ferrari",
+      "country": "italy",
+      "countryLabel": "ITALY",
+      "location": "Maranello, Ý",
+      "founded": 1939,
+      "description": "Di sản đường đua là trái tim của Ferrari từ ngày đầu thành lập. Những chiếc xe Maranello kết hợp động cơ giàu cảm xúc, thiết kế quyến rũ và khả năng vận hành chính xác dành cho người đam mê cầm lái.",
+      "tag": "RACING SPIRIT",
+      "models": [
+        "250 GTO",
+        "F40",
+        "LaFerrari",
+        "SF90 Stradale"
+      ],
+      "logo": "https://cdn.simpleicons.org/ferrari",
+      "image": "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1000&q=85"
+    },
+    {
+      "id": "mclaren",
+      "name": "McLaren",
+      "country": "uk",
+      "countryLabel": "UNITED KINGDOM",
+      "location": "Woking, Surrey, Anh Quốc",
+      "founded": 1963,
+      "description": "Bắt nguồn từ đường đua Formula 1, McLaren tập trung vào trọng lượng nhẹ, khung gầm carbon và khí động học tối ưu nhằm đem lại trải nghiệm lái chuẩn xác và trực tiếp nhất có thể.",
+      "tag": "PRECISION & LIGHTNESS",
+      "models": [
+        "F1",
+        "P1",
+        "720S",
+        "750S"
+      ],
+      "logo": "https://cdn.simpleicons.org/mclaren",
+      "image": "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=1000&q=85"
+    },
+    {
+      "id": "porsche",
+      "name": "Porsche",
+      "country": "germany",
+      "countryLabel": "GERMANY",
+      "location": "Stuttgart-Zuffenhausen, Đức",
+      "founded": 1931,
+      "description": "Porsche tạo nên dấu ấn riêng nhờ sự kết hợp giữa hiệu năng đường đua và tính thực dụng hàng ngày. Triết lý thiết kế bền bỉ giúp những chiếc xe Stuttgart luôn giữ được vị thế đặc biệt.",
+      "tag": "ENGINEERED FOR PASSION",
+      "models": [
+        "356",
+        "911 Carrera",
+        "959",
+        "Carrera GT"
+      ],
+      "logo": "https://cdn.simpleicons.org/porsche",
+      "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1000&q=85"
+    },
+    {
+      "id": "bugatti",
+      "name": "Bugatti",
+      "country": "france",
+      "countryLabel": "FRANCE",
+      "location": "Molsheim, Alsace, Pháp",
+      "founded": 1909,
+      "description": "Nghệ thuật, thiết kế và công nghệ cơ khí đỉnh cao hòa quyện trong từng mẫu Bugatti. Đây là thương hiệu gắn liền với những kỷ lục tốc độ và kỹ nghệ chế tác thủ công độc bản.",
+      "tag": "PUR SANG AUTOMOTIVE",
+      "models": [
+        "Type 35",
+        "Type 57SC Atlantic",
+        "Veyron",
+        "Chiron"
+      ],
+      "logo": "https://cdn.simpleicons.org/bugatti",
+      "image": "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1000&q=85"
+    },
+    {
+      "id": "aston-martin",
+      "name": "Aston Martin",
+      "country": "uk",
+      "countryLabel": "UNITED KINGDOM",
+      "location": "Gaydon, Warwickshire, Anh Quốc",
+      "founded": 1913,
+      "description": "Thanh lịch, mạnh mẽ và đậm chất văn hóa Anh, Aston Martin gắn bó mật thiết với thế giới điện ảnh và những hành trình grand touring xa hoa xuyên lục địa.",
+      "tag": "POWER, BEAUTY & SOUL",
+      "models": [
+        "DB5",
+        "V8 Vantage",
+        "DBS",
+        "DB12"
+      ],
+      "logo": "https://cdn.simpleicons.org/astonmartin",
+      "image": "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1000&q=85"
+    }
+  ],
+  "articles": [
+    {
+      "id": "1",
+      "category": "CÔNG NGHỆ · HIỆU SUẤT",
+      "tag": "HIỆU SUẤT",
+      "title": "Hệ truyền động hybrid: Kỷ nguyên mới của siêu xe",
+      "description": "Hệ truyền động hybrid đang mở thêm cách tiếp cận hiệu suất: mô-tơ điện hỗ trợ phản hồi, trong khi động cơ đốt trong vẫn giữ vai trò quan trọng ở nhiều mẫu xe.",
+      "link": "knowledge.html#hybrid",
+      "image": "/assets/images/lamboghini.jpg"
+    },
+    {
+      "id": "2",
+      "category": "THIẾT KẾ · KỸ THUẬT",
+      "tag": "THIẾT KẾ",
+      "title": "Khí động học không chỉ là những chiếc cánh gió",
+      "description": "Từ mặt sàn đến bộ khuếch tán, việc kiểm soát luồng khí ảnh hưởng đến lực ép, lực cản và sự ổn định của xe ở tốc độ cao.",
+      "link": "knowledge.html",
+      "image": "/assets/images/lamboghini.jpg"
+    },
+    {
+      "id": "3",
+      "category": "DI SẢN · LỊCH SỬ",
+      "tag": "DI SẢN",
+      "title": "Những mẫu xe giới hạn và sức hút của sự độc bản",
+      "description": "Sản lượng giới hạn, câu chuyện phát triển và dấu ấn thiết kế góp phần làm nên giá trị sưu tầm — bên cạnh hiệu năng thuần túy.",
+      "link": "brands.html",
+      "image": "/assets/images/lamboghini.jpg"
+    },
+    {
+      "id": "4",
+      "category": "CÂU CHUYỆN · HUYỀN THOẠI",
+      "tag": "ĐƯỜNG ĐUA",
+      "title": "Từ đường đua đến những mẫu xe đường phố",
+      "description": "Nhiều công nghệ và triết lý thiết kế được phát triển từ đua xe rồi chuyển hóa cho xe thương mại, với điều chỉnh phù hợp nhu cầu sử dụng.",
+      "link": "brands.html",
+      "image": "/assets/images/lamboghini.jpg"
+    },
+    {
+      "id": "5",
+      "category": "HƯỚNG DẪN · THÔNG SỐ",
+      "tag": "CẨM NANG",
+      "title": "Đọc bảng thông số xe trong vài phút",
+      "description": "Công suất, mô-men xoắn và thời gian tăng tốc chỉ có ý nghĩa khi đọc cùng cấu hình xe, điều kiện đo và nguồn công bố.",
+      "link": "knowledge.html",
+      "image": "/assets/images/lamboghini.jpg"
+    },
+    {
+      "id": "6",
+      "category": "KHÁM PHÁ · MẪU XE",
+      "tag": "MẪU XE",
+      "title": "Lamborghini Revuelto: V12 bước vào kỷ nguyên hybrid",
+      "description": "Revuelto kết hợp động cơ V12 hút khí tự nhiên với hệ thống điện hóa trong cấu hình plug-in hybrid hiệu suất cao.",
+      "link": "car_detail.html?car=revuelto",
+      "image": "/assets/images/lamboghini.jpg"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "1",
+      "name": "Khách Hàng Mẫu",
+      "email": "khachhang@gmail.com",
+      "phone": "0999456789",
+      "message": "Tôi muốn nhận thông tin tư vấn mẫu xe Lamborghini Revuelto.",
+      "carId": "revuelto",
+      "createdAt": "2026-10-27T10:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

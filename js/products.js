@@ -1,5 +1,5 @@
 (() => {
-    const storageKey = "luxuryCarsProducts";
+    const productsEndpoint = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/products`;
     const fallbackImage = "/assets/images/lamboghini.jpg";
     const defaultProducts = [
         {
@@ -128,27 +128,59 @@
         return products;
     };
 
-    const getProducts = () => {
-        const savedProducts = localStorage.getItem(storageKey);
-        if (savedProducts === null) {
-            saveProducts(defaultProducts);
-            return defaultProducts.map((product) => ({ ...product }));
+    const request = async (url = productsEndpoint, options) => {
+        const response = await fetch(url, {
+            ...options,
+            headers: {
+                "Content-Type": "application/json",
+                ...options?.headers
+            }
+        });
+        if (!response.ok) {
+            throw new Error(`JSON Server trả về lỗi HTTP ${response.status}.`);
         }
 
-        return validateProducts(JSON.parse(savedProducts));
+        if (response.status === 204) {
+            return null;
+        }
+        return response.json();
     };
 
-    const saveProducts = (products) => {
-        localStorage.setItem(storageKey, JSON.stringify(validateProducts(products)));
+    const getProducts = async () => validateProducts(await request());
+    const createProduct = async (product) => {
+        const newProduct = { ...product };
+        delete newProduct.id;
+        return request(productsEndpoint, {
+            method: "POST",
+            body: JSON.stringify(newProduct)
+        });
+    };
+    const updateProduct = async (product) => request(`${productsEndpoint}/${encodeURIComponent(product.id)}`, {
+        method: "PUT",
+        body: JSON.stringify(product)
+    });
+    const deleteProduct = async (productId) => request(`${productsEndpoint}/${encodeURIComponent(productId)}`, {
+        method: "DELETE"
+    });
+
+    const showCollectionError = (error) => {
+        console.error("Không thể tải danh mục siêu xe từ JSON Server:", error);
+        document.querySelector("#collectionCarGrid")?.replaceChildren();
+        const status = document.querySelector("#collectionSearchStatus");
+        if (status) {
+            status.hidden = false;
+            status.textContent = `Không thể tải danh mục xe. Hãy đảm bảo JSON Server đang chạy: ${error.message}`;
+            status.setAttribute("role", "alert");
+        }
     };
 
-    const renderCollection = () => {
+    const renderCollection = async () => {
         const grid = document.querySelector("#collectionCarGrid");
         if (!grid) {
             return;
         }
 
-        const products = getProducts();
+        const products = await getProducts();
         const knownDetails = new Set(defaultProducts.map((product) => product.detailId));
         grid.replaceChildren();
 
@@ -225,13 +257,17 @@
                 brandFilter.append(option);
             });
         }
+
+        document.dispatchEvent(new CustomEvent("luxurycars:products-loaded"));
     };
 
-    window.LuxuryCarsProducts = { storageKey, defaultProducts, getProducts, saveProducts };
+    window.LuxuryCarsProducts = {
+        defaultProducts,
+        getProducts,
+        createProduct,
+        updateProduct,
+        deleteProduct
+    };
 
-    try {
-        renderCollection();
-    } catch (error) {
-        console.error("Không thể tải danh mục siêu xe đã lưu:", error);
-    }
+    renderCollection().catch(showCollectionError);
 })();

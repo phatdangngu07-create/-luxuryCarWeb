@@ -1,13 +1,14 @@
 {
   "name": "json_server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mock REST API Server for Luxury Cars",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "json-server data.json --port 3000",
+    "dev": "json-server data.json --port 3000 --watch"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.15"

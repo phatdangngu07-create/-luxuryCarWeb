@@ -173,7 +173,6 @@ if (collectionSearch && searchInput) {
     searchInput.value = collectionSearch;
 }
 
-const carItems = [...document.querySelectorAll("[data-car-item]")];
 const brandFilter = document.querySelector("#brandFilter");
 const engineFilter = document.querySelector("#engineFilter");
 const segmentFilter = document.querySelector("#segmentFilter");
@@ -197,11 +196,12 @@ if (sortCars && requestedSort) {
     sortCars.value = requestedSort;
 }
 
-if (carItems.length) {
+const collectionGrid = document.querySelector("#collectionCarGrid");
+if (collectionGrid) {
     const status = document.querySelector("#collectionSearchStatus");
-    const grid = carItems[0].parentElement;
 
     const updateCollection = () => {
+        const carItems = [...collectionGrid.querySelectorAll("[data-car-item]")];
         const query = collectionSearch.trim().toLocaleLowerCase("vi");
         const brand = brandFilter?.value || "";
         const engine = engineFilter?.value || "";
@@ -222,9 +222,9 @@ if (carItems.length) {
             const sortedItems = [...carItems].sort((first, second) =>
                 Number(second.dataset[sortKey]) - Number(first.dataset[sortKey])
             );
-            sortedItems.forEach((item) => grid.append(item));
+            sortedItems.forEach((item) => collectionGrid.append(item));
         } else {
-            carItems.forEach((item) => grid.append(item));
+            carItems.forEach((item) => collectionGrid.append(item));
         }
 
         const hasFilters = query || brand || engine || segment;
@@ -238,6 +238,7 @@ if (carItems.length) {
 
     collectionFilters.forEach((filter) => filter.addEventListener("change", updateCollection));
     updateCollection();
+    document.addEventListener("luxurycars:products-loaded", updateCollection);
 }
 
 

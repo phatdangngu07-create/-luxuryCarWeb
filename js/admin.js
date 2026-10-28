@@ -166,8 +166,8 @@
         updateStats();
     };
 
-    const refresh = () => {
-        products = catalog.getProducts();
+    const refresh = async () => {
+        products = await catalog.getProducts();
         updateBrandFilter();
         renderRows();
     };
@@ -266,7 +266,7 @@
         renderRows();
     });
 
-    elements.tableBody.addEventListener("click", (event) => {
+    elements.tableBody.addEventListener("click", async (event) => {
         const button = event.target.closest("button[data-action]");
         if (!button) {
             return;
@@ -282,10 +282,9 @@
             openModal(product);
         } else if (button.dataset.action === "delete" &&
             window.confirm(`Bạn có chắc muốn xóa ${product.brand} ${product.name}?`)) {
-            products = products.filter((item) => item.id !== product.id);
             try {
-                catalog.saveProducts(products);
-                refresh();
+                await catalog.deleteProduct(product.id);
+                await refresh();
                 showToast("Đã xóa sản phẩm.");
             } catch (error) {
                 showError(`Không thể lưu thay đổi: ${error.message}`);
@@ -293,7 +292,7 @@
         }
     });
 
-    elements.form.addEventListener("submit", (event) => {
+    elements.form.addEventListener("submit", async (event) => {
         event.preventDefault();
         if (!elements.form.reportValidity()) {
             return;
@@ -332,13 +331,13 @@
             product.detailId = previousProduct.detailId;
         }
 
-        products = existingId
-            ? products.map((item) => item.id === existingId ? product : item)
-            : [...products, product];
-
         try {
-            catalog.saveProducts(products);
-            refresh();
+            if (existingId) {
+                await catalog.updateProduct(product);
+            } else {
+                await catalog.createProduct(product);
+            }
+            await refresh();
             closeModal();
             showToast(existingId ? "Đã cập nhật sản phẩm." : "Đã thêm sản phẩm.");
         } catch (error) {
@@ -358,24 +357,10 @@
         showToast("Đã xuất danh sách sản phẩm.");
     });
 
-    window.addEventListener("storage", (event) => {
-        if (event.key !== catalog.storageKey) {
-            return;
-        }
-        try {
-            refresh();
-            showToast("Danh sách được cập nhật từ một thẻ trình duyệt khác.");
-        } catch (error) {
-            showError(`Không thể tải dữ liệu đã cập nhật: ${error.message}`);
-        }
-    });
-
-    try {
-        refresh();
-    } catch (error) {
+    refresh().catch((error) => {
         console.error("Không thể tải sản phẩm:", error);
         showError(`Không thể tải dữ liệu sản phẩm: ${error.message}`);
-    }
+    });
 })();
 
 (() => {
