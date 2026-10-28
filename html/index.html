@@ -17,7 +17,11 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="#home" aria-label="Luxury Cars - Trang chủ">
-                    <img src="/assets/images/logos.png" alt="Luxury Cars" width="46" height="40">
+                    <svg class="navbar-brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <path d="M24 3 42 10v12c0 11-7.5 18-18 23C13.5 40 6 33 6 22V10L24 3Z" fill="#17191b" stroke="#c9a96e" stroke-width="1.5"/>
+                        <path d="m13 29 3-8 5-5h7l5 5 3 8v4h-4a4 4 0 0 0-8 0h-2a4 4 0 0 0-8 0v-4Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+                        <path d="m18 21 2 6h8l2-6M14 29h20" fill="none" stroke="#c9a96e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
                     <span>Luxury Cars</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation"
@@ -235,16 +239,6 @@
             </div>
         </section>
 
-        <section class="recommendation-section" aria-labelledby="recommendation-title">
-            <div class="container">
-                <div class="recommendation-copy">
-                    <p class="section-eyebrow">GỢI Ý KHÁM PHÁ</p>
-                    <h2 id="recommendation-title">Lamborghini Revuelto</h2>
-                    <p>V12 6,5 lít, hệ truyền động hybrid và thiết kế hướng đến hiệu suất — một điểm khởi đầu ấn tượng để khám phá siêu xe hiện đại.</p>
-                    <a class="btn btn-danger" href="car_detail.html?car=revuelto">Khám phá mẫu xe <span aria-hidden="true">&rarr;</span></a>
-                </div>
-            </div>
-        </section>
     </main>
 
 
@@ -252,7 +246,7 @@
         <section class="footer-3d-showroom" aria-label="Khu vực trải nghiệm mô hình xe 3D tương tác">
             <model-viewer
                 id="carViewer"
-                src="../assets/models/ferrari.glb"
+                src="../assets/models/poscher.glb"
                 alt="Mô hình xe thể thao 3D tương tác"
                 auto-rotate
                 auto-rotate-delay="1500"

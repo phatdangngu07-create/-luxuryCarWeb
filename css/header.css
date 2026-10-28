@@ -32,12 +32,11 @@ header {
     gap: 0.5rem;
 }
 
-.navbar-brand img {
+.navbar-brand-mark {
     display: block;
-    width: 38px;
-    height: 38px;
-    border-radius: 0.35rem;
-    object-fit: cover;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
 }
 
 .navbar .nav-link {

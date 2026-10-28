@@ -246,28 +246,57 @@ if (carItems.length) {
 // =========================================================
 const carViewer = document.querySelector("#carViewer");
 if (carViewer) {
-    // Tự động chuyển qua CDN nếu mở trực tiếp bằng file:/// bị chặn CORS
-    carViewer.addEventListener("error", () => {
-        const cdnUrl = "https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/models/gltf/ferrari.glb";
-        if (carViewer.src !== cdnUrl) {
-            console.warn("Chuyển sang nguồn mô hình xe 3D dự phòng online...");
-            carViewer.src = cdnUrl;
+    // Lưu màu đang được chọn
+    let selectedColor = null;
+    const initialActiveDot = document.querySelector(".color-dot.active");
+    if (initialActiveDot && initialActiveDot.dataset.color) {
+        selectedColor = initialActiveDot.dataset.color.split(",").map(Number);
+    }
+
+    // Hàm nhận diện thông minh vật liệu sơn xe cho mọi mô hình (Porsche, Ferrari, Lamborghini...)
+    const isPaintMaterial = (mat) => {
+        const name = (mat.name || "").toLowerCase();
+        // Loại trừ các bộ phận không phải vỏ sơn xe
+        if (/(glass|window|windshield|tire|tyre|wheel|rim|interior|seat|carbon|leather|chrome|disc|caliper|brake|plate|license|grid|grill|carpet|plastic|light|lamp|lens|mirror|emiss|details|engine|exhaust|underside)/i.test(name)) {
+            return false;
         }
-    });
+        // Khớp các từ khóa thường dùng cho sơn vỏ xe
+        return /(carpaint|paint|body|chassis|exterior|coat|shell|karosserie|color|colour)/i.test(name);
+    };
 
     const applyCarColor = (colorValues) => {
         if (!carViewer.model || !carViewer.model.materials) return;
-        const bodyMat = carViewer.model.materials.find(
-            (m) => m.name === "Body_Color" || m.name.toLowerCase().includes("body")
-        );
-        if (bodyMat && bodyMat.pbrMetallicRoughness) {
-            bodyMat.pbrMetallicRoughness.setBaseColorFactor(colorValues);
+
+        // Tìm tất cả vật liệu sơn xe phù hợp
+        let targetMaterials = carViewer.model.materials.filter(isPaintMaterial);
+
+        // Fallback: nếu mô hình đặt tên đặc biệt, lọc các vật liệu kim loại không phải kính/lốp
+        if (targetMaterials.length === 0) {
+            targetMaterials = carViewer.model.materials.filter((mat) => {
+                const name = (mat.name || "").toLowerCase();
+                return !/(glass|window|tire|tyre|wheel|rim|rubber|light|lens|license|plate)/i.test(name) && mat.pbrMetallicRoughness;
+            });
         }
+
+        console.log("🎨 Đã áp dụng màu sơn cho các vật liệu:", targetMaterials.map(m => m.name));
+
+        targetMaterials.forEach((mat) => {
+            if (mat.pbrMetallicRoughness) {
+                mat.pbrMetallicRoughness.setBaseColorFactor(colorValues);
+            }
+            // Đồng bộ ánh xạ phát xạ nếu có
+            if (typeof mat.setEmissiveFactor === "function") {
+                mat.setEmissiveFactor([colorValues[0] * 0.1, colorValues[1] * 0.1, colorValues[2] * 0.1]);
+            }
+        });
     };
 
-    // Áp dụng màu mặc định (Trắng Bạc Titanium như ảnh mẫu) khi mô hình tải xong
+    // Khi mô hình 3D tải xong, áp dụng màu đang chọn
     carViewer.addEventListener("load", () => {
-        applyCarColor([0.92, 0.94, 0.96, 1.0]);
+        console.log("🚗 Mô hình 3D đã tải xong. Danh sách vật liệu:", carViewer.model.materials.map(m => m.name));
+        if (selectedColor) {
+            applyCarColor(selectedColor);
+        }
     });
 
     // Bắt sự kiện click chọn màu sơn ngoại thất
@@ -277,8 +306,8 @@ if (carViewer) {
             colorDots.forEach((d) => d.classList.remove("active"));
             dot.classList.add("active");
             if (dot.dataset.color) {
-                const colorVals = dot.dataset.color.split(",").map(Number);
-                applyCarColor(colorVals);
+                selectedColor = dot.dataset.color.split(",").map(Number);
+                applyCarColor(selectedColor);
             }
         });
     });
