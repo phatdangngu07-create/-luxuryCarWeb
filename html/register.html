@@ -66,7 +66,8 @@
                         <div class="card shadow-sm">
                             <div class="card-body p-4">
                                 <h1 class="h3 text-center fw-bold mb-4">Tạo tài khoản</h1>
-                                <form method="post">
+                                <div id="registerAlert" class="alert d-none mb-3" role="alert"></div>
+                                <form id="registerForm" method="post" novalidate>
                                     <div class="mb-3">
                                         <label for="registerName" class="form-label">Họ và tên</label>
                                         <input type="text" class="form-control" id="registerName" name="name"
@@ -133,5 +134,6 @@
     </footer>
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/js/page-reveal.js"></script>
+    <script src="/js/auth.js"></script>
 </body>
 </html>
