@@ -81,7 +81,9 @@ header {
 }
 
 .brand-menu .dropdown-item:hover,
-.brand-menu .dropdown-item:focus {
+.brand-menu .dropdown-item:focus,
+.brand-menu .dropdown-item.active,
+.brand-menu .dropdown-item:active {
     background: rgb(255 255 255 / 8%);
     color: #fff;
 }

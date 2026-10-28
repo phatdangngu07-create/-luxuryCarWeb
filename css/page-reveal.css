@@ -1,0 +1,64 @@
+.page-reveal {
+    transition: opacity 450ms ease var(--page-reveal-delay, 0ms), transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1) var(--page-reveal-delay, 0ms);
+}
+
+.brand-card.page-reveal {
+    transition: opacity 450ms ease var(--page-reveal-delay, 0ms), transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1) var(--page-reveal-delay, 0ms), border-color 350ms ease, box-shadow 350ms ease;
+}
+
+.page-reveal-enabled .page-reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(22px);
+}
+
+.page-reveal-enabled .page-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-reveal-enabled .page-reveal.is-visible:hover {
+    transition-delay: 0ms;
+}
+
+.page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > * {
+    animation: page-reveal-copy 600ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > :nth-child(1) {
+    animation-delay: 100ms;
+}
+
+.page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > :nth-child(2) {
+    animation-delay: 170ms;
+}
+
+.page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > :nth-child(3) {
+    animation-delay: 240ms;
+}
+
+.page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > :nth-child(4) {
+    animation-delay: 310ms;
+}
+
+@keyframes page-reveal-copy {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-reveal,
+    .brand-card.page-reveal {
+        transition: none;
+    }
+
+    .page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > * {
+        animation: none;
+    }
+}
