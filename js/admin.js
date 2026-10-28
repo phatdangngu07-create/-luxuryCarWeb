@@ -377,3 +377,27 @@
         showError(`Không thể tải dữ liệu sản phẩm: ${error.message}`);
     }
 })();
+
+(() => {
+    const revealTargets = document.querySelectorAll("#adminNotice, .stat-card, #products, .footer");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion || !("IntersectionObserver" in window) || revealTargets.length === 0) {
+        return;
+    }
+
+    document.documentElement.classList.add("admin-scroll-motion-enabled");
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealTargets.forEach((target) => {
+        target.classList.add("admin-scroll-reveal");
+        revealObserver.observe(target);
+    });
+})();
