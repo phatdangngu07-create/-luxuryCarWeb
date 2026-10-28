@@ -1,0 +1,148 @@
+/* =========================================
+   LUXURY CARS - KNOWLEDGE VIDEO
+========================================= */
+
+
+/* Khung video */
+
+.knowledge-media {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin: 0 0 22px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #080808;
+}
+
+
+/* Video bên trong khung */
+
+.knowledge-media .knowledge-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+    background: #080808;
+}
+
+
+/* Video của thẻ bài viết lớn */
+
+.knowledge-media.media-large {
+    height: 360px;
+}
+
+
+/* Thông báo khi video không tải được */
+
+.knowledge-media .video-error {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    margin: 0;
+    color: #fff;
+    background: #171717;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* Thẻ bài viết */
+
+.knowledge-card {
+    min-width: 0;
+}
+
+
+/* Giữ video không tràn khỏi thẻ */
+
+.knowledge-card .knowledge-media {
+    max-width: 100%;
+}
+
+
+/* Máy tính bảng */
+
+@media (max-width: 991px) {
+    .knowledge-media {
+        height: 230px;
+    }
+    .knowledge-media.media-large {
+        height: 300px;
+    }
+}
+
+
+/* Điện thoại */
+
+@media (max-width: 576px) {
+    .knowledge-media {
+        height: 210px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+    }
+    .knowledge-media.media-large {
+        height: 230px;
+    }
+}
+
+
+/* Khung video trong các thẻ kiến thức */
+
+.knowledge-media {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #111;
+}
+
+
+/* Video chiếm toàn bộ khung */
+
+.knowledge-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #111;
+}
+
+
+/* Video trong thẻ bài viết lớn cuối trang */
+
+.col-12 .knowledge-media {
+    height: 360px;
+}
+
+
+/* Máy tính bảng */
+
+@media (max-width: 991px) {
+    .knowledge-media {
+        height: 230px;
+    }
+    .col-12 .knowledge-media {
+        height: 300px;
+    }
+}
+
+
+/* Điện thoại */
+
+@media (max-width: 576px) {
+    .knowledge-media {
+        height: 210px;
+    }
+    .col-12 .knowledge-media {
+        height: 230px;
+    }
+}
