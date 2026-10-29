@@ -73,6 +73,26 @@
     letter-spacing: 0.13em;
 }
 
+.journal-image-credit {
+    position: absolute;
+    z-index: 2;
+    top: 0.65rem;
+    right: 0.65rem;
+    padding: 0.25rem 0.4rem;
+    border-radius: 0.25rem;
+    background: rgb(5 8 9 / 62%);
+    color: #fff;
+    font-size: 0.6rem;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.journal-image-credit:hover,
+.journal-image-credit:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+}
+
 .journal-card-content {
     display: flex;
     min-height: 270px;
