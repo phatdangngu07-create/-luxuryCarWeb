@@ -421,6 +421,5 @@
       "carId": "revuelto",
       "createdAt": "2026-10-27T10:00:00.000Z"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
