@@ -86,6 +86,21 @@ if (carDetailPage) {
             image.src = fallbackImage;
         }, { once: true });
 
+        const imageCredit = carDetailPage.querySelector("[data-detail-image-credit]");
+        const imageLicense = carDetailPage.querySelector("[data-detail-image-license]");
+        if (product.imageCredit && product.imageCreditUrl) {
+            imageCredit.href = product.imageCreditUrl;
+            imageCredit.textContent = `Ảnh: ${product.imageCredit}`;
+            imageLicense.hidden = false;
+            image.addEventListener("error", () => {
+                imageCredit.hidden = true;
+                imageLicense.hidden = true;
+            }, { once: true });
+        } else {
+            imageCredit.hidden = true;
+            imageLicense.hidden = true;
+        }
+
         const sourceLink = carDetailPage.querySelector("[data-detail-source]");
         if (detail?.source) {
             sourceLink.href = detail.source;
