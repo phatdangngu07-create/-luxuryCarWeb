@@ -549,6 +549,15 @@ main:not(.home-main) {
     padding: 1.4rem;
 }
 
+.feature-image-credit {
+    margin-bottom: 0.6rem;
+    font-size: 0.72rem;
+}
+
+.feature-image-credit a {
+    color: #62676c;
+}
+
 .feature-card h3,
 .editorial-card h3 {
     color: var(--luxury-dark);

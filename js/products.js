@@ -55,6 +55,7 @@
             year: 2023,
             description: "Siêu xe thể thao với thiết kế góc cạnh và phong cách đặc trưng của Lamborghini.",
             ...carImages.revuelto,
+            featured: true,
             detailId: "revuelto"
         },
         {
@@ -81,6 +82,7 @@
             year: 2021,
             description: "Mẫu berlinetta hai chỗ mang ngôn ngữ thiết kế hiện đại và dấu ấn đặc trưng của Ferrari.",
             ...carImages["296-gtb"],
+            featured: true,
             detailId: "296-gtb"
         },
         {
@@ -107,6 +109,7 @@
             year: 2023,
             description: "Thiết kế nhẹ và tối giản kết hợp với diện mạo đậm chất xe thể thao Anh Quốc.",
             ...carImages["750s"],
+            featured: true,
             detailId: "750s"
         },
         {
@@ -325,6 +328,96 @@
         document.dispatchEvent(new CustomEvent("luxurycars:products-loaded"));
     };
 
+    const showFeaturedProductsError = (error) => {
+        console.error("Không thể tải các mẫu xe nổi bật:", error);
+        document.querySelector("#featuredProductsGrid")?.replaceChildren();
+        const status = document.querySelector("#featuredProductsStatus");
+        if (status) {
+            status.hidden = false;
+            status.textContent = `Không thể tải các mẫu xe nổi bật. Hãy đảm bảo JSON Server đang chạy: ${error.message}`;
+            status.setAttribute("role", "alert");
+        }
+    };
+
+    const renderFeaturedProducts = async () => {
+        const grid = document.querySelector("#featuredProductsGrid");
+        if (!grid) {
+            return;
+        }
+
+        const status = document.querySelector("#featuredProductsStatus");
+        const products = (await getProducts()).filter((product) => product.featured);
+        grid.replaceChildren();
+
+        products.forEach((product) => {
+            const column = document.createElement("div");
+            column.className = "col-md-4";
+
+            const card = document.createElement("article");
+            card.className = "feature-card";
+
+            const image = document.createElement("img");
+            image.src = product.image || fallbackImage;
+            image.alt = `Ảnh minh họa ${product.brand} ${product.name}`;
+            image.loading = "lazy";
+            image.addEventListener("error", () => {
+                if (image.dataset.fallbackAttempted) {
+                    return;
+                }
+                image.dataset.fallbackAttempted = "true";
+                image.src = fallbackImage;
+            });
+
+            const body = document.createElement("div");
+            body.className = "feature-card-body";
+
+            if (product.imageCredit && product.imageCreditUrl) {
+                const credit = document.createElement("p");
+                credit.className = "feature-image-credit";
+                const creditLink = document.createElement("a");
+                creditLink.href = product.imageCreditUrl;
+                creditLink.target = "_blank";
+                creditLink.rel = "noopener noreferrer";
+                creditLink.textContent = `Ảnh: ${product.imageCredit} · CC BY-SA 4.0`;
+                credit.append(creditLink);
+                body.append(credit);
+            }
+
+            const brand = document.createElement("p");
+            brand.className = "car-brand-label";
+            brand.textContent = `${product.brand} · ${product.engine}`;
+
+            const name = document.createElement("h3");
+            name.textContent = product.name;
+
+            const description = document.createElement("p");
+            description.textContent = product.description;
+
+            const detailLink = document.createElement("a");
+            detailLink.className = "card-text-link";
+            detailLink.href = `car_detail.html?id=${encodeURIComponent(product.id)}`;
+            detailLink.append(
+                document.createTextNode("Xem chi tiết "),
+                Object.assign(document.createElement("span"), {
+                    "aria-hidden": "true",
+                    textContent: "→"
+                })
+            );
+
+            body.append(brand, name, description, detailLink);
+            card.append(image, body);
+            column.append(card);
+            grid.append(column);
+        });
+
+        if (status) {
+            status.hidden = products.length > 0;
+            if (products.length === 0) {
+                status.textContent = "Chưa có mẫu xe nào được đánh dấu nổi bật.";
+            }
+        }
+    };
+
     window.LuxuryCarsProducts = {
         defaultProducts,
         getProducts,
@@ -334,4 +427,5 @@
     };
 
     renderCollection().catch(showCollectionError);
+    renderFeaturedProducts().catch(showFeaturedProductsError);
 })();

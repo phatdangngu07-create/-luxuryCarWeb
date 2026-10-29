@@ -13,6 +13,7 @@
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Lamborghini_Revuelto_DSC_6984.jpg/1280px-Lamborghini_Revuelto_DSC_6984.jpg",
       "imageCredit": "Alexander Migl",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6984.jpg",
+      "featured": true,
       "detailId": "revuelto"
     },
     {
@@ -43,6 +44,7 @@
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ferrari_296_GTB_1X7A6377.jpg/1280px-Ferrari_296_GTB_1X7A6377.jpg",
       "imageCredit": "Alexander Migl",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTB_1X7A6377.jpg",
+      "featured": true,
       "detailId": "296-gtb"
     },
     {
@@ -73,6 +75,7 @@
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/2024_McLaren_750S_2.jpg/1280px-2024_McLaren_750S_2.jpg",
       "imageCredit": "Calreyn88",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_2.jpg",
+      "featured": true,
       "detailId": "750s"
     },
     {
@@ -461,6 +464,6 @@
       "carId": "revuelto",
       "createdAt": "2026-10-27T10:00:00.000Z"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
+  
 }

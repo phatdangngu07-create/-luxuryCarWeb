@@ -1,5 +1,5 @@
 (() => {
-    const revealTargets = document.querySelectorAll([
+    const revealSelector = [
         "main > section:not(#home):not(.brand-hero)",
         "main .brand-hero-inner",
         "main .knowledge-card",
@@ -8,14 +8,14 @@
         "main .feature-card",
         "main .editorial-card",
         "main .marque-image-wrap",
-        "main [data-car-item]",
+        "main [data-car-item] .card",
         "main [data-detail-section]",
         "main #login .card",
         "main #dangky .card"
-    ].join(", "));
+    ].join(", ");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (reduceMotion || !("IntersectionObserver" in window) || revealTargets.length === 0) {
+    if (reduceMotion || !("IntersectionObserver" in window) || !document.querySelector(revealSelector)) {
         return;
     }
 
@@ -29,9 +29,20 @@
         });
     }, { threshold: 0.12 });
 
-    revealTargets.forEach((target, index) => {
-        target.classList.add("page-reveal");
-        target.style.setProperty("--page-reveal-delay", `${(index % 5) * 70}ms`);
-        revealObserver.observe(target);
-    });
+    const observedTargets = new WeakSet();
+    const observeRevealTargets = () => {
+        document.querySelectorAll(revealSelector).forEach((target, index) => {
+            if (observedTargets.has(target)) {
+                return;
+            }
+
+            observedTargets.add(target);
+            target.classList.add("page-reveal");
+            target.style.setProperty("--page-reveal-delay", `${(index % 5) * 70}ms`);
+            revealObserver.observe(target);
+        });
+    };
+
+    observeRevealTargets();
+    document.addEventListener("luxurycars:products-loaded", observeRevealTargets);
 })();
