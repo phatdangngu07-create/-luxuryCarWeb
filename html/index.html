@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="/css/page-reveal.css">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,8 +27,7 @@
                     </svg>
                     <span>Luxury Cars</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation"
-                    aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavigation">
@@ -135,7 +136,7 @@
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-7">
                         <div class="marque-image-wrap">
-                            <img src="/assets/images/lamboghini.jpg" alt="Thiết kế mạnh mẽ của một siêu xe Lamborghini">
+                            <img src="https://4kwallpapers.com/images/wallpapers/lamborghini-aventador-2560x1440-16291.jpg" alt="Thiết kế mạnh mẽ của một siêu xe Lamborghini">
                             <span class="marque-image-caption">A closer look at automotive design</span>
                         </div>
                     </div>
@@ -163,7 +164,7 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <article class="feature-card">
-                            <img src="/assets/images/lamboghini.jpg" alt="Lamborghini Revuelto">
+                            <img src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/model_detail/revuelto/og.jpg" alt="Lamborghini Revuelto">
                             <div class="feature-card-body">
                                 <p class="car-brand-label">Lamborghini · Hybrid V12</p>
                                 <h3>Revuelto</h3>
@@ -174,7 +175,7 @@
                     </div>
                     <div class="col-md-4">
                         <article class="feature-card">
-                            <img src="/assets/images/lamboghini.jpg" alt="Ferrari 296 GTB">
+                            <img src="https://4kwallpapers.com/images/wallpapers/ferrari-296-gtb-2560x1440-16291.jpg" alt="Ferrari 296 GTB">
                             <div class="feature-card-body">
                                 <p class="car-brand-label">Ferrari · Hybrid V6</p>
                                 <h3>296 GTB</h3>
@@ -185,7 +186,7 @@
                     </div>
                     <div class="col-md-4">
                         <article class="feature-card">
-                            <img src="/assets/images/lamboghini.jpg" alt="McLaren 750S">
+                            <img src="https://supercarsallday.com/wp-content/uploads/2023/04/McLaren-750s-Spyder-4-scaled.jpg" alt="McLaren 750S">
                             <div class="feature-card-body">
                                 <p class="car-brand-label">McLaren · V8 tăng áp kép</p>
                                 <h3>750S</h3>
@@ -243,30 +244,18 @@
     </main>
 
 
-        <!-- 3D Interactive Car Showroom -->
-        <section class="footer-3d-showroom" aria-label="Khu vực trải nghiệm mô hình xe 3D tương tác">
-            <model-viewer
-                id="carViewer"
-                src="../assets/models/poscher.glb"
-                alt="Mô hình xe thể thao 3D tương tác"
-                auto-rotate
-                auto-rotate-delay="1500"
-                rotation-per-second="14deg"
-                camera-controls
-                touch-action="pan-y"
-                shadow-intensity="1.8"
-                shadow-softness="0.75"
-                exposure="1.0"
-                camera-orbit="38deg 78deg 105%"
-                field-of-view="30deg">
+    <!-- 3D Interactive Car Showroom -->
+    <section class="footer-3d-showroom" aria-label="Khu vực trải nghiệm mô hình Porsche 3D tương tác">
+        <model-viewer id="carViewer" src="../assets/models/poscher.glb" alt="Mô hình xe Porsche 3D tương tác" auto-rotate auto-rotate-delay="1500" rotation-per-second="14deg" camera-controls touch-action="pan-y" shadow-intensity="1.8" shadow-softness="0.75"
+                exposure="1.0" camera-orbit="38deg 78deg 105%" field-of-view="30deg">
             </model-viewer>
 
             <div class="showroom-overlay container">
                 <div class="showroom-content-left">
                     <span class="showroom-eyebrow">3D INTERACTIVE SHOWROOM</span>
-                    <h2 class="showroom-heading">EXOTIC HYPERCAR</h2>
+                    <h2 class="showroom-heading">PORSCHE</h2>
                     <p class="showroom-desc">Khám phá chi tiết thiết kế khí động học và vật liệu sợi carbon qua góc nhìn 3D 360° chân thực.</p>
-                    
+
                     <a href="mailto:contact@luxurycars.vn?subject=Yêu%20cầu%20tư%20vấn%20siêu%20xe" class="showroom-enquire-btn">
                         <span>ENQUIRE</span>
                         <svg class="showroom-enquire-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -282,10 +271,10 @@
                         <span class="picker-label">Màu sơn ngoại thất</span>
                         <div class="color-options" role="radiogroup" aria-label="Chọn màu xe">
                             <button type="button" class="color-dot active" data-color="0.92,0.94,0.96,1" style="--dot-color: #e2e8f0;" title="Trắng Bạc Titanium (Silver)"></button>
-                            <button type="button" class="color-dot" data-color="0.85,0.05,0.08,1" style="--dot-color: #dc2626;" title="Đỏ Corsa (Red)"></button>
-                            <button type="button" class="color-dot" data-color="0.08,0.09,0.1,1" style="--dot-color: #171717;" title="Đen Nero Daytona (Black)"></button>
-                            <button type="button" class="color-dot" data-color="0.95,0.75,0.05,1" style="--dot-color: #facc15;" title="Vàng Giallo Modena (Yellow)"></button>
-                            <button type="button" class="color-dot" data-color="0.05,0.35,0.85,1" style="--dot-color: #2563eb;" title="Xanh Blu Corsa (Blue)"></button>
+                            <button type="button" class="color-dot" data-color="0.85,0.05,0.08,1" style="--dot-color: #dc2626;" title="Đỏ (Red)"></button>
+                            <button type="button" class="color-dot" data-color="0.08,0.09,0.1,1" style="--dot-color: #171717;" title="Đen (Black)"></button>
+                            <button type="button" class="color-dot" data-color="0.95,0.75,0.05,1" style="--dot-color: #facc15;" title="Vàng (Yellow)"></button>
+                            <button type="button" class="color-dot" data-color="0.05,0.35,0.85,1" style="--dot-color: #2563eb;" title="Xanh (Blue)"></button>
                         </div>
                     </div>
 
@@ -307,39 +296,40 @@
                 </div>
             </div>
         </section>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row g-4 footer-content">
-                <div class="col-lg-4 col-md-6">
-                    <a class="footer-brand" href="#home">Luxury Cars<span>.</span></a>
-                    <p class="footer-about">Không gian dành cho những ai muốn khám phá câu chuyện, thiết kế và thế giới siêu xe.</p>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h2 class="footer-heading">Thông tin liên hệ</h2>
-                    <address class="footer-contact">
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row g-4 footer-content">
+                    <div class="col-lg-4 col-md-6">
+                        <a class="footer-brand" href="#home">Luxury Cars<span>.</span></a>
+                        <p class="footer-about">Không gian dành cho những ai muốn khám phá câu chuyện, thiết kế và thế giới siêu xe.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h2 class="footer-heading">Thông tin liên hệ</h2>
+                        <address class="footer-contact">
                         <span>Địa chỉ: TP. Hồ Chí Minh, Việt Nam</span>
                         <a href="tel:0999456789">Hotline: 0999.456.789</a>
                         <a href="mailto:contact@luxurycars.vn">Email: contact@luxurycars.vn</a>
                     </address>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h2 class="footer-heading">Kết nối với chúng tôi</h2>
+                        <nav class="footer-social" aria-label="Mạng xã hội">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">&nearr;</span></a>
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">&nearr;</span></a>
+                            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">&nearr;</span></a>
+                        </nav>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <h2 class="footer-heading">Kết nối với chúng tôi</h2>
-                    <nav class="footer-social" aria-label="Mạng xã hội">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">&nearr;</span></a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">&nearr;</span></a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">&nearr;</span></a>
-                    </nav>
+                <div class="footer-bottom">
+                    <span>&copy; 2026 Luxury Cars. All rights reserved.</span>
+                    <a href="#home">Trở về đầu trang &uarr;</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Luxury Cars. All rights reserved.</span>
-                <a href="#home">Trở về đầu trang &uarr;</a>
-            </div>
-        </div>
-    </footer>
-    <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/page-reveal.js"></script>
-    <script src="/js/auth.js"></script>
+        </footer>
+        <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/page-reveal.js"></script>
+        <script src="/js/auth.js"></script>
 </body>
+
 </html>
