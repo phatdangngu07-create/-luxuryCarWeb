@@ -108,7 +108,6 @@
                             <span class="discovery-number">01</span>
                             <h3>Thương hiệu</h3>
                             <p>Tìm hiểu nguồn gốc, triết lý thiết kế và những mẫu xe tiêu biểu của các hãng xe danh tiếng.</p>
-                            <a class="card-text-link" href="brands.html">Khám phá thương hiệu <span aria-hidden="true">&rarr;</span></a>
                         </article>
                     </div>
                     <div class="col-md-4">
@@ -116,7 +115,6 @@
                             <span class="discovery-number">02</span>
                             <h3>Hiệu năng</h3>
                             <p>So sánh tốc độ, công suất, động cơ và các thông số kỹ thuật trong thư viện siêu xe.</p>
-                            <a class="card-text-link" href="collection.html">Mở thư viện xe <span aria-hidden="true">&rarr;</span></a>
                         </article>
                     </div>
                     <div class="col-md-4">
@@ -124,27 +122,7 @@
                             <span class="discovery-number">03</span>
                             <h3>Kiến thức</h3>
                             <p>Giải mã động cơ, khí động học, vật liệu carbon và những công nghệ mới.</p>
-                            <a class="card-text-link" href="knowledge.html">Đọc cẩm nang <span aria-hidden="true">&rarr;</span></a>
                         </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="marque-section" aria-labelledby="marque-title">
-            <div class="container">
-                <div class="row align-items-center gy-4">
-                    <div class="col-lg-7">
-                        <div class="marque-image-wrap">
-                            <img src="https://4kwallpapers.com/images/wallpapers/lamborghini-aventador-2560x1440-16291.jpg" alt="Thiết kế mạnh mẽ của một siêu xe Lamborghini">
-                            <span class="marque-image-caption">A closer look at automotive design</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <p class="section-eyebrow">THƯƠNG HIỆU NỔI BẬT &nbsp; / &nbsp; 01</p>
-                        <h2 id="marque-title">Lamborghini</h2>
-                        <p class="marque-copy">Sinh ra tại Sant’Agata Bolognese, Lamborghini theo đuổi thiết kế giàu kịch tính và hiệu năng táo bạo. Khám phá lịch sử, triết lý và những mẫu xe làm nên tên tuổi hãng.</p>
-                        <a class="marque-link" href="brands.html">Khám phá thương hiệu <span aria-hidden="true">&rarr;</span></a>
                     </div>
                 </div>
             </div>
@@ -161,41 +139,8 @@
                         <p class="section-intro">Từ sức mạnh hybrid đến động cơ thuần túy, mỗi lựa chọn đều mang một cá tính riêng.</p>
                     </div>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <article class="feature-card">
-                            <img src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/model_detail/revuelto/og.jpg" alt="Lamborghini Revuelto">
-                            <div class="feature-card-body">
-                                <p class="car-brand-label">Lamborghini · Hybrid V12</p>
-                                <h3>Revuelto</h3>
-                                <p>Siêu xe plug-in hybrid kết hợp động cơ V12 hút khí tự nhiên và ba mô-tơ điện.</p>
-                                <a class="card-text-link" href="car_detail.html?id=revuelto">Xem chi tiết <span aria-hidden="true">&rarr;</span></a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="feature-card">
-                            <img src="https://4kwallpapers.com/images/wallpapers/ferrari-296-gtb-2560x1440-16291.jpg" alt="Ferrari 296 GTB">
-                            <div class="feature-card-body">
-                                <p class="car-brand-label">Ferrari · Hybrid V6</p>
-                                <h3>296 GTB</h3>
-                                <p>Berlinetta hai chỗ với động cơ V6 tăng áp kết hợp mô-tơ điện.</p>
-                                <a class="card-text-link" href="car_detail.html?id=296-gtb">Xem chi tiết <span aria-hidden="true">&rarr;</span></a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-4">
-                        <article class="feature-card">
-                            <img src="https://supercarsallday.com/wp-content/uploads/2023/04/McLaren-750s-Spyder-4-scaled.jpg" alt="McLaren 750S">
-                            <div class="feature-card-body">
-                                <p class="car-brand-label">McLaren · V8 tăng áp kép</p>
-                                <h3>750S</h3>
-                                <p>Triết lý trọng lượng nhẹ và khí động học đặt người lái làm trung tâm.</p>
-                                <a class="card-text-link" href="car_detail.html?id=750s">Xem chi tiết <span aria-hidden="true">&rarr;</span></a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+                <p id="featuredProductsStatus" class="source-note" role="status">Đang tải mẫu xe nổi bật...</p>
+                <div class="row g-4" id="featuredProductsGrid"></div>
                 <div class="section-more-link"><a href="collection.html">Xem toàn bộ thư viện <span aria-hidden="true">&rarr;</span></a></div>
             </div>
         </section>
@@ -327,6 +272,7 @@
             </div>
         </footer>
         <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/products.js"></script>
         <script src="/js/main.js"></script>
         <script src="/js/page-reveal.js"></script>
         <script src="/js/auth.js"></script>

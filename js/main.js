@@ -2,17 +2,21 @@ const hero = document.querySelector("#home");
 const heroVideo = hero?.querySelector(".hero-media video");
 
 if (hero && heroVideo && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    window.setTimeout(() => {
-        heroVideo.play().then(() => {
-            hero.classList.add("is-playing");
-        }).catch((error) => {
+    const playHeroVideo = () => {
+        heroVideo.play().catch((error) => {
             console.error("Không thể phát video siêu xe:", error);
         });
-    }, 3000);
+    };
+
+    heroVideo.addEventListener("playing", () => {
+        hero.classList.add("is-playing");
+    });
+    playHeroVideo();
 
     heroVideo.addEventListener("ended", () => {
         hero.classList.remove("is-playing");
         heroVideo.currentTime = 0;
+        window.setTimeout(playHeroVideo, 3000);
     });
 
     heroVideo.addEventListener("error", () => {
