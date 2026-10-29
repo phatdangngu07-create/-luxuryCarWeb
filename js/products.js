@@ -181,7 +181,6 @@
         }
 
         const products = await getProducts();
-        const knownDetails = new Set(defaultProducts.map((product) => product.detailId));
         grid.replaceChildren();
 
         products.forEach((product) => {
@@ -234,9 +233,7 @@
             const link = document.createElement("a");
             link.className = "btn btn-danger mt-auto align-self-start";
             link.textContent = "Xem chi tiết";
-            link.href = product.detailId && knownDetails.has(product.detailId)
-                ? `car_detail.html?car=${encodeURIComponent(product.detailId)}`
-                : `collection.html?search=${encodeURIComponent(product.name)}`;
+            link.href = `car_detail.html?id=${encodeURIComponent(product.id)}`;
 
             body.append(brand, title, description, link);
             card.append(image, body);
