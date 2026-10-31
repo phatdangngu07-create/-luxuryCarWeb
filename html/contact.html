@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ đặt mua siêu xe, đăng ký lái thử VIP và nhận báo giá chi tiết tại Luxury Cars.">
+    <title>Liên hệ mua hàng - Luxury Cars</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/page-reveal.css">
+    <style>
+        .contact-hero {
+            padding: 8rem 0 3rem;
+            background: radial-gradient(circle at 50% 20%, #1e2227 0%, #0c0e10 70%, #050607 100%);
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+        }
+        .concierge-card {
+            background: #111315;
+            color: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .concierge-card h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .concierge-highlight {
+            color: var(--luxury-red, #dc2c2c);
+            font-weight: 700;
+        }
+        .vip-benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            margin-bottom: 1.15rem;
+        }
+        .vip-benefit-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(220, 44, 44, 0.15);
+            color: var(--luxury-red, #dc2c2c);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html#home" aria-label="Luxury Cars - Trang chủ">
+                    <svg class="navbar-brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <path d="M24 3 42 10v12c0 11-7.5 18-18 23C13.5 40 6 33 6 22V10L24 3Z" fill="#17191b" stroke="#c9a96e" stroke-width="1.5"/>
+                        <path d="m13 29 3-8 5-5h7l5 5 3 8v4h-4a4 4 0 0 0-8 0h-2a4 4 0 0 0-8 0v-4Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+                        <path d="m18 21 2 6h8l2-6M14 29h20" fill="none" stroke="#c9a96e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </svg>
+                    <span>Luxury Cars</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation"
+                    aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavigation">
+                    <form class="navbar-search" action="collection.html" method="get" role="search">
+                        <label class="visually-hidden" for="siteSearch">Tìm kiếm siêu xe</label>
+                        <input id="siteSearch" class="form-control" type="search" name="search" placeholder="Tìm kiếm siêu xe..." autocomplete="off">
+                        <button class="navbar-search-button" type="submit" aria-label="Tìm kiếm">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                                <circle cx="10.8" cy="10.8" r="6.3"></circle>
+                                <path d="m15.5 15.5 4.2 4.2"></path>
+                            </svg>
+                        </button>
+                    </form>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                        <li class="nav-item dropdown">
+                            <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Khám phá</button>
+                            <ul class="dropdown-menu dropdown-menu-end brand-menu">
+                                <li><a class="dropdown-item" href="collection.html">Thư viện siêu xe</a></li>
+                                <li><a class="dropdown-item" href="brands.html">Thương hiệu</a></li>
+                                <li><a class="dropdown-item" href="journal.html">Tin tức &amp; bài viết</a></li>
+                                <li><a class="dropdown-item active" href="contact.html" aria-current="page">Liên hệ mua hàng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
+                        <li class="nav-item nav-account-register"><a class="nav-link" href="register.html">Đăng ký</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container text-center">
+                <p class="section-eyebrow text-danger mb-2 fw-bold letter-spacing">CONCIERGE &amp; PURCHASING</p>
+                <h1 class="display-5 fw-bold mb-3">Liên Hệ &amp; Đặt Mua Siêu Xe</h1>
+                <p class="lead text-secondary mx-auto" style="max-width: 680px;">
+                    Đội ngũ cố vấn chuyên nghiệp của Luxury Cars sẽ liên hệ riêng để tư vấn cấu hình, thủ tục nhập khẩu chính ngạch và lịch bàn giao đặc quyền.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <!-- Form liên hệ mua hàng -->
+                    <div class="col-lg-7">
+                        <div class="contact-card p-4 p-md-5">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div>
+                                    <h2 class="h4 fw-bold mb-1">Phiếu đăng ký tư vấn</h2>
+                                    <p class="text-muted small mb-0">Thông tin được bảo mật và lưu trữ trực tiếp vào hệ thống JSON.</p>
+                                </div>
+                                <span class="badge bg-danger px-3 py-2">VIP SERVICE</span>
+                            </div>
+
+                            <!-- Alert kết quả -->
+                            <div id="contactAlert" class="alert d-none mb-4" role="alert"></div>
+
+                            <form id="contactForm" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="contactName" class="form-label fw-semibold">Họ và tên <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="contactName" name="name" placeholder="Nguyễn Văn A" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactPhone" class="form-label fw-semibold">Số điện thoại <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="0999 456 789" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactEmail" class="form-label fw-semibold">Địa chỉ Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="contactEmail" name="email" placeholder="email@domain.com" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactCity" class="form-label fw-semibold">Tỉnh / Thành phố <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="contactCity" name="city" required>
+                                            <option value="">Chọn khu vực...</option>
+                                            <option value="Hồ Chí Minh" selected>TP. Hồ Chí Minh</option>
+                                            <option value="Hà Nội">Hà Nội</option>
+                                            <option value="Đà Nẵng">Đà Nẵng</option>
+                                            <option value="Hải Phòng">Hải Phòng</option>
+                                            <option value="Cần Thơ">Cần Thơ</option>
+                                            <option value="Khác">Khu vực khác</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label for="contactCar" class="form-label fw-semibold">Mẫu siêu xe quan tâm <span class="text-danger">*</span></label>
+                                        <select class="form-select" id="contactCar" name="carId" required>
+                                            <option value="">-- Đang tải danh sách mẫu xe... --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="contactService" class="form-label fw-semibold">Hình thức &amp; Nhu cầu</label>
+                                        <select class="form-select" id="contactService" name="serviceType">
+                                            <option value="deposit">Đặt cọc mua xe mới</option>
+                                            <option value="test_drive">Đăng ký lái thử VIP</option>
+                                            <option value="finance">Tư vấn trả góp &amp; tài chính</option>
+                                            <option value="bespoke">Cá nhân hóa Bespoke / Độc bản</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contactBudget" class="form-label fw-semibold">Ngân sách dự kiến</label>
+                                        <select class="form-select" id="contactBudget" name="budget">
+                                            <option value="unspecified">Không giới hạn</option>
+                                            <option value="under_20b">Dưới 20 tỷ VNĐ</option>
+                                            <option value="20b_40b">20 - 40 tỷ VNĐ</option>
+                                            <option value="above_40b">Trên 40 tỷ VNĐ</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="contactMessage" class="form-label fw-semibold">Lời nhắn / Yêu cầu riêng</label>
+                                        <textarea class="form-control" id="contactMessage" name="message" rows="3" placeholder="Ví dụ: Mong muốn tư vấn màu sơn ngoại thất, thời gian bàn giao dự kiến trong quý tới..."></textarea>
+                                    </div>
+
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" id="submitContactBtn" class="btn btn-danger btn-lg w-100 py-3 fw-bold">
+                                            GỬI YÊU CẦU MUA XE
+                                        </button>
+                                        <p class="text-muted text-center small mt-2 mb-0">
+                                            🔒 Bằng việc gửi yêu cầu, thông tin của quý khách được bảo mật tuyệt đối theo tiêu chuẩn VIP Concierge.
+                                        </p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Cột thông tin Concierge Showroom -->
+                    <div class="col-lg-5">
+                        <div class="concierge-card p-4 p-md-5 mb-4">
+                            <h3 class="mb-4">Dịch Vụ Đặc Quyền Khách Hàng</h3>
+
+                            <div class="vip-benefit-item">
+                                <span class="vip-benefit-icon">✓</span>
+                                <div>
+                                    <strong class="d-block text-white">Nhập Khẩu Chính Hạch 100%</strong>
+                                    <span class="text-secondary small">Đầy đủ hồ sơ hải quan, CO/CQ và sổ bảo hành chính hãng toàn cầu.</span>
+                                </div>
+                            </div>
+
+                            <div class="vip-benefit-item">
+                                <span class="vip-benefit-icon">★</span>
+                                <div>
+                                    <strong class="d-block text-white">Chương Trình Cá Nhân Hóa Bespoke</strong>
+                                    <span class="text-secondary small">Tự do phối màu sơn độc bản, chất liệu da cao cấp và logo dập nổi theo ý muốn.</span>
+                                </div>
+                            </div>
+
+                            <div class="vip-benefit-item">
+                                <span class="vip-benefit-icon">⛟</span>
+                                <div>
+                                    <strong class="d-block text-white">Bàn Giao Thùng Kín Tận Nơi</strong>
+                                    <span class="text-secondary small">Vận chuyển chuyên dụng bằng xe kín tới tư gia tại mọi tỉnh thành trên toàn quốc.</span>
+                                </div>
+                            </div>
+
+                            <div class="vip-benefit-item">
+                                <span class="vip-benefit-icon">☎</span>
+                                <div>
+                                    <strong class="d-block text-white">Hỗ Trợ Khẩn Cấp 24/7</strong>
+                                    <span class="text-secondary small">Đội ngũ kỹ thuật viên cao cấp sẵn sàng hỗ trợ bất cứ lúc nào.</span>
+                                </div>
+                            </div>
+
+                            <hr class="border-secondary my-4">
+
+                            <div>
+                                <h4 class="h6 text-uppercase letter-spacing text-secondary mb-2">Showroom Trưng Bày</h4>
+                                <p class="mb-1 text-white">Tòa nhà Landmark, TP. Hồ Chí Minh, Việt Nam</p>
+                                <p class="mb-1 text-white">Hotline VIP: <a href="tel:0999456789" class="concierge-highlight text-decoration-none">0999.456.789</a></p>
+                                <p class="mb-0 text-white">Email: <a href="mailto:contact@luxurycars.vn" class="text-white">contact@luxurycars.vn</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-4 footer-content">
+                <div class="col-lg-4 col-md-6">
+                    <a class="footer-brand" href="index.html#home">Luxury Cars<span>.</span></a>
+                    <p class="footer-about">Không gian dành cho những ai muốn khám phá câu chuyện, thiết kế và thế giới siêu xe.</p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-heading">Thông tin liên hệ</h2>
+                    <address class="footer-contact">
+                        <span>Địa chỉ: TP. Hồ Chí Minh, Việt Nam</span>
+                        <a href="tel:0999456789">Hotline: 0999.456.789</a>
+                        <a href="mailto:contact@luxurycars.vn">Email: contact@luxurycars.vn</a>
+                    </address>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-heading">Kết nối với chúng tôi</h2>
+                    <nav class="footer-social" aria-label="Mạng xã hội">
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">&nearr;</span></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">&nearr;</span></a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">&nearr;</span></a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Luxury Cars. All rights reserved.</span>
+                <a href="#home">Trở về đầu trang &uarr;</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/page-reveal.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/contact.js"></script>
+</body>
+</html>
+
