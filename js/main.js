@@ -33,6 +33,48 @@ if (carDetailPage) {
         || "revuelto";
     const apiUrl = window.LUXURY_CARS_API_URL || "http://localhost:3000";
     const fallbackImage = "/assets/images/lamboghini.jpg";
+    const galleryPhotos = {
+        revuelto: [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Lamborghini_Revuelto_DSC_6985.jpg/960px-Lamborghini_Revuelto_DSC_6985.jpg", "Alexander Migl"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Lamborghini_Revuelto_DSC_6987.jpg/960px-Lamborghini_Revuelto_DSC_6987.jpg", "Alexander Migl"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Lamborghini_Revuelto_IMG_0562.jpg/960px-Lamborghini_Revuelto_IMG_0562.jpg", "Alexander-93"]
+        ],
+        "huracan-tecnica": [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Lamborghini_Huracan_Tecnica_12.jpg/960px-Lamborghini_Huracan_Tecnica_12.jpg", "Calreyn88"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Lamborghini_Hurac%C3%A1n_Tecnica_1X7A7430.jpg/960px-Lamborghini_Hurac%C3%A1n_Tecnica_1X7A7430.jpg", "Alexander-93"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Lamborghini_Hurac%C3%A1n_Tecnica_IMG_7298.jpg/960px-Lamborghini_Hurac%C3%A1n_Tecnica_IMG_7298.jpg", "Alexander-93"]
+        ],
+        "296-gtb": [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Ferrari_296_GTB_1X7A6379.jpg/960px-Ferrari_296_GTB_1X7A6379.jpg", "Alexander Migl"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Ferrari_296_GTB_DSC_6997.jpg/960px-Ferrari_296_GTB_DSC_6997.jpg", "Alexander Migl"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Ferrari_296_GTB_DSC_7011.jpg/960px-Ferrari_296_GTB_DSC_7011.jpg", "Alexander Migl"]
+        ],
+        "sf90-stradale": [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Ferrari_SF90%2C_BAS_24%2C_Brussels_%28P1170486-RR%29.jpg/960px-Ferrari_SF90%2C_BAS_24%2C_Brussels_%28P1170486-RR%29.jpg", "Matti Blume"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Ferrari_SF90%2C_BAS_24%2C_Brussels_%28P1170502-RR%29.jpg/960px-Ferrari_SF90%2C_BAS_24%2C_Brussels_%28P1170502-RR%29.jpg", "Matti Blume"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Ferrari_SF90_Stradale_Monaco.jpg/960px-Ferrari_SF90_Stradale_Monaco.jpg", "Calreyn88"]
+        ],
+        "750s": [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/2024_McLaren_750S_3.jpg/960px-2024_McLaren_750S_3.jpg", "Calreyn88"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/2024_McLaren_750S_4.jpg/960px-2024_McLaren_750S_4.jpg", "Calreyn88"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/2024_McLaren_750S_5.jpg/960px-2024_McLaren_750S_5.jpg", "Calreyn88"]
+        ],
+        "911-turbo-s": [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Porsche_992_Turbo_S_1X7A0411.jpg/960px-Porsche_992_Turbo_S_1X7A0411.jpg", "Alexander Migl"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Porsche_992_Turbo_S_1X7A0413.jpg/960px-Porsche_992_Turbo_S_1X7A0413.jpg", "Alexander Migl"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Porsche_992_Turbo_S_1X7A6046.jpg/960px-Porsche_992_Turbo_S_1X7A6046.jpg", "Alexander Migl"]
+        ],
+        chiron: [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Bugatti_Chiron%2C_IAA_2017%2C_Frankfurt_%281Y7A2855%29.jpg/960px-Bugatti_Chiron%2C_IAA_2017%2C_Frankfurt_%281Y7A2855%29.jpg", "Matti Blume"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Bugatti_Chiron%2C_IAA_2017%2C_Frankfurt_%281Y7A2857%29.jpg/960px-Bugatti_Chiron%2C_IAA_2017%2C_Frankfurt_%281Y7A2857%29.jpg", "Matti Blume"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Bugatti_Chiron_110_Ans%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS9979%29.jpg/960px-Bugatti_Chiron_110_Ans%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS9979%29.jpg", "Matti Blume"]
+        ],
+        db12: [
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Aston_Martin_DB12_1X7A1922.jpg/960px-Aston_Martin_DB12_1X7A1922.jpg", "Alexander-93"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Aston_Martin_DB12_1X7A1925.jpg/960px-Aston_Martin_DB12_1X7A1925.jpg", "Alexander-93"],
+            ["https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Aston_Martin_DB12_1X7A1927.jpg/960px-Aston_Martin_DB12_1X7A1927.jpg", "Alexander-93"]
+        ]
+    };
 
     detailSections.forEach((section) => {
         section.hidden = true;
@@ -81,29 +123,48 @@ if (carDetailPage) {
         });
 
         const image = carDetailPage.querySelector("[data-detail-image]");
-        image.src = product.image || fallbackImage;
-        image.alt = `Ảnh minh họa ${product.brand} ${product.name}`;
+        const thumbnails = carDetailPage.querySelector("[data-detail-thumbnails]");
+        const photos = [
+            { url: product.image || fallbackImage },
+            ...(Array.isArray(product.gallery) ? product.gallery : (galleryPhotos[requestedCar] || []).map(([url]) => ({ url })))
+        ].slice(0, 4);
+
+        const showPhoto = (photo, selectedButton) => {
+            image.src = photo.url;
+            image.alt = `Ảnh ${product.brand} ${product.name}`;
+
+            thumbnails.querySelectorAll("button").forEach((button) => {
+                button.setAttribute("aria-pressed", String(button === selectedButton));
+            });
+        };
+
+        thumbnails.replaceChildren();
+        photos.slice(1).forEach((photo, index) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.setAttribute("aria-label", `Xem ảnh ${index + 2} của ${product.brand} ${product.name}`);
+            button.setAttribute("aria-pressed", "false");
+
+            const thumbnail = document.createElement("img");
+            thumbnail.src = photo.url;
+            thumbnail.alt = "";
+            thumbnail.loading = "lazy";
+            thumbnail.addEventListener("error", () => {
+                button.hidden = true;
+            }, { once: true });
+
+            button.append(thumbnail);
+            button.addEventListener("click", () => showPhoto(photo, button));
+            thumbnails.append(button);
+        });
+
         image.addEventListener("error", () => {
             if (image.src.endsWith(fallbackImage)) {
                 return;
             }
             image.src = fallbackImage;
-        }, { once: true });
-
-        const imageCredit = carDetailPage.querySelector("[data-detail-image-credit]");
-        const imageLicense = carDetailPage.querySelector("[data-detail-image-license]");
-        if (product.imageCredit && product.imageCreditUrl) {
-            imageCredit.href = product.imageCreditUrl;
-            imageCredit.textContent = `Ảnh: ${product.imageCredit}`;
-            imageLicense.hidden = false;
-            image.addEventListener("error", () => {
-                imageCredit.hidden = true;
-                imageLicense.hidden = true;
-            }, { once: true });
-        } else {
-            imageCredit.hidden = true;
-            imageLicense.hidden = true;
-        }
+        });
+        showPhoto(photos[0], null);
 
         const sourceLink = carDetailPage.querySelector("[data-detail-source]");
         if (detail?.source) {

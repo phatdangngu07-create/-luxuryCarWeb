@@ -260,27 +260,6 @@
                 image.src = fallbackImage;
             });
 
-            const imageCredit = document.createElement("small");
-            imageCredit.className = "d-block px-3 pt-2 text-secondary";
-            if (product.imageCredit && product.imageCreditUrl) {
-                const creditLink = document.createElement("a");
-                creditLink.href = product.imageCreditUrl;
-                creditLink.target = "_blank";
-                creditLink.rel = "noopener noreferrer";
-                creditLink.textContent = `Ảnh: ${product.imageCredit}`;
-
-                const licenseLink = document.createElement("a");
-                licenseLink.href = "https://creativecommons.org/licenses/by-sa/4.0/";
-                licenseLink.target = "_blank";
-                licenseLink.rel = "noopener noreferrer";
-                licenseLink.textContent = "CC BY-SA 4.0";
-
-                imageCredit.append(creditLink, document.createTextNode(" · "), licenseLink);
-                image.addEventListener("error", () => {
-                    imageCredit.hidden = true;
-                }, { once: true });
-            }
-
             const body = document.createElement("div");
             body.className = "card-body d-flex flex-column";
 
@@ -302,11 +281,7 @@
             link.href = `car_detail.html?id=${encodeURIComponent(product.id)}`;
 
             body.append(brand, title, description, link);
-            card.append(image);
-            if (imageCredit.childNodes.length) {
-                card.append(imageCredit);
-            }
-            card.append(body);
+            card.append(image, body);
             item.append(card);
             grid.append(item);
         });
@@ -370,18 +345,6 @@
 
             const body = document.createElement("div");
             body.className = "feature-card-body";
-
-            if (product.imageCredit && product.imageCreditUrl) {
-                const credit = document.createElement("p");
-                credit.className = "feature-image-credit";
-                const creditLink = document.createElement("a");
-                creditLink.href = product.imageCreditUrl;
-                creditLink.target = "_blank";
-                creditLink.rel = "noopener noreferrer";
-                creditLink.textContent = `Ảnh: ${product.imageCredit} · CC BY-SA 4.0`;
-                credit.append(creditLink);
-                body.append(credit);
-            }
 
             const brand = document.createElement("p");
             brand.className = "car-brand-label";

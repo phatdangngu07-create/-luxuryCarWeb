@@ -145,7 +145,6 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newUser)
         });
-        setCurrentUser(createdUser);
         return createdUser;
     };
 
@@ -307,15 +306,14 @@
 
                 await registerUser({ name, email, password });
 
-                showAlert(" <strong>Đăng ký thành công!</strong> Đang tự động đăng nhập và chuyển hướng về trang chủ...", "success");
-
-                // Đọc query param redirect nếu có
-                const urlParams = new URLSearchParams(window.location.search);
-                const redirectTarget = urlParams.get("redirect") || "index.html";
+                showAlert("<strong>Đăng ký thành công!</strong> Vui lòng đăng nhập bằng tài khoản vừa tạo.", "success");
+                if (submitBtn) {
+                    submitBtn.textContent = "Đăng ký thành công";
+                }
 
                 window.setTimeout(() => {
-                    window.location.href = redirectTarget;
-                }, 1200);
+                    window.location.href = "login.html?registered=true";
+                }, 1800);
 
             } catch (error) {
                 showAlert(` ${error.message}`, "danger");
@@ -357,6 +355,10 @@
             alertBox.classList.add("d-none");
             alertBox.innerHTML = "";
         };
+
+        if (new URLSearchParams(window.location.search).get("registered") === "true") {
+            showAlert(" <strong>Đăng ký thành công!</strong> Vui lòng đăng nhập bằng tài khoản vừa tạo.", "success");
+        }
 
         // Gắn nút gợi ý tài khoản mẫu nếu có
         document.querySelectorAll(".btn-fill-demo").forEach((btn) => {
