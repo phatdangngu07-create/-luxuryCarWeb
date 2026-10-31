@@ -1,12 +1,3 @@
-/* ========================================
-   BRAND PAGE
-======================================== */
-
-
-/* ========================================
-   LUXURY CARS - BRANDS PAGE
-======================================== */
-
 :root {
     --brand-gold: #d9b66f;
     --brand-gold-light: #f1d89e;
@@ -41,9 +32,6 @@ html {
     font-family: inherit;
 }
 
-
-/* HEADER */
-
 .brand-page header {
     position: relative;
     top: 0;
@@ -58,7 +46,7 @@ html {
     border: 0;
 }
 
-.brand-page .navbar > .container {
+.brand-page .navbar>.container {
     background: rgba(10, 11, 13, 0.94);
     border-color: rgba(217, 182, 111, 0.2);
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
@@ -121,9 +109,6 @@ html {
     transform: translateY(-50%);
 }
 
-
-/* HERO */
-
 .brand-hero {
     position: relative;
     display: flex;
@@ -137,9 +122,7 @@ html {
     position: absolute;
     z-index: 1;
     inset: 0;
-    background:
-        linear-gradient(90deg, rgba(5, 7, 9, 0.96) 0%, rgba(5, 7, 9, 0.82) 43%, rgba(5, 7, 9, 0.2) 100%),
-        linear-gradient(0deg, rgba(5, 7, 9, 0.48), transparent 55%);
+    background: linear-gradient(90deg, rgba(5, 7, 9, 0.96) 0%, rgba(5, 7, 9, 0.82) 43%, rgba(5, 7, 9, 0.2) 100%), linear-gradient(0deg, rgba(5, 7, 9, 0.48), transparent 55%);
     pointer-events: none;
 }
 
@@ -249,14 +232,9 @@ html {
     letter-spacing: 1.5px;
 }
 
-
-/* INTRODUCTION */
-
 .brand-intro {
     padding: clamp(64px, 8vw, 100px) 0;
-    background:
-        radial-gradient(ellipse at 50% 0, rgba(217, 182, 111, 0.08), transparent 38%),
-        linear-gradient(180deg, #0d0f11, var(--brand-bg) 60%);
+    background: radial-gradient(ellipse at 50% 0, rgba(217, 182, 111, 0.08), transparent 38%), linear-gradient(180deg, #0d0f11, var(--brand-bg) 60%);
 }
 
 .brand-intro>.container>.brand-eyebrow {
@@ -279,9 +257,6 @@ html {
     line-height: 1.9;
     text-align: center;
 }
-
-
-/* FILTER BUTTONS */
 
 .brand-filter {
     display: flex;
@@ -318,9 +293,6 @@ html {
     font-size: 12px;
     text-align: right;
 }
-
-
-/* BRAND GRID */
 
 .brand-grid {
     display: grid;
@@ -363,9 +335,6 @@ html {
     letter-spacing: 1.4px;
 }
 
-
-/* LOGO */
-
 .brand-logo {
     display: flex;
     align-items: center;
@@ -393,9 +362,6 @@ html {
     transform: scale(1.03);
 }
 
-
-/* BRAND NAME */
-
 .brand-card h3 {
     margin: 0 0 8px;
     color: #fff;
@@ -410,9 +376,6 @@ html {
     font-size: 12px;
     letter-spacing: 0.02em;
 }
-
-
-/* CAR IMAGE */
 
 .brand-car-image {
     position: relative;
@@ -455,9 +418,6 @@ html {
     letter-spacing: 2px;
 }
 
-
-/* DESCRIPTION */
-
 .brand-description {
     margin-bottom: 20px;
     color: #c6c9cc;
@@ -484,9 +444,6 @@ html {
     font-size: 13px;
     line-height: 1.8;
 }
-
-
-/* CARD LINK */
 
 .brand-card-link {
     display: flex;
@@ -521,14 +478,9 @@ html {
     text-align: center;
 }
 
-
-/* BOTTOM BANNER */
-
 .brand-bottom-banner {
     padding: clamp(64px, 8vw, 92px) 0;
-    background:
-        linear-gradient(110deg, rgba(8, 9, 11, 0.94), rgba(12, 13, 15, 0.82)),
-        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center / cover no-repeat;
+    background: linear-gradient(110deg, rgba(8, 9, 11, 0.94), rgba(12, 13, 15, 0.82)), url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center / cover no-repeat;
     border-top: 1px solid rgba(215, 180, 106, 0.2);
     text-align: center;
 }
@@ -546,9 +498,6 @@ html {
     color: #bbb;
     line-height: 1.9;
 }
-
-
-/* FOOTER */
 
 .brand-page .site-footer {
     background: #08090a;
@@ -616,9 +565,6 @@ html {
 .brand-page .footer-bottom a {
     color: var(--brand-gold);
 }
-
-
-/* RESPONSIVE */
 
 @media (max-width: 1199px) {
     .brand-grid {
@@ -729,7 +675,6 @@ html {
     }
 }
 
-/* LIGHT LUXURY THEME */
 .brand-page {
     --brand-bg: #f5f3ee;
     --brand-card: #fff;
@@ -740,7 +685,7 @@ html {
     background: var(--brand-bg);
 }
 
-.brand-page .navbar > .container {
+.brand-page .navbar>.container {
     background: rgba(255, 255, 255, 0.94);
     border-color: rgba(32, 35, 40, 0.1);
     box-shadow: 0 10px 32px rgba(29, 32, 36, 0.1);
@@ -775,9 +720,7 @@ html {
 }
 
 .brand-hero-overlay {
-    background:
-        linear-gradient(90deg, rgba(249, 248, 245, 0.98) 0%, rgba(249, 248, 245, 0.91) 39%, rgba(249, 248, 245, 0.45) 66%, rgba(20, 22, 24, 0.05) 100%),
-        linear-gradient(0deg, rgba(15, 17, 19, 0.14), transparent 38%);
+    background: linear-gradient(90deg, rgba(249, 248, 245, 0.98) 0%, rgba(249, 248, 245, 0.91) 39%, rgba(249, 248, 245, 0.45) 66%, rgba(20, 22, 24, 0.05) 100%), linear-gradient(0deg, rgba(15, 17, 19, 0.14), transparent 38%);
 }
 
 .brand-hero h1 {
@@ -799,9 +742,7 @@ html {
 }
 
 .brand-intro {
-    background:
-        radial-gradient(ellipse at 50% 0, rgba(217, 182, 111, 0.13), transparent 42%),
-        linear-gradient(180deg, #f8f7f3, #f1efe9);
+    background: radial-gradient(ellipse at 50% 0, rgba(217, 182, 111, 0.13), transparent 42%), linear-gradient(180deg, #f8f7f3, #f1efe9);
 }
 
 .brand-intro h2,
@@ -869,7 +810,7 @@ html {
     border-color: rgba(32, 35, 40, 0.1);
 }
 
-.brand-models > span {
+.brand-models>span {
     color: #8d6a30;
 }
 
@@ -886,13 +827,11 @@ html {
 }
 
 .brand-bottom-banner {
-    background:
-        linear-gradient(90deg, rgba(248, 247, 243, 0.96), rgba(248, 247, 243, 0.86)),
-        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center / cover no-repeat;
+    background: linear-gradient(90deg, rgba(248, 247, 243, 0.96), rgba(248, 247, 243, 0.86)), url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center / cover no-repeat;
     border-color: rgba(32, 35, 40, 0.1);
 }
 
-.brand-bottom-banner > .container > p:not(.brand-eyebrow) {
+.brand-bottom-banner>.container>p:not(.brand-eyebrow) {
     color: #5e6369;
 }
 
@@ -922,11 +861,8 @@ html {
 
 @media (max-width: 575px) {
     .brand-hero-overlay {
-        background:
-            linear-gradient(90deg, rgba(249, 248, 245, 0.97), rgba(249, 248, 245, 0.83) 72%, rgba(249, 248, 245, 0.52)),
-            linear-gradient(0deg, rgba(15, 17, 19, 0.12), transparent 40%);
+        background: linear-gradient(90deg, rgba(249, 248, 245, 0.97), rgba(249, 248, 245, 0.83) 72%, rgba(249, 248, 245, 0.52)), linear-gradient(0deg, rgba(15, 17, 19, 0.12), transparent 40%);
     }
-
     .brand-hero {
         background-position: 62% center;
     }
@@ -942,9 +878,7 @@ html {
     background: linear-gradient(145deg, #fff, #f1eee6);
     border: 1px solid rgba(151, 116, 55, 0.18);
     border-radius: 50%;
-    box-shadow:
-        0 8px 22px rgba(37, 39, 43, 0.08),
-        inset 0 0 0 5px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 22px rgba(37, 39, 43, 0.08), inset 0 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
 .brand-logo::before {
@@ -1004,7 +938,6 @@ html {
         height: 116px;
         margin-top: 20px;
     }
-
     .brand-description {
         min-height: 0;
     }
@@ -1100,14 +1033,12 @@ html {
     .brand-page .brand-grid {
         gap: 20px;
     }
-
     .brand-page .brand-car-image {
         margin-right: -18px;
         margin-left: -18px;
     }
 }
 
-/* Keep this page aligned with the shared site header and color palette. */
 .brand-page {
     --brand-gold: var(--luxury-red);
     --brand-gold-light: #f06a6a;
@@ -1132,7 +1063,7 @@ html {
     padding-top: 6rem;
 }
 
-.brand-page .navbar > .container {
+.brand-page .navbar>.container {
     background: rgb(10 10 10 / 94%);
     border-color: rgb(255 255 255 / 14%);
     box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 24%);
@@ -1217,7 +1148,7 @@ html {
 .brand-page .brand-intro-text,
 .brand-page .brand-description,
 .brand-page .brand-models p,
-.brand-page .brand-bottom-banner > .container > p:not(.brand-eyebrow) {
+.brand-page .brand-bottom-banner>.container>p:not(.brand-eyebrow) {
     color: #626970;
 }
 
@@ -1262,7 +1193,7 @@ html {
 }
 
 .brand-page .brand-location,
-.brand-page .brand-models > span {
+.brand-page .brand-models>span {
     color: #b91f25;
 }
 
@@ -1277,9 +1208,7 @@ html {
 }
 
 .brand-page .brand-bottom-banner {
-    background:
-        linear-gradient(90deg, rgba(244, 245, 246, 0.96), rgba(244, 245, 246, 0.86)),
-        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center / cover no-repeat;
+    background: linear-gradient(90deg, rgba(244, 245, 246, 0.96), rgba(244, 245, 246, 0.86)), url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85") center / cover no-repeat;
     border-color: rgba(32, 36, 40, 0.1);
 }
 
@@ -1321,7 +1250,6 @@ html {
         margin: 0.75rem 0;
         transform: none;
     }
-
     .brand-page .navbar-collapse {
         padding: 0.25rem 0.5rem 0.5rem;
     }
@@ -1331,7 +1259,6 @@ html {
     .brand-page header {
         top: 0.5rem;
     }
-
     .brand-page main:not(.home-main) {
         padding-top: 5.25rem;
     }

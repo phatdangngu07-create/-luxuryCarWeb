@@ -298,6 +298,14 @@
       "role": "user",
       "createdAt": "2026-10-31T08:00:08.917Z",
       "id": "g89sgTK1fsc"
+    },
+    {
+      "name": "Ho Thi Hoai Lien",
+      "email": "lien.ho28@student.passerellesnumeriques.org",
+      "password": "12345678",
+      "role": "user",
+      "createdAt": "2026-10-31T10:07:21.893Z",
+      "id": "Q2Hw2iVFo7Y"
     }
   ],
   "brands": [
