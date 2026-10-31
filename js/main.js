@@ -146,6 +146,23 @@ const requestedEngine = collectionParams.get("engine") || "";
 const requestedSegment = collectionParams.get("segment") || "";
 const requestedSort = collectionParams.get("sort") || "";
 
+if (requestedBrand) {
+    document.querySelector(".collection-filters")?.setAttribute("hidden", "");
+
+    const collectionEyebrow = document.querySelector("#collectionEyebrow");
+    const collectionTitle = document.querySelector("#collectionTitle");
+    const collectionDescription = document.querySelector("#collectionDescription");
+    if (collectionEyebrow) {
+        collectionEyebrow.textContent = `THƯƠNG HIỆU ${requestedBrand}`;
+    }
+    if (collectionTitle) {
+        collectionTitle.textContent = `Siêu xe ${requestedBrand}`;
+    }
+    if (collectionDescription) {
+        collectionDescription.textContent = `Khám phá các mẫu xe nổi bật và đặc trưng của ${requestedBrand}.`;
+    }
+}
+
 if (brandFilter && requestedBrand) {
     brandFilter.value = requestedBrand;
 }
