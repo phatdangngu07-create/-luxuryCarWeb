@@ -18,6 +18,7 @@
             <p class="menu-label">QUẢN LÝ</p>
             <nav class="sidebar-nav">
                 <a class="nav-item active" href="#products" aria-current="page"><span aria-hidden="true">▦</span> Sản phẩm <b id="sidebarProductCount">0</b></a>
+                <a class="nav-item" href="#contacts"><span aria-hidden="true">✉</span> Đơn liên hệ <b id="sidebarContactCount">0</b></a>
                 <a class="nav-item" href="collection.html"><span aria-hidden="true">◉</span> Xem thư viện xe</a>
                 <a class="nav-item" href="index.html"><span aria-hidden="true">⌂</span> Về trang chủ</a>
             </nav>
@@ -126,6 +127,40 @@
                         <span id="pageInfo">1 / 1</span>
                         <button id="nextPage" type="button" aria-label="Trang sau" disabled>›</button>
                     </div>
+                </div>
+            </section>
+
+            
+            <section class="panel" id="contacts" aria-labelledby="contactsTitle" style="margin-top: 2rem;">
+                <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                    <div>
+                        <p class="eyebrow" style="margin-bottom:0.25rem;">YÊU CẦU ĐẶT MUA XE</p>
+                        <h2 id="contactsTitle" style="font-size:1.4rem; margin:0;">Khách hàng liên hệ mua xe</h2>
+                        <p class="panel-subtitle" style="margin:0; color:#7e8499; font-size:0.88rem;">Dữ liệu được lưu trong <code>json_server/data.json</code> tại mảng <code>contacts</code>.</p>
+                    </div>
+                    <button class="outline-btn" id="refreshContactsBtn" type="button" style="cursor:pointer;">↻ Làm mới dữ liệu</button>
+                </div>
+
+                <div class="table-container" style="overflow-x:auto; margin-top:1rem;">
+                    <table class="product-table" style="width:100%; border-collapse:collapse;">
+                        <thead>
+                            <tr style="text-align:left; border-bottom:1px solid #e9ebf3;">
+                                <th style="padding:0.75rem;">Khách hàng</th>
+                                <th style="padding:0.75rem;">Điện thoại</th>
+                                <th style="padding:0.75rem;">Email</th>
+                                <th style="padding:0.75rem;">Khu vực</th>
+                                <th style="padding:0.75rem;">Mẫu xe quan tâm</th>
+                                <th style="padding:0.75rem;">Nhu cầu</th>
+                                <th style="padding:0.75rem;">Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactTableBody">
+                            <!-- Danh sách liên hệ được render động -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="empty-state" id="emptyContacts" style="padding:2rem; text-align:center; color:#7e8499;" hidden>
+                    <p style="margin:0;">Chưa có yêu cầu liên hệ nào được ghi nhận.</p>
                 </div>
             </section>
 

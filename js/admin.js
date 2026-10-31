@@ -386,3 +386,78 @@
         revealObserver.observe(target);
     });
 })();
+// =========================================================
+// QUẢN LÝ ĐƠN LIÊN HỆ MUA HÀNG TRONG ADMIN
+// =========================================================
+(() => {
+    const contactsEndpoint = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/contacts`;
+    const tableBody = document.querySelector("#contactTableBody");
+    const emptyState = document.querySelector("#emptyContacts");
+    const countBadge = document.querySelector("#sidebarContactCount");
+    const refreshBtn = document.querySelector("#refreshContactsBtn");
+
+    if (!tableBody) return;
+
+    const renderContacts = async () => {
+        let contacts = [];
+        try {
+            const res = await fetch(contactsEndpoint);
+            if (res.ok) {
+                contacts = await res.json();
+            } else {
+                throw new Error("HTTP " + res.status);
+            }
+        } catch (e) {
+            // Fallback đọc từ LocalStorage
+            try {
+                contacts = JSON.parse(localStorage.getItem("luxuryCarsContacts") || "[]");
+            } catch (err) {
+                contacts = [];
+            }
+        }
+
+        if (countBadge) countBadge.textContent = String(contacts.length);
+
+        tableBody.replaceChildren();
+        if (contacts.length === 0) {
+            if (emptyState) emptyState.hidden = false;
+            return;
+        }
+
+        if (emptyState) emptyState.hidden = true;
+
+        // Sắp xếp đơn mới nhất lên đầu
+        const sorted = [...contacts].reverse();
+        sorted.forEach((c) => {
+            const row = document.createElement("tr");
+            row.style.borderBottom = "1px solid #f0f2f8";
+
+            const timeStr = c.createdAt ? new Date(c.createdAt).toLocaleString("vi-VN") : "Gần đây";
+            const serviceLabel = {
+                deposit: "Đặt cọc mua xe",
+                test_drive: "Lái thử VIP",
+                finance: "Tư vấn tài chính",
+                bespoke: "Cá nhân hóa Bespoke"
+            }[c.serviceType] || c.serviceType || "Tư vấn chung";
+
+            row.innerHTML = `
+                <td style="padding:0.75rem;"><strong style="color:#20243a;">${c.name || "Khách hàng"}</strong></td>
+                <td style="padding:0.75rem;"><a href="tel:${c.phone}" style="color:#dc2c2c; font-weight:600; text-decoration:none;">${c.phone || "---"}</a></td>
+                <td style="padding:0.75rem;"><a href="mailto:${c.email}" style="color:#6c5ce7; text-decoration:none;">${c.email || "---"}</a></td>
+                <td style="padding:0.75rem;">${c.city || "TP. HCM"}</td>
+                <td style="padding:0.75rem;"><span style="font-weight:600;">${c.carName || c.carId || "Chưa chọn"}</span></td>
+                <td style="padding:0.75rem;"><span class="badge" style="background:#eaf1ff; color:#4385f5; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.78rem;">${serviceLabel}</span></td>
+                <td style="padding:0.75rem; color:#7e8499; font-size:0.8rem;">${timeStr}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    };
+
+    if (refreshBtn) {
+        refreshBtn.addEventListener("click", () => {
+            renderContacts();
+        });
+    }
+
+    renderContacts();
+})();

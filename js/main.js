@@ -178,6 +178,10 @@ if (carDetailPage) {
         detailSections.forEach((section) => {
             section.hidden = false;
         });
+        const orderCarBtn = carDetailPage.querySelector("#orderCarBtn");
+        if (orderCarBtn) {
+            orderCarBtn.href = `contact.html?car=${encodeURIComponent(requestedCar)}`;
+        }
         document.title = `${values["[data-detail-name]"]} - Luxury Cars`;
     };
 
