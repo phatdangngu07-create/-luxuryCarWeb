@@ -393,7 +393,7 @@
       "tag": "HIỆU SUẤT",
       "title": "Hệ truyền động hybrid: Kỷ nguyên mới của siêu xe",
       "description": "Hệ truyền động hybrid đang mở thêm cách tiếp cận hiệu suất: mô-tơ điện hỗ trợ phản hồi, trong khi động cơ đốt trong vẫn giữ vai trò quan trọng ở nhiều mẫu xe.",
-      "link": "knowledge.html#hybrid",
+      "link": "collection.html?brand=Ferrari",
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ferrari_296_GTB_1X7A6377.jpg/1280px-Ferrari_296_GTB_1X7A6377.jpg",
       "imageCredit": "Alexander Migl",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Ferrari_296_GTB_1X7A6377.jpg"
@@ -404,7 +404,7 @@
       "tag": "THIẾT KẾ",
       "title": "Khí động học không chỉ là những chiếc cánh gió",
       "description": "Từ mặt sàn đến bộ khuếch tán, việc kiểm soát luồng khí ảnh hưởng đến lực ép, lực cản và sự ổn định của xe ở tốc độ cao.",
-      "link": "knowledge.html",
+      "link": "collection.html?brand=McLaren",
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/2024_McLaren_750S_2.jpg/1280px-2024_McLaren_750S_2.jpg",
       "imageCredit": "Calreyn88",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_2.jpg"
@@ -430,17 +430,6 @@
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Killarney_Race_Track_in_Tableview_Cape_Town.jpg/1280px-Killarney_Race_Track_in_Tableview_Cape_Town.jpg",
       "imageCredit": "SkyPixels",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Killarney_Race_Track_in_Tableview_Cape_Town.jpg"
-    },
-    {
-      "id": "5",
-      "category": "HƯỚNG DẪN · THÔNG SỐ",
-      "tag": "CẨM NANG",
-      "title": "Đọc bảng thông số xe trong vài phút",
-      "description": "Công suất, mô-men xoắn và thời gian tăng tốc chỉ có ý nghĩa khi đọc cùng cấu hình xe, điều kiện đo và nguồn công bố.",
-      "link": "knowledge.html",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Porsche_992_Turbo_S_1X7A0363.jpg/1280px-Porsche_992_Turbo_S_1X7A0363.jpg",
-      "imageCredit": "Alexander Migl",
-      "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Porsche_992_Turbo_S_1X7A0363.jpg"
     },
     {
       "id": "6",
