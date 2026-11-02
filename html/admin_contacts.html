@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu cầu liên hệ - Luxury Cars Admin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h2>Luxury Cars</h2>
+            <p>ADMIN</p>
+
+            <nav>
+                <a href="admin.html"><i class="bi bi-car-front-fill" aria-hidden="true"></i><span>Sản phẩm</span></a>
+                <a class="active" href="admin_contacts.html"><i class="bi bi-person-lines-fill" aria-hidden="true"></i><span>Yêu cầu liên hệ</span></a>
+                <a href="index.html"><i class="bi bi-house-door-fill" aria-hidden="true"></i><span>Trang chủ</span></a>
+            </nav>
+
+            <div class="profile">
+                <h3>Quản trị viên</h3>
+                <p>Quản lý yêu cầu khách hàng</p>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header>
+                <h1>Yêu cầu liên hệ</h1>
+            </header>
+
+            <section class="panel contact-panel" id="contacts">
+                <div class="contact-panel-heading">
+                    <div>
+                        <h2>Yêu cầu liên hệ mua xe</h2>
+                        <p id="contactsSummary">Đang tải yêu cầu liên hệ...</p>
+                    </div>
+                    <button type="button" id="refreshContactsButton">Làm mới</button>
+                </div>
+                <p id="contactsStatus" class="contacts-status" role="status" aria-live="polite"></p>
+                <div class="table-wrap">
+                    <table class="contacts-table">
+                        <colgroup>
+                            <col class="contact-column-customer">
+                            <col class="contact-column-car">
+                            <col class="contact-column-service">
+                            <col class="contact-column-budget">
+                            <col class="contact-column-message">
+                            <col class="contact-column-date">
+                            <col class="contact-column-status">
+                            <col class="contact-column-action">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Khách hàng</th>
+                                <th>Mẫu xe</th>
+                                <th>Nhu cầu</th>
+                                <th>Ngân sách</th>
+                                <th>Lời nhắn</th>
+                                <th>Thời gian gửi</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contactTableBody"></tbody>
+                    </table>
+                </div>
+                <p id="emptyContacts" class="empty-contacts" hidden>Chưa có yêu cầu liên hệ nào.</p>
+            </section>
+
+            <footer>
+                <p>Luxury Cars Admin - Quản lý yêu cầu khách hàng</p>
+            </footer>
+        </main>
+    </div>
+
+    <div id="adminToast"></div>
+    <script src="../js/admin-contacts.js"></script>
+</body>
+
+</html>

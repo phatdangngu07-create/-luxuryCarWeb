@@ -562,6 +562,13 @@ main:not(.home-main) {
     line-height: 1.7;
 }
 
+.editorial-published-date {
+    display: block;
+    margin: -0.5rem 0 0.75rem;
+    color: var(--luxury-muted);
+    font-size: 0.78rem;
+}
+
 .editorial-card {
     height: 100%;
     padding: 1.5rem;

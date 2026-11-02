@@ -7,6 +7,7 @@
     <meta name="description" content="Khám phá bộ sưu tập siêu xe nổi bật tại Luxury Cars.">
     <title>Thư viện siêu xe - Luxury Cars</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -47,10 +48,10 @@
                             <ul class="dropdown-menu dropdown-menu-end brand-menu">
                                 <li><a class="dropdown-item active" href="collection.html" aria-current="page">Thư viện siêu xe</a></li>
                                 <li><a class="dropdown-item" href="brands.html">Thương hiệu</a></li>
-                                <li><a class="dropdown-item" href="journal.html">Tin tức &amp; bài viết</a></li>
                                 <li><a class="dropdown-item" href="contact.html">Liên hệ mua hàng</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="journal.html">Tin tức &amp; bài viết</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
                         <li class="nav-item nav-account-register"><a class="nav-link" href="register.html">Đăng ký</a></li>
                     </ul>
@@ -113,7 +114,8 @@
                         </select>
                     </div>
                 </form>
-                <div class="row g-4" id="collectionCarGrid">
+                <p id="collectionLoadStatus" class="collection-search-status text-center" role="status">Đang tải danh sách xe...</p>
+                <div class="row g-4" id="collectionCarGrid" hidden>
                     <div class="col-12 col-sm-6 col-lg-3" data-car-item data-brand="Lamborghini" data-engine="hybrid v12" data-segment="hypercar" data-speed="350" data-power="1015" data-year="2023">
                         <article class="card h-100 shadow-sm" data-car-card>
                             <img class="card-img-top" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Lamborghini_Revuelto_DSC_6984.jpg/1280px-Lamborghini_Revuelto_DSC_6984.jpg" alt="Ảnh minh họa Lamborghini Revuelto">
@@ -203,6 +205,7 @@
                         </article>
                     </div>
                 </div>
+                <p id="collectionEmptyState" class="text-center text-secondary mt-4" hidden>Chưa có mẫu xe nào trong bộ sưu tập.</p>
             </div>
         </section>
     </main>
@@ -239,6 +242,7 @@
     </footer>
     <script src="/js/products.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/collection.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/js/page-reveal.js"></script>
     <script src="/js/auth.js"></script>

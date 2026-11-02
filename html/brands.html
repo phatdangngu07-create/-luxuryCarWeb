@@ -7,6 +7,7 @@
     <meta name="description" content="Tìm hiểu lịch sử, triết lý thiết kế và những mẫu xe tiêu biểu của các thương hiệu siêu xe.">
     <title>Thương hiệu - Luxury Cars</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -16,8 +17,6 @@
 </head>
 
 <body class="brand-page">
-
-    <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
@@ -47,10 +46,10 @@
                                 <ul class="dropdown-menu dropdown-menu-end brand-menu">
                                     <li><a class="dropdown-item" href="collection.html">Thư viện siêu xe</a></li>
                                     <li><a class="dropdown-item active" href="brands.html" aria-current="page">Thương hiệu</a></li>
-                                    <li><a class="dropdown-item" href="journal.html">Tin tức &amp; bài viết</a></li>
-                                <li><a class="dropdown-item" href="contact.html">Liên hệ mua hàng</a></li>
+                                    <li><a class="dropdown-item" href="contact.html">Liên hệ mua hàng</a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="journal.html">Tin tức &amp; bài viết</a></li>
                             <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
                             <li class="nav-item nav-account-register"><a class="nav-link" href="register.html">Đăng ký</a></li>
                         </ul>
@@ -95,7 +94,7 @@
                     </div>
                     <p class="brand-result-count" id="brandResultCount" aria-live="polite">06 thương hiệu</p>
 
-                    <div class="brand-grid">
+                    <div class="brand-grid" id="brandGrid">
                         <article class="brand-card" data-country="italy">
                             <div class="brand-card-top"><span>01 / 06</span><span class="brand-country-tag">ITALY</span></div>
                             <div class="brand-logo" data-initial="L"><img src="https://cdn.simpleicons.org/lamborghini" alt="Logo Lamborghini" loading="lazy"></div>
@@ -196,14 +195,6 @@
                 </div>
             </section>
 
-            <section class="brand-bottom-banner">
-                <div class="container">
-                    <p class="brand-eyebrow">YOUR NEXT DISCOVERY</p>
-                    <h2>Chiếc xe trong mơ đang chờ bạn.</h2>
-                    <p>Tiếp tục khám phá bộ sưu tập và tìm hiểu những cỗ máy tốc độ truyền cảm hứng cho bạn.</p>
-                    <a class="brand-primary-button" href="collection.html">ĐẾN THƯ VIỆN SIÊU XE <span aria-hidden="true">→</span></a>
-                </div>
-            </section>
         </main>
         <footer class="site-footer">
             <div class="container">
@@ -229,5 +220,4 @@
         <script src="/js/page-reveal.js"></script>
         <script src="/js/auth.js"></script>
     </body>
-
 </html>
