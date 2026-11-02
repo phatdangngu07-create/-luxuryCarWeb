@@ -213,8 +213,8 @@
                         ${isAdmin ? '<div class="badge bg-danger mt-1 d-inline-block">Quản trị viên</div>' : ''}
                     </li>
                     <li><hr class="dropdown-divider"></li>
-                    ${isAdmin ? '<li><a class="dropdown-item" href="admin.html">⚙️ Quản lý sản phẩm</a></li>' : ''}
-                    <li><button type="button" class="dropdown-item text-danger" id="globalLogoutBtn">🚪 Đăng xuất</button></li>
+                    ${isAdmin ? '<li><a class="dropdown-item d-flex align-items-center gap-2" href="admin.html"><i class="bi bi-gear-fill" aria-hidden="true"></i><span>Quản lý sản phẩm</span></a></li>' : ''}
+                    <li><button type="button" class="dropdown-item text-danger d-flex align-items-center gap-2" id="globalLogoutBtn"><i class="bi bi-box-arrow-right" aria-hidden="true"></i><span>Đăng xuất</span></button></li>
                 </ul>
             `;
 

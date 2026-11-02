@@ -51,10 +51,19 @@ body {
     color: #555;
     text-decoration: none;
     border-radius: 7px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar nav a i {
+    width: 18px;
+    font-size: 16px;
+    text-align: center;
 }
 
 .sidebar nav a:hover,
-.sidebar nav a[href="#products"] {
+.sidebar nav a.active {
     background: #f0edff;
     color: #5746d2;
 }
@@ -224,6 +233,184 @@ td button {
 #emptyProducts {
     margin-top: 15px;
     color: #888;
+}
+
+.contact-panel {
+    margin-top: 25px;
+}
+
+.contact-panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.contact-panel-heading h2 {
+    margin-bottom: 6px;
+}
+
+#contactsSummary,
+.contacts-status,
+.empty-contacts {
+    color: #777;
+}
+
+.contacts-status:not(:empty) {
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #fff7e6;
+    color: #805b16;
+}
+
+.contacts-table {
+    width: 100%;
+    min-width: 1180px;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+}
+
+.contact-column-customer {
+    width: 14%;
+}
+
+.contact-column-car {
+    width: 17%;
+}
+
+.contact-column-service {
+    width: 12%;
+}
+
+.contact-column-budget {
+    width: 10%;
+}
+
+.contact-column-message {
+    width: 16%;
+}
+
+.contact-column-date {
+    width: 13%;
+}
+
+.contact-column-status {
+    width: 8%;
+}
+
+.contact-column-action {
+    width: 10%;
+}
+
+.contacts-table th,
+.contacts-table td {
+    vertical-align: middle;
+    border-right: 1px solid #e8eaf0;
+}
+
+.contacts-table th:last-child,
+.contacts-table td:last-child {
+    border-right: 0;
+}
+
+.contacts-table th {
+    padding: 14px 12px;
+    border-bottom: 2px solid #dfe2eb;
+    background: #f0f1f7;
+    color: #33394a;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.contacts-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e8eaf0;
+    color: #3e4555;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.contacts-table tbody tr:nth-child(even) {
+    background: #f8f9fc;
+}
+
+.contacts-table tbody tr:hover {
+    background: #f0efff;
+}
+
+.contacts-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.contact-customer {
+    overflow-wrap: anywhere;
+}
+
+.contact-customer a {
+    display: block;
+    margin-top: 5px;
+    color: #5746d2;
+    overflow-wrap: anywhere;
+}
+
+.contact-city {
+    display: block;
+    margin-top: 4px;
+    color: #777;
+}
+
+.contact-message {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.contacts-table th:nth-child(6),
+.contacts-table td:nth-child(6),
+.contacts-table th:nth-child(7),
+.contacts-table td:nth-child(7),
+.contacts-table th:nth-child(8),
+.contacts-table td:nth-child(8) {
+    text-align: center;
+}
+
+.contacts-table th:nth-child(6),
+.contacts-table td:nth-child(6) {
+    white-space: nowrap;
+}
+
+.contact-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #fff2d6;
+    color: #805b16;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.contact-status.is-confirmed {
+    background: #e2f5e9;
+    color: #236b3c;
+}
+
+.confirm-contact-button {
+    width: 100%;
+    max-width: 125px;
+    white-space: nowrap;
+}
+
+.confirm-contact-button:disabled {
+    background: #a4a4a4;
+    cursor: default;
+}
+
+.empty-contacts {
+    margin-top: 15px;
 }
 
 

@@ -24,6 +24,213 @@ if (hero && heroVideo && !window.matchMedia("(prefers-reduced-motion: reduce)").
     });
 }
 
+const featuredProductsGrid = document.querySelector("#featuredProductsGrid");
+if (featuredProductsGrid) {
+    const featuredProductsStatus = document.querySelector("#featuredProductsStatus");
+    const fallbackImage = "/assets/images/lamboghini.jpg";
+
+    const createFeaturedCard = (product) => {
+        const column = document.createElement("div");
+        column.className = "col-md-4";
+
+        const card = document.createElement("article");
+        card.className = "feature-card";
+
+        const image = document.createElement("img");
+        image.src = product.image || fallbackImage;
+        image.alt = `Ảnh minh họa ${product.brand} ${product.name}`.trim();
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.addEventListener("error", () => {
+            if (image.src.endsWith(fallbackImage)) {
+                image.hidden = true;
+            } else {
+                image.src = fallbackImage;
+            }
+        });
+
+        const body = document.createElement("div");
+        body.className = "feature-card-body";
+
+        const brand = document.createElement("p");
+        brand.className = "car-brand-label";
+        brand.textContent = String(product.brand || "");
+
+        const title = document.createElement("h3");
+        title.textContent = String(product.name || "");
+
+        const description = document.createElement("p");
+        description.textContent = String(product.description || "");
+
+        const detailLink = document.createElement("a");
+        detailLink.className = "card-text-link";
+        detailLink.href = `car_detail.html?id=${encodeURIComponent(product.id)}`;
+        detailLink.append("Xem thông tin chi tiết ", document.createTextNode("\u2192"));
+
+        body.append(brand, title, description, detailLink);
+        card.append(image, body);
+        column.append(card);
+        return column;
+    };
+
+    const loadFeaturedProducts = async () => {
+        try {
+            const products = await window.LuxuryCarsProducts.getProducts();
+            const featuredProducts = products.filter((product) => product.featured === true);
+            featuredProductsGrid.replaceChildren(...featuredProducts.map(createFeaturedCard));
+
+            if (featuredProductsStatus) {
+                featuredProductsStatus.hidden = featuredProducts.length > 0;
+                featuredProductsStatus.textContent = featuredProducts.length
+                    ? ""
+                    : "Chưa có mẫu xe nổi bật. Hãy đánh dấu xe là nổi bật trong dữ liệu JSON.";
+            }
+        } catch (error) {
+            console.error("Không thể tải danh sách xe nổi bật:", error);
+            if (featuredProductsStatus) {
+                featuredProductsStatus.hidden = false;
+                featuredProductsStatus.setAttribute("role", "alert");
+                featuredProductsStatus.textContent = `Không thể tải xe nổi bật. Hãy đảm bảo JSON Server đang chạy: ${error.message}`;
+            }
+        }
+    };
+
+    loadFeaturedProducts();
+}
+
+(() => {
+    const journalGrid = document.querySelector("#homeJournalGrid");
+    const journalStatus = document.querySelector("#homeJournalStatus");
+    if (!journalGrid || !journalStatus) return;
+
+    const feedUrl = "https://vnexpress.net/rss/oto-xe-may.rss";
+    const feedApiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+    const marketKeywords = /thị trường|doanh số|doanh thu|bán chạy|giá xe|giá bán|giảm giá|tăng giá|mở bán|ra mắt|xe mới|xe điện|điện hóa|hybrid|mẫu xe|hãng xe|bàn giao|nhà máy|lắp ráp|nhập khẩu|sản lượng|ô tô điện|xe hybrid/i;
+    const trafficIncidentKeywords = /tai nạn|đâm liên hoàn|va chạm|tông trúng|mất lái|cháy xe|cao tốc/i;
+
+    const cleanText = (value) => {
+        let text = String(value || "");
+        for (let attempt = 0; attempt < 3; attempt += 1) {
+            const parsed = new DOMParser().parseFromString(text, "text/html");
+            parsed.querySelectorAll("img, a").forEach((element) => {
+                if (element.tagName === "IMG") {
+                    element.remove();
+                } else {
+                    element.replaceWith(document.createTextNode(element.textContent || ""));
+                }
+            });
+            const decoded = (parsed.body.textContent || "").replace(/\s+/g, " ").trim();
+            if (decoded === text || !/&(?:amp|lt|gt|quot|#\d+);/i.test(decoded)) return decoded;
+            text = decoded;
+        }
+        return text;
+    };
+
+    const createNewsCard = (article) => {
+        const column = document.createElement("div");
+        column.className = "col-md-4";
+
+        const card = document.createElement("article");
+        card.className = "editorial-card";
+
+        const category = document.createElement("span");
+        category.className = "editorial-category";
+        category.textContent = `TIN MỚI · ${article.source}`;
+
+        const heading = document.createElement("h3");
+        heading.textContent = article.title;
+
+        const published = new Date(article.pubDate);
+        if (!Number.isNaN(published.getTime())) {
+            const time = document.createElement("time");
+            time.className = "editorial-published-date";
+            time.dateTime = published.toISOString();
+            time.textContent = new Intl.DateTimeFormat("vi-VN", {
+                dateStyle: "medium",
+                timeStyle: "short"
+            }).format(published);
+            card.append(category, heading, time);
+        } else {
+            card.append(category, heading);
+        }
+
+        const summary = document.createElement("p");
+        summary.textContent = article.summary || "Mở bài viết để xem tóm tắt và thông tin từ nguồn tin.";
+
+        const link = document.createElement("a");
+        link.className = "card-text-link";
+        link.href = `journal.html?article=${encodeURIComponent(article.link)}`;
+        link.textContent = "Xem nội dung ";
+        link.append(document.createTextNode("\u2192"));
+
+        card.append(summary, link);
+        column.append(card);
+        return column;
+    };
+
+    const loadLatestNews = async () => {
+        try {
+            const response = await fetch(feedApiUrl, { cache: "no-store" });
+            if (!response.ok) {
+                throw new Error(`Nguồn tin trả về lỗi HTTP ${response.status}.`);
+            }
+
+            const feed = await response.json();
+            if (feed.status !== "ok" || !Array.isArray(feed.items)) {
+                throw new Error("Nguồn tin không trả về danh sách bài viết hợp lệ.");
+            }
+
+            const articles = feed.items
+                .map((item) => {
+                    let link;
+                    try {
+                        const url = new URL(item.link);
+                        if (url.protocol !== "https:") return null;
+                        link = url.href;
+                    } catch {
+                        return null;
+                    }
+
+                    let source = "VnExpress";
+                    try {
+                        source = new URL(link).hostname.replace(/^www\./, "");
+                    } catch {
+                        // Keep the readable default source name.
+                    }
+
+                    return {
+                        link,
+                        title: cleanText(item.title) || "Tin tức thị trường xe",
+                        summary: cleanText(item.description),
+                        pubDate: item.pubDate,
+                        source
+                    };
+                })
+                .filter((article) => {
+                    if (!article) return false;
+                    const searchableText = `${article.title} ${article.summary}`;
+                    return marketKeywords.test(searchableText) && !trafficIncidentKeywords.test(searchableText);
+                })
+                .sort((first, second) => new Date(second.pubDate) - new Date(first.pubDate))
+                .slice(0, 3);
+
+            if (articles.length === 0) {
+                journalStatus.textContent = "Hiện chưa có tin thị trường xe phù hợp từ nguồn RSS.";
+                return;
+            }
+
+            journalGrid.replaceChildren(...articles.map(createNewsCard));
+            journalStatus.hidden = true;
+        } catch (error) {
+            console.error("Không thể tải tin mới trên trang chủ:", error);
+            journalStatus.setAttribute("role", "alert");
+            journalStatus.textContent = `Không thể tải tin thị trường xe. Hãy thử tải lại trang sau: ${error.message}`;
+        }
+    };
+
+    loadLatestNews();
+})();
+
 const carDetailPage = document.querySelector("#carDetail");
 if (carDetailPage) {
     const detailError = document.querySelector("#detailError");
@@ -244,6 +451,7 @@ if (sortCars && requestedSort) {
 const collectionGrid = document.querySelector("#collectionCarGrid");
 if (collectionGrid) {
     const status = document.querySelector("#collectionSearchStatus");
+    const emptyState = document.querySelector("#collectionEmptyState");
 
     const updateCollection = () => {
         const carItems = [...collectionGrid.querySelectorAll("[data-car-item]")];
@@ -273,6 +481,9 @@ if (collectionGrid) {
         }
 
         const hasFilters = query || brand || engine || segment;
+        if (emptyState) {
+            emptyState.hidden = visibleItems.length > 0 || Boolean(hasFilters);
+        }
         if (status) {
             status.hidden = !hasFilters;
             status.textContent = visibleItems.length

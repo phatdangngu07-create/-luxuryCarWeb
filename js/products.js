@@ -1,11 +1,17 @@
 // Đường dẫn dữ liệu
-const API_URL = "http://localhost:3000/products";
+const API_URL = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/products`;
 
 // Lấy danh sách sản phẩm
 async function getProducts() {
-    let response = await fetch(API_URL);
-    let data = await response.json();
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+        throw new Error(`JSON Server trả về lỗi HTTP ${response.status}.`);
+    }
 
+    const data = await response.json();
+    if (!Array.isArray(data)) {
+        throw new Error("Dữ liệu sản phẩm từ JSON Server không hợp lệ.");
+    }
     return data;
 }
 
