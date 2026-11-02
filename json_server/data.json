@@ -528,6 +528,21 @@
       "message": "Tôi muốn chiếc xe màu hồng",
       "status": "pending",
       "createdAt": "2026-10-31T10:14:49.607Z"
+    },
+    {
+      "id": "YE51XFRZt34",
+      "name": "Quản trị viên 1",
+      "phone": "0344032123",
+      "email": "phat123@gmail.com",
+      "city": "Hà Nội",
+      "carId": "revuelto",
+      "carName": "Lamborghini Revuelto (Hybrid V12)",
+      "serviceType": "test_drive",
+      "budget": "under_20b",
+      "message": "chào shop",
+      "status": "confirmed",
+      "createdAt": "2026-11-02T16:08:19.737Z"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
