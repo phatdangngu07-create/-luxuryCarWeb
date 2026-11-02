@@ -529,6 +529,5 @@
       "status": "pending",
       "createdAt": "2026-10-31T10:14:49.607Z"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
