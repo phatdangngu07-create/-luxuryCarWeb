@@ -1,3 +1,5 @@
+/* Kiểu dáng thanh điều hướng cố định, menu thả xuống và ô tìm kiếm toàn site. */
+/* Thanh điều hướng tối, logo và trạng thái liên kết hiện hành. */
 header {
     position: fixed;
     z-index: 1030;
@@ -64,6 +66,7 @@ header {
     font: inherit;
 }
 
+/* Menu Khám phá và các mục điều hướng thả xuống. */
 .brand-menu {
     min-width: 12rem;
     padding: 0.45rem;
@@ -92,6 +95,7 @@ header {
     border-color: rgb(255 255 255 / 30%);
 }
 
+/* Ô tìm kiếm nằm trong navbar cùng nút kính lúp. */
 .navbar-search {
     position: relative;
     flex: 1 1 240px;
@@ -149,6 +153,7 @@ header {
 }
 
 @media (max-width: 991.98px) {
+    /* Bố cục menu và tìm kiếm khi navbar chuyển sang dạng thu gọn. */
     .navbar > .container {
         border-radius: 1.25rem;
     }
@@ -179,6 +184,7 @@ header {
 }
 
 @media (min-width: 992px) {
+    /* Căn ô tìm kiếm ở giữa thanh điều hướng trên màn hình lớn. */
     .navbar-search {
         position: absolute;
         left: 38%;
@@ -190,6 +196,7 @@ header {
 }
 
 @media (max-width: 575.98px) {
+    /* Thu gọn khoảng cách và kích thước navbar trên điện thoại. */
     header {
         top: 0.5rem;
     }

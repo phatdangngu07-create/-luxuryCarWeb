@@ -1,3 +1,4 @@
+// Tải danh sách xe từ API, dựng thẻ sản phẩm và cung cấp dữ liệu cho bộ lọc.
 (() => {
     const grid = document.querySelector("#collectionCarGrid");
     const loadStatus = document.querySelector("#collectionLoadStatus");
@@ -9,6 +10,7 @@
 
     grid.replaceChildren();
 
+    // Tạo lại tùy chọn thương hiệu nhưng giữ bộ lọc được chọn từ URL/giao diện.
     const populateBrands = (products) => {
         if (!brandFilter) return;
 
@@ -23,6 +25,7 @@
         brandFilter.value = selectedBrand;
     };
 
+    // Dựng thẻ xe và các thuộc tính dữ liệu mà bộ lọc/sắp xếp sẽ sử dụng.
     const createCarCard = (product) => {
         const brand = String(product.brand || "");
         const name = String(product.name || "");
@@ -83,6 +86,7 @@
         return item;
     };
 
+    // Tải sản phẩm, hiển thị danh sách và phát sự kiện để hiệu ứng quan sát cập nhật.
     const loadProducts = async () => {
         try {
             if (!catalog || typeof catalog.getProducts !== "function") {

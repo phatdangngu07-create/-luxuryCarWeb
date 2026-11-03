@@ -1,3 +1,6 @@
+/* Quy tắc giao diện nền tảng và các thành phần nội dung dùng chung trên website. */
+
+/* Biến màu, kiểu chữ và khoảng cuộn chung cho các trang. */
 :root {
     --luxury-dark: #111315;
     --luxury-dark-soft: #1b1e21;
@@ -32,6 +35,7 @@ main:not(.home-main) {
     padding-top: 0;
 }
 
+/* Hero trang chủ: nền video/ảnh, tiêu đề và hiệu ứng phủ tương phản. */
 #home {
     position: relative;
     display: flex;
@@ -152,6 +156,7 @@ main:not(.home-main) {
     backdrop-filter: blur(8px);
 }
 
+/* Màu nút thương hiệu và các bề mặt form Bootstrap được đồng bộ. */
 .btn-danger {
     --bs-btn-bg: var(--luxury-red);
     --bs-btn-border-color: var(--luxury-red);
@@ -306,6 +311,7 @@ main:not(.home-main) {
     color: var(--luxury-dark);
 }
 
+/* Nội dung hero, điều hướng khám phá và các thẻ mở lối đi nội dung. */
 .hero-content {
     min-height: min(72vh, 680px);
 }
@@ -502,6 +508,7 @@ main:not(.home-main) {
     margin-top: 1rem;
 }
 
+/* Các khối xe nổi bật và tin tức được dựng dữ liệu trên trang chủ. */
 .home-content-section {
     padding: clamp(4rem, 8vw, 6.5rem) 0;
     background: #fff;
@@ -590,6 +597,7 @@ main:not(.home-main) {
     text-align: right;
 }
 
+/* Tiêu đề mở đầu trang và công cụ lọc/sắp xếp thư viện xe. */
 .page-intro {
     padding: 2rem 0 1rem;
 }
@@ -628,6 +636,7 @@ main:not(.home-main) {
 }
 
 .brand-card,
+/* Thẻ kiến thức, dấu hiệu thương hiệu và nguồn gốc của từng hãng xe. */
 .knowledge-card {
     height: 100%;
     padding: clamp(1.4rem, 3vw, 2rem);
@@ -670,6 +679,7 @@ main:not(.home-main) {
     text-transform: uppercase;
 }
 
+/* Bố cục nội dung chi tiết và thư viện ảnh mẫu xe. */
 .content-section {
     padding: clamp(3rem, 7vw, 5.5rem) 0;
 }
@@ -780,6 +790,7 @@ main:not(.home-main) {
     color: var(--luxury-red-dark);
 }
 
+/* Khối kể chuyện thương hiệu, ảnh minh họa và liên kết khám phá. */
 .marque-section {
     padding: clamp(3rem, 7vw, 6rem) 0;
     background: #f3f2ef;

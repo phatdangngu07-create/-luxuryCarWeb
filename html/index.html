@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+    <!-- Cấu hình trang chủ và nạp các thư viện/stylesheet dùng cho giao diện. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Khám phá bộ sưu tập siêu xe, thương hiệu, công nghệ và câu chuyện phía sau những mẫu xe biểu tượng.">
@@ -17,6 +18,7 @@
 </head>
 
 <body>
+    <!-- Điều hướng chung đưa người dùng đến các khu vực chính của website. -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -62,6 +64,7 @@
     </header>
 
     <main class="home-main">
+        <!-- Hero mở đầu: video nền, thông điệp chính và lối vào bộ sưu tập xe. -->
         <section id="home" class="bg-dark text-white" aria-labelledby="hero-title">
             <div class="hero-media" aria-hidden="true">
                 <img src="/assets/images/lamboghini.jpg" alt="">
@@ -90,6 +93,7 @@
             </div>
         </section>
 
+        <!-- Các lối khám phá nhanh về thương hiệu, hiệu năng và kiến thức xe. -->
         <section id="discover" class="discovery-section" aria-labelledby="discover-title">
             <div class="container">
                 <div class="row align-items-end gy-3 discovery-heading">
@@ -128,6 +132,7 @@
             </div>
         </section>
 
+        <!-- Danh sách xe nổi bật được tải động từ JSON Server. -->
         <section id="popular-cars" class="home-content-section" aria-labelledby="popular-cars-title">
             <div class="container">
                 <div class="row align-items-end gy-3 section-heading">
@@ -142,6 +147,7 @@
             </div>
         </section>
 
+        <!-- Ba tin thị trường mới nhất được tải từ nguồn RSS. -->
         <section class="home-content-section home-content-muted" aria-labelledby="journal-preview-title">
             <div class="container">
                 <div class="row align-items-end gy-3 section-heading">
@@ -159,7 +165,7 @@
     </main>
 
 
-    <!-- 3D Interactive Car Showroom -->
+    <!-- Phòng trưng bày 3D cho phép xoay xe và chọn màu sơn ngoại thất. -->
     <section class="footer-3d-showroom" aria-label="Khu vực trải nghiệm mô hình Porsche 3D tương tác">
         <model-viewer id="carViewer" src="../assets/models/poscher.glb" alt="Mô hình xe Porsche 3D tương tác" auto-rotate auto-rotate-delay="1500" rotation-per-second="14deg" camera-controls touch-action="pan-y" shadow-intensity="1.8" shadow-softness="0.75"
                 exposure="1.0" camera-orbit="38deg 78deg 105%" field-of-view="30deg">
@@ -211,6 +217,7 @@
                 </div>
             </div>
         </section>
+        <!-- Thông tin liên hệ, mạng xã hội và liên kết cuối trang. -->
         <footer class="site-footer">
             <div class="container">
                 <div class="row g-4 footer-content">
@@ -241,6 +248,7 @@
                 </div>
             </div>
         </footer>
+        <!-- Khởi tạo Bootstrap, chức năng trang chủ, hiệu ứng xuất hiện và tài khoản. -->
         <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/js/products.js"></script>
         <script src="/js/main.js"></script>

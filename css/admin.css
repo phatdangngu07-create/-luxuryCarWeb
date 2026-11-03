@@ -1,3 +1,4 @@
+/* Bố cục và thành phần chung của hai màn hình quản trị. */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -235,6 +236,7 @@ td button {
     color: #888;
 }
 
+/* Bảng yêu cầu khách hàng, trạng thái xác nhận và nút cập nhật. */
 .contact-panel {
     margin-top: 25px;
 }

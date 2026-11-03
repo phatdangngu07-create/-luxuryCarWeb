@@ -1,3 +1,4 @@
+// Điều khiển form liên hệ: tải mẫu xe, kiểm tra dữ liệu và lưu yêu cầu mua xe.
 (() => {
     const API_BASE = window.LUXURY_CARS_API_URL || "http://localhost:3000";
     const contactsEndpoint = `${API_BASE}/contacts`;
@@ -39,6 +40,7 @@
         "'": "&#39;"
     })[character]);
 
+    // Hiển thị kết quả gửi; khi lưu cục bộ có thể tải bản sao JSON dự phòng.
     const showAlert = (message, type = "danger", allowDownload = null) => {
         elements.alert.className = `alert alert-${type} mb-4`;
         elements.alert.innerHTML = message;
@@ -67,7 +69,7 @@
         elements.alert.innerHTML = "";
     };
 
-    // 1. Tự động điền thông tin nếu người dùng đã đăng nhập
+    // Điền tên/email từ phiên hiện tại mà không ghi đè nội dung khách đã nhập.
     const prefillUser = () => {
         if (window.LuxuryCarsAuth && typeof window.LuxuryCarsAuth.getCurrentUser === "function") {
             const user = window.LuxuryCarsAuth.getCurrentUser();
@@ -78,7 +80,7 @@
         }
     };
 
-    // 2. Tải danh sách xe vào Select box
+    // Tải các mẫu xe từ API, chọn xe được yêu cầu trên URL hoặc dùng danh sách dự phòng.
     const loadCarOptions = async () => {
         const urlParams = new URLSearchParams(window.location.search);
         const requestedCar = urlParams.get("car") || "";
@@ -117,7 +119,7 @@
         elements.car.appendChild(otherOpt);
     };
 
-    // 3. Lưu lên JSON Server; nếu không khả dụng thì lưu dự phòng trên trình duyệt này.
+    // Ưu tiên lưu trên JSON Server; khi không khả dụng, lưu dự phòng trong trình duyệt.
     const saveContactData = async (contact) => {
         let fallbackReason = "JSON Server không khả dụng.";
         try {
@@ -150,7 +152,7 @@
         return { savedOnline: false, data: contact, fallbackReason };
     };
 
-    // 4. Bắt sự kiện gửi form
+    // Chặn gửi lặp, kiểm tra đầu vào, tạo bản ghi liên hệ và phản hồi trạng thái lưu.
     let isSubmitting = false;
     elements.form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -167,7 +169,7 @@
         const budget = elements.budget.value;
         const message = elements.message.value.trim();
 
-        // Kiểm tra dữ liệu
+        // Kiểm tra các trường bắt buộc và định dạng trước khi ghi dữ liệu.
         if (!name) {
             showAlert("Vui lòng nhập họ và tên của bạn.");
             elements.name.focus();
@@ -200,7 +202,7 @@
             return;
         }
 
-        // Tạo đối tượng dữ liệu đơn hàng
+        // Chuẩn hóa dữ liệu yêu cầu để API và màn hình quản trị cùng sử dụng.
         const newContact = {
             id: `CT-${Date.now()}`,
             name,
@@ -256,7 +258,7 @@
         }
     });
 
-    // Khởi tạo
+    // Điền tài khoản hiện tại và nạp tùy chọn xe khi form đã có trên trang.
     prefillUser();
     loadCarOptions();
 })();

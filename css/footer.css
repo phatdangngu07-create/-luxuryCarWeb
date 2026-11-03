@@ -1,3 +1,4 @@
+/* Kiểu chữ, thông tin liên hệ và liên kết ở chân trang trên các trang nội dung. */
 .site-footer {
     padding: 3.5rem 0 1.25rem;
     background: var(--luxury-dark);
@@ -90,6 +91,7 @@
 }
 
 @media (max-width: 575.98px) {
+    /* Xếp nội dung chân trang theo chiều dọc trên thiết bị nhỏ. */
     .site-footer {
         padding-top: 2.75rem;
     }
@@ -107,6 +109,7 @@
 
 /* =========================================================
    3D CAR SHOWROOM PRE-FOOTER SECTION
+   Mô hình tương tác, bảng màu và hướng dẫn điều khiển showroom.
    ========================================================= */
 .footer-3d-showroom {
     position: relative;
