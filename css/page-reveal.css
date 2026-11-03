@@ -1,3 +1,4 @@
+/* Trạng thái ẩn/hiện và nhịp animation cho các khối khi cuộn tới. */
 .page-reveal {
     transition: opacity 450ms ease var(--page-reveal-delay, 0ms), transform 450ms cubic-bezier(0.2, 0.75, 0.25, 1) var(--page-reveal-delay, 0ms);
 }
@@ -41,6 +42,7 @@
 }
 
 @keyframes page-reveal-copy {
+    /* Hiệu ứng chữ trượt nhẹ và rõ dần khi thẻ được hiển thị. */
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -53,6 +55,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    /* Giữ nội dung hiện đầy đủ nhưng tắt chuyển động theo cài đặt trợ năng. */
     .page-reveal,
     .brand-card.page-reveal {
         transition: none;

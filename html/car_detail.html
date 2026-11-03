@@ -2,6 +2,7 @@
 <html lang="vi">
 
 <head>
+    <!-- Tài nguyên dùng chung cho trang hồ sơ chi tiết của một mẫu xe. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thông số, công nghệ và điểm nổi bật của các mẫu siêu xe.">
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+    <!-- Điều hướng chung tới thư viện, thương hiệu và các trang khác. -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -41,8 +43,10 @@
             </div>
         </nav>
     </header>
+    <!-- Nội dung xe sẽ được điền theo ID trên URL; lỗi tải hiện tại vùng cảnh báo. -->
     <main id="carDetail">
         <p id="detailError" class="container alert alert-warning mt-5" role="alert" hidden></p>
+        <!-- Ảnh, thông số chính và liên kết đặt mua mẫu xe. -->
         <section class="content-section content-section-muted" data-detail-section>
             <div class="container">
                 <p class="section-eyebrow">HỒ SƠ SIÊU XE</p>
@@ -74,6 +78,7 @@
                 </div>
             </div>
         </section>
+        <!-- Điểm nổi bật, công nghệ và nguồn thông số của mẫu xe. -->
         <section class="content-section" aria-labelledby="highlights-title" data-detail-section>
             <div class="container">
                 <div class="row g-4">
@@ -96,6 +101,7 @@
             </div>
         </section>
     </main>
+    <!-- Thông tin thương hiệu và kênh liên hệ cuối trang. -->
     <footer class="site-footer">
         <div class="container">
             <div class="row g-4 footer-content">
@@ -114,6 +120,7 @@
             <div class="footer-bottom"><span>&copy; 2026 Luxury Cars. All rights reserved.</span><a href="#">Trở về đầu trang &uarr;</a></div>
         </div>
     </footer>
+    <!-- Tải dữ liệu chi tiết, hiệu ứng hiển thị và trạng thái đăng nhập. -->
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/page-reveal.js"></script>

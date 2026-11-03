@@ -1,3 +1,4 @@
+// Cung cấp các thao tác quản trị danh mục xe: đọc, tìm kiếm, lọc, thêm, sửa, xóa.
 const catalog = window.LuxuryCarsProducts;
 
 // Mảng lưu sản phẩm
@@ -26,7 +27,7 @@ const productSpeed = document.getElementById("productSpeed");
 const productImage = document.getElementById("productImage");
 const productDescription = document.getElementById("productDescription");
 
-// 1. LẤY DỮ LIỆU TỪ JSON SERVER
+// Đọc dữ liệu sản phẩm và đồng bộ bảng, bộ đếm cùng bộ lọc thương hiệu.
 async function loadProducts() {
     try {
         products = await catalog.getProducts();
@@ -41,7 +42,7 @@ async function loadProducts() {
     }
 }
 
-// 2. HIỂN THỊ SẢN PHẨM
+// Dựng lại các hàng bảng theo từ khóa và bộ lọc đang chọn.
 function showProducts() {
     tableBody.innerHTML = "";
 
@@ -117,7 +118,7 @@ function showProducts() {
         tableBody.children.length > 0;
 }
 
-// 3. THỐNG KÊ SẢN PHẨM
+// Tính tổng xe, số phân khúc và số thương hiệu để hiển thị thẻ thống kê.
 function updateStats() {
 
     let total = products.length;
@@ -146,7 +147,7 @@ function updateStats() {
     document.getElementById("totalHypercars").innerText = hypercars;
 }
 
-// 4. LỌC THƯƠNG HIỆU
+// Tạo danh sách thương hiệu duy nhất, giữ nguyên lựa chọn hiện hành.
 function updateBrandFilter() {
 
     let selectedBrand = brandFilter.value;
@@ -180,7 +181,7 @@ function updateBrandFilter() {
     brandFilter.value = selectedBrand;
 }
 
-// 5. MỞ FORM THÊM SẢN PHẨM
+// Mở hộp thoại ở chế độ tạo mới và đặt giá trị mặc định cho biểu mẫu.
 document.getElementById("addProductButton").onclick = function() {
 
     productForm.reset();
@@ -196,7 +197,7 @@ document.getElementById("addProductButton").onclick = function() {
     productModal.classList.add("show");
 };
 
-// 6. ĐÓNG FORM
+// Đóng hộp thoại nhập sản phẩm.
 function closeModal() {
     productModal.classList.remove("show");
 }
@@ -205,7 +206,7 @@ document.getElementById("closeProductModal").onclick = closeModal;
 
 document.getElementById("cancelProductModal").onclick = closeModal;
 
-// 7. SỬA SẢN PHẨM
+// Điền dữ liệu xe được chọn vào biểu mẫu chỉnh sửa.
 function editProduct(product) {
 
     productId.value = product.id;
@@ -225,7 +226,7 @@ function editProduct(product) {
     productModal.classList.add("show");
 }
 
-// 8. THÊM VÀ CẬP NHẬT SẢN PHẨM
+// Lưu sản phẩm mới hoặc cập nhật, sau đó tải lại bảng quản trị.
 productForm.onsubmit = async function(event) {
 
     event.preventDefault();
@@ -272,7 +273,7 @@ productForm.onsubmit = async function(event) {
     }
 };
 
-// 9. XÓA SẢN PHẨM
+// Hỏi xác nhận trước khi xóa xe khỏi API và làm mới danh sách.
 async function deleteProduct(id) {
 
     let answer = confirm(
@@ -297,12 +298,12 @@ async function deleteProduct(id) {
     }
 }
 
-// 10. TÌM KIẾM SẢN PHẨM
+// Cập nhật bảng ngay khi từ khóa tìm kiếm thay đổi.
 searchInput.oninput = function() {
     showProducts();
 };
 
-// 11. LỌC SẢN PHẨM
+// Áp dụng bộ lọc thương hiệu và phân khúc sau mỗi lần chọn.
 brandFilter.onchange = function() {
     showProducts();
 };
@@ -311,5 +312,5 @@ segmentFilter.onchange = function() {
     showProducts();
 };
 
-// 12. TẢI DỮ LIỆU KHI MỞ TRANG
+// Nạp dữ liệu ban đầu để bảng quản trị sẵn sàng khi mở trang.
 loadProducts();

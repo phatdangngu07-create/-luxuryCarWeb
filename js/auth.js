@@ -1,3 +1,4 @@
+// Quản lý xác thực: đồng bộ tài khoản với JSON Server và lưu phiên an toàn tối thiểu.
 (() => {
     const STORAGE_USERS_KEY = "luxuryCarsUsers";
     const STORAGE_CURRENT_USER_KEY = "luxuryCarsCurrentUser";
@@ -11,6 +12,7 @@
         "'": "&#39;"
     })[character]);
 
+    // Gửi yêu cầu tới API người dùng và chuẩn hóa lỗi kết nối/phản hồi.
     const requestUsers = async (options) => {
         let response;
         try {
@@ -26,6 +28,7 @@
         return response.json();
     };
 
+    // Lấy danh sách người dùng và xác thực đúng cấu trúc dữ liệu trả về.
     const getUsers = async () => {
         const users = await requestUsers();
         if (!Array.isArray(users)) {
@@ -34,6 +37,7 @@
         return users;
     };
 
+    // Chuyển tài khoản cũ từ localStorage sang JSON Server một lần duy nhất.
     const migrateLegacyUsers = async () => {
         if (localStorage.getItem(STORAGE_MIGRATION_KEY) === "true") return;
 
@@ -91,6 +95,7 @@
         localStorage.setItem(STORAGE_MIGRATION_KEY, "true");
     };
 
+    // Đọc phiên đăng nhập hiện tại; mật khẩu không được giữ trong phiên này.
     const getCurrentUser = () => {
         try {
             const raw = localStorage.getItem(STORAGE_CURRENT_USER_KEY);
@@ -101,6 +106,7 @@
         }
     };
 
+    // Lưu hoặc xóa phiên đăng nhập với các trường thông tin cần cho giao diện.
     const setCurrentUser = (user) => {
         if (!user) {
             localStorage.removeItem(STORAGE_CURRENT_USER_KEY);
@@ -116,11 +122,13 @@
         }
     };
 
+    // Xóa phiên và tải lại trang để cập nhật các mục điều hướng.
     const logout = () => {
         localStorage.removeItem(STORAGE_CURRENT_USER_KEY);
         window.location.reload();
     };
 
+    // Kiểm tra email duy nhất và tạo tài khoản mới trên JSON Server.
     const registerUser = async ({ name, email, password }) => {
         await migrateLegacyUsers();
         const users = await getUsers();
@@ -148,6 +156,7 @@
         return createdUser;
     };
 
+    // Xác thực thông tin đăng nhập và ghi phiên khi thông tin hợp lệ.
     const loginUser = async ({ email, password }) => {
         await migrateLegacyUsers();
         const users = await getUsers();
@@ -165,7 +174,7 @@
         return user;
     };
 
-    // Xuất API toàn cục
+    // Xuất API xác thực để các trang khác điền thông tin hoặc kết thúc phiên.
     window.LuxuryCarsAuth = {
         getUsers,
         getCurrentUser,
@@ -178,6 +187,7 @@
     // =========================================================
     // CẬP NHẬT GIAO DIỆN NAVBAR KHI ĐÃ ĐĂNG NHẬP
     // =========================================================
+    // Thay liên kết đăng nhập/đăng ký bằng menu tài khoản khi đã đăng nhập.
     const updateNavbarAuth = () => {
         const currentUser = getCurrentUser();
         const loginLink = document.querySelector('a[href*="login.html"]');
@@ -230,6 +240,7 @@
     // =========================================================
     // XỬ LÝ TRANG ĐĂNG KÝ (register.html)
     // =========================================================
+    // Kiểm tra dữ liệu form và điều phối quy trình đăng ký tài khoản.
     const initRegisterPage = () => {
         const form = document.querySelector("#dangky form") || document.querySelector("form#registerForm");
         if (!form) return;
@@ -328,6 +339,7 @@
     // =========================================================
     // XỬ LÝ TRANG ĐĂNG NHẬP (login.html)
     // =========================================================
+    // Xử lý đăng nhập, tài khoản mẫu và chuyển hướng theo vai trò.
     const initLoginPage = () => {
         const form = document.querySelector("#login form") || document.querySelector("form#loginForm");
         if (!form) return;
@@ -419,6 +431,7 @@
     // =========================================================
     // XỬ LÝ TRANG QUẢN TRỊ (admin.html)
     // =========================================================
+    // Điền hồ sơ quản trị và gắn thao tác đăng xuất nếu trang có vùng hồ sơ.
     const initAdminPage = () => {
         const adminProfile = document.querySelector(".profile");
         if (!adminProfile) return;
@@ -452,7 +465,7 @@
         }
     };
 
-    // Khởi chạy khi DOM sẵn sàng
+    // Khởi tạo các chức năng xác thực sau khi HTML đã sẵn sàng.
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", () => {
             updateNavbarAuth();

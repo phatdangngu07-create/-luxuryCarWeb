@@ -1,4 +1,4 @@
-// Danh sách thương hiệu
+// Dữ liệu nội dung tĩnh cho thẻ thương hiệu: xuất xứ, hình ảnh, mô tả và mẫu xe.
 const brands = [{
         name: "Lamborghini",
         country: "italy",
@@ -68,14 +68,14 @@ const brands = [{
 ];
 
 
-// Lấy các phần tử HTML
+// Tham chiếu các vùng hiển thị và nút lọc của trang thương hiệu.
 const brandGrid = document.getElementById("brandGrid");
 const brandResultCount = document.getElementById("brandResultCount");
 const brandEmpty = document.getElementById("brandEmpty");
 const filterButtons = document.querySelectorAll(".brand-filter-button");
 
 
-// Hiển thị danh sách thương hiệu
+// Dựng thẻ thương hiệu, cập nhật tổng số và trạng thái danh sách rỗng.
 function showBrands(list) {
     brandGrid.innerHTML = "";
 
@@ -134,7 +134,7 @@ function showBrands(list) {
 }
 
 
-// Lọc thương hiệu theo quốc gia
+// Chọn toàn bộ thương hiệu hoặc chỉ những thương hiệu của một quốc gia.
 function filterBrands(country) {
     let result = [];
 
@@ -152,7 +152,7 @@ function filterBrands(country) {
 }
 
 
-// Bắt sự kiện khi nhấn nút lọc
+// Cập nhật trạng thái nút đang chọn và hiển thị kết quả lọc tương ứng.
 for (let i = 0; i < filterButtons.length; i++) {
     filterButtons[i].onclick = function() {
 
@@ -169,5 +169,5 @@ for (let i = 0; i < filterButtons.length; i++) {
 }
 
 
-// Hiển thị tất cả thương hiệu khi mở trang
+// Khởi tạo trang với đầy đủ thương hiệu trước khi người dùng lọc.
 showBrands(brands);

@@ -1,4 +1,6 @@
+/* Điều chỉnh hero, thẻ xe và khoảng cách nội dung theo kích thước màn hình. */
 @media (max-width: 575.98px) {
+    /* Cỡ chữ hero và ảnh xe phù hợp màn hình điện thoại nhỏ. */
     #home h1 {
         font-size: clamp(2.25rem, 11vw, 3.25rem);
     }
@@ -14,6 +16,7 @@
 }
 
 @media (max-width: 767.98px) {
+    /* Tối ưu bố cục hero và phần khám phá ở máy tính bảng/điện thoại. */
     .hero-content {
         min-height: 0;
     }
@@ -37,6 +40,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    /* Tắt chuyển động mạnh khi người dùng bật tùy chọn giảm animation. */
     html {
         scroll-behavior: auto;
     }

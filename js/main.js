@@ -1,3 +1,7 @@
+// Điều khiển các tương tác dùng chung trên trang chủ, thư viện xe và hồ sơ xe.
+// Phần tử được truy vấn theo ID để đoạn mã chỉ chạy ở trang có thành phần tương ứng.
+
+// Phát lại video hero trên trang chủ; tôn trọng tùy chọn giảm chuyển động của người dùng.
 const hero = document.querySelector("#home");
 const heroVideo = hero?.querySelector(".hero-media video");
 
@@ -24,6 +28,7 @@ if (hero && heroVideo && !window.matchMedia("(prefers-reduced-motion: reduce)").
     });
 }
 
+// Tải và dựng các thẻ xe được đánh dấu nổi bật trong dữ liệu JSON.
 const featuredProductsGrid = document.querySelector("#featuredProductsGrid");
 if (featuredProductsGrid) {
     const featuredProductsStatus = document.querySelector("#featuredProductsStatus");
@@ -98,6 +103,7 @@ if (featuredProductsGrid) {
     loadFeaturedProducts();
 }
 
+// Tải ba tin thị trường mới nhất cho khu vực tin tức xem trước trên trang chủ.
 (() => {
     const journalGrid = document.querySelector("#homeJournalGrid");
     const journalStatus = document.querySelector("#homeJournalStatus");
@@ -108,6 +114,7 @@ if (featuredProductsGrid) {
     const marketKeywords = /thị trường|doanh số|doanh thu|bán chạy|giá xe|giá bán|giảm giá|tăng giá|mở bán|ra mắt|xe mới|xe điện|điện hóa|hybrid|mẫu xe|hãng xe|bàn giao|nhà máy|lắp ráp|nhập khẩu|sản lượng|ô tô điện|xe hybrid/i;
     const trafficIncidentKeywords = /tai nạn|đâm liên hoàn|va chạm|tông trúng|mất lái|cháy xe|cao tốc/i;
 
+    // Chuyển phần mô tả RSS có HTML/entity thành văn bản thuần để hiển thị an toàn.
     const cleanText = (value) => {
         let text = String(value || "");
         for (let attempt = 0; attempt < 3; attempt += 1) {
@@ -126,6 +133,7 @@ if (featuredProductsGrid) {
         return text;
     };
 
+    // Tạo thẻ tin với nguồn, ngày đăng, tóm tắt và liên kết tới trang bài viết.
     const createNewsCard = (article) => {
         const column = document.createElement("div");
         column.className = "col-md-4";
@@ -168,6 +176,7 @@ if (featuredProductsGrid) {
         return column;
     };
 
+    // Lấy feed, lọc tin xe liên quan và hiển thị thông báo lỗi/rỗng phù hợp.
     const loadLatestNews = async () => {
         try {
             const response = await fetch(feedApiUrl, { cache: "no-store" });
@@ -231,6 +240,7 @@ if (featuredProductsGrid) {
     loadLatestNews();
 })();
 
+// Nạp dữ liệu xe và thông tin kỹ thuật tùy chọn cho trang chi tiết theo ID URL.
 const carDetailPage = document.querySelector("#carDetail");
 if (carDetailPage) {
     const detailError = document.querySelector("#detailError");
@@ -290,6 +300,7 @@ if (carDetailPage) {
     detailError.textContent = "Đang tải thông tin mẫu xe...";
     detailError.setAttribute("role", "status");
 
+    // Đọc một bản ghi từ JSON Server; cho phép thiếu bản ghi chi tiết bổ sung.
     const fetchRecord = async (collection, id, optional = false) => {
         const response = await fetch(`${apiUrl}/${collection}/${encodeURIComponent(id)}`);
         if (optional && response.status === 404) {
@@ -303,6 +314,7 @@ if (carDetailPage) {
         return response.json();
     };
 
+    // Điền nội dung, ảnh, nguồn tham khảo và đường dẫn đặt mua lên trang.
     const renderCarDetail = async () => {
         const [product, detail] = await Promise.all([
             fetchRecord("products", requestedCar),
@@ -336,6 +348,7 @@ if (carDetailPage) {
             ...(Array.isArray(product.gallery) ? product.gallery : (galleryPhotos[requestedCar] || []).map(([url]) => ({ url })))
         ].slice(0, 4);
 
+        // Đồng bộ ảnh lớn và trạng thái nút khi người dùng chọn ảnh thu nhỏ.
         const showPhoto = (photo, selectedButton) => {
             image.src = photo.url;
             image.alt = `Ảnh ${product.brand} ${product.name}`;
@@ -400,6 +413,7 @@ if (carDetailPage) {
     });
 }
 
+// Đọc tham số tìm kiếm/lọc từ URL để khôi phục trạng thái thư viện xe.
 const collectionParams = new URLSearchParams(window.location.search);
 const collectionSearch = collectionParams.get("search") || "";
 const searchInput = document.querySelector(".navbar-search input[name='search']");
@@ -448,6 +462,7 @@ if (sortCars && requestedSort) {
     sortCars.value = requestedSort;
 }
 
+// Lọc, sắp xếp và cập nhật trạng thái rỗng trên lưới xe có sẵn trong HTML.
 const collectionGrid = document.querySelector("#collectionCarGrid");
 if (collectionGrid) {
     const status = document.querySelector("#collectionSearchStatus");
@@ -501,6 +516,7 @@ if (collectionGrid) {
 // =========================================================
 // 3D CAR SHOWROOM INTERACTIVE LOGIC
 // =========================================================
+// Điều khiển bộ chọn màu sơn của mô hình 3D trên trang chủ.
 const carViewer = document.querySelector("#carViewer");
 if (carViewer) {
     // Lưu màu đang được chọn
@@ -511,6 +527,7 @@ if (carViewer) {
     }
 
     // Hàm nhận diện thông minh vật liệu sơn xe cho mọi mô hình (Porsche, Ferrari, Lamborghini...)
+    // Nhận diện vật liệu sơn thân xe và loại trừ kính/lốp/chi tiết không đổi màu.
     const isPaintMaterial = (mat) => {
         const name = (mat.name || "").toLowerCase();
         // Loại trừ các bộ phận không phải vỏ sơn xe
@@ -521,6 +538,7 @@ if (carViewer) {
         return /(carpaint|paint|body|chassis|exterior|coat|shell|karosserie|color|colour)/i.test(name);
     };
 
+    // Áp màu RGB lên vật liệu phù hợp, kể cả khi mô hình tải sau thao tác chọn màu.
     const applyCarColor = (colorValues) => {
         if (!carViewer.model || !carViewer.model.materials) return;
 

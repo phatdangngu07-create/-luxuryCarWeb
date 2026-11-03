@@ -1,3 +1,5 @@
+/* Toàn bộ giao diện trang thương hiệu: hero, bộ lọc, thẻ hãng và responsive. */
+/* Phần mở đầu giới thiệu thương hiệu và số liệu danh mục. */
 .brand-page {
     background: #f4f5f6;
     font-family: Arial, Helvetica, sans-serif;
@@ -144,6 +146,7 @@
     letter-spacing: 0.12em;
 }
 
+/* Bộ lọc quốc gia, số lượng kết quả và lưới thương hiệu. */
 .brand-intro {
     padding: clamp(3.5rem, 7vw, 6rem) 0;
     background: #f4f5f6;
@@ -213,6 +216,7 @@
     align-items: stretch;
 }
 
+/* Thẻ thương hiệu: logo tròn, ảnh xe, mô tả và liên kết khám phá. */
 .brand-card {
     display: flex;
     min-width: 0;
@@ -379,6 +383,7 @@
     text-align: center;
 }
 
+/* Dải giới thiệu cuối danh mục và bố cục thích ứng theo thiết bị. */
 .brand-bottom-banner {
     padding: clamp(3.5rem, 7vw, 6rem) 0;
     background:
@@ -404,6 +409,7 @@
 }
 
 @media (max-width: 991.98px) {
+    /* Thu gọn lưới và kích thước hero ở màn hình trung bình. */
     .brand-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -414,6 +420,7 @@
 }
 
 @media (max-width: 575.98px) {
+    /* Xếp nội dung thẻ/hero theo chiều dọc trên điện thoại. */
     .brand-hero {
         min-height: 720px;
         background-position: 58% center;
@@ -453,6 +460,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+    /* Giảm hiệu ứng cho người dùng bật chế độ giảm chuyển động. */
     .brand-hero .brand-eyebrow,
     .brand-hero h1,
     .brand-hero-description,

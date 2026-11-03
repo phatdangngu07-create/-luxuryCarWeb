@@ -1,3 +1,4 @@
+// Tải RSS thị trường xe, lọc và dựng danh sách tin cùng phần xem tóm tắt.
 (() => {
     const journalGrid = document.querySelector("#journalGrid");
     const journalStatus = document.querySelector("#journalStatus");
@@ -11,6 +12,7 @@
     const trafficIncidentKeywords = /tai nạn|đâm liên hoàn|va chạm|tông trúng|mất lái|cháy xe|cao tốc/i;
     let articles = [];
 
+    // Loại HTML và giải mã nội dung mô tả RSS thành văn bản thuần.
     const parseDescription = (description) => {
         let text = String(description || "");
         for (let attempt = 0; attempt < 3; attempt += 1) {
@@ -31,6 +33,7 @@
         return text;
     };
 
+    // Chỉ cho phép liên kết HTTPS từ feed trước khi dùng làm ảnh hoặc nguồn.
     const safeHttpsUrl = (value) => {
         try {
             const url = new URL(value);
@@ -40,6 +43,7 @@
         }
     };
 
+    // Trả về cả giá trị máy đọc được và nhãn ngày giờ theo tiếng Việt.
     const formatDate = (value) => {
         const date = new Date(value);
         if (Number.isNaN(date.getTime())) return null;
@@ -52,6 +56,7 @@
         };
     };
 
+    // Dựng thẻ tin với hình, nguồn, ngày đăng, tóm tắt và liên kết mở bài.
     const createCard = (article, index) => {
         const column = document.createElement("div");
         column.className = "col-md-6 col-xl-4";
@@ -118,6 +123,7 @@
         return column;
     };
 
+    // Đóng phần tóm tắt, khôi phục danh sách và xóa tham số bài khỏi URL.
     const closeArticle = () => {
         articleDetail.hidden = true;
         articleDetail.replaceChildren();
@@ -127,6 +133,7 @@
         window.history.replaceState(null, "", url);
     };
 
+    // Hiển thị tóm tắt, thông tin nguồn và liên kết đọc bài gốc.
     const showArticle = (article) => {
         if (!article) {
             closeArticle();
@@ -199,6 +206,7 @@
         articleDetail.append(sourceLink);
     };
 
+    // Đồng bộ giao diện chi tiết với tham số article khi tải trang/quay lại.
     const updateArticleFromUrl = () => {
         const requestedArticle = new URLSearchParams(window.location.search).get("article");
         if (!requestedArticle) {
@@ -210,6 +218,7 @@
         showArticle(articles.find((article) => article.link === requestedArticle));
     };
 
+    // Thêm hiệu ứng xuất hiện khi cuộn, trừ khi người dùng giảm chuyển động.
     const observeCards = () => {
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (reduceMotion || !("IntersectionObserver" in window)) return;
@@ -227,6 +236,7 @@
         journalGrid.querySelectorAll(".journal-card").forEach((card) => observer.observe(card));
     };
 
+    // Mở bài ngay trong trang và cập nhật lịch sử trình duyệt không reload.
     journalGrid.addEventListener("click", (event) => {
         const link = event.target.closest("a[data-article-index]");
         if (!link) return;
@@ -242,6 +252,7 @@
 
     window.addEventListener("popstate", updateArticleFromUrl);
 
+    // Lấy feed, làm sạch dữ liệu, lọc tin xe và hiển thị tối đa 12 bài mới nhất.
     const loadLatestNews = async () => {
         try {
             const response = await fetch(feedApiUrl, { cache: "no-store" });
