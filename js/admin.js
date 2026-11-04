@@ -4,7 +4,17 @@ const catalog = window.LuxuryCarsProducts;
 // Mảng lưu sản phẩm
 let products = [];
 
-const fallbackImage = "assets/images/lamborghini.jpg";
+const fallbackImage = "/assets/images/lamboghini.jpg";
+const carImageFiles = [
+    "Màu cam đỏ.jpg",
+    "Màu vàng .jpg",
+    "Xe màu  đỏ .jpg",
+    "Xe màu Cam .jpg",
+    "Xe màu trắng .jpg",
+    "Xe màu xám.jpg",
+    "Xe màu đen .jpg",
+    "Xe màu đỏ .jpg"
+];
 
 // Lấy phần tử HTML
 const tableBody = document.getElementById("productTableBody");
@@ -25,7 +35,44 @@ const productYear = document.getElementById("productYear");
 const productPower = document.getElementById("productPower");
 const productSpeed = document.getElementById("productSpeed");
 const productImage = document.getElementById("productImage");
+const productImagePreset = document.getElementById("productImagePreset");
+const productImagePreview = document.getElementById("productImagePreview");
 const productDescription = document.getElementById("productDescription");
+
+for (const fileName of carImageFiles) {
+    const option = document.createElement("option");
+    option.value = `/assets/images/cars/${encodeURIComponent(fileName)}`;
+    option.textContent = fileName;
+    productImagePreset.appendChild(option);
+}
+
+function updateProductImagePreview() {
+    const imagePath = productImage.value.trim();
+    productImagePreview.hidden = !imagePath;
+    if (imagePath) {
+        productImagePreview.src = imagePath;
+    } else {
+        productImagePreview.removeAttribute("src");
+    }
+}
+
+function setProductImage(imagePath) {
+    productImage.value = imagePath || "";
+    productImagePreset.value = imagePath || "";
+    updateProductImagePreview();
+}
+
+productImagePreset.addEventListener("change", function() {
+    if (productImagePreset.value) {
+        productImage.value = productImagePreset.value;
+        updateProductImagePreview();
+    }
+});
+
+productImage.addEventListener("input", function() {
+    productImagePreset.value = productImage.value;
+    updateProductImagePreview();
+});
 
 // Đọc dữ liệu sản phẩm và đồng bộ bảng, bộ đếm cùng bộ lọc thương hiệu.
 async function loadProducts() {
@@ -35,6 +82,7 @@ async function loadProducts() {
         showProducts();
         updateStats();
         updateBrandFilter();
+        updateProductBrandOptions();
 
     } catch (error) {
         alert("Không thể lấy dữ liệu!");
@@ -181,13 +229,46 @@ function updateBrandFilter() {
     brandFilter.value = selectedBrand;
 }
 
+function updateProductBrandOptions() {
+    let selectedBrand = productBrand.value;
+
+    productBrand.innerHTML =
+        '<option value="">Chọn thương hiệu</option>';
+
+    for (let i = 0; i < products.length; i++) {
+        let brand = products[i].brand;
+
+        if (!brand) {
+            continue;
+        }
+
+        let found = false;
+        for (let j = 0; j < productBrand.options.length; j++) {
+            if (productBrand.options[j].value === brand) {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            let option = document.createElement("option");
+            option.value = brand;
+            option.textContent = brand;
+            productBrand.appendChild(option);
+        }
+    }
+
+    productBrand.value = selectedBrand;
+}
+
 // Mở hộp thoại ở chế độ tạo mới và đặt giá trị mặc định cho biểu mẫu.
 document.getElementById("addProductButton").onclick = function() {
 
     productForm.reset();
+    productBrand.value = "";
 
     productId.value = "";
-    productImage.value = fallbackImage;
+    setProductImage(fallbackImage);
 
     document.getElementById("modalTitle").innerText =
         "Thêm sản phẩm";
@@ -217,7 +298,7 @@ function editProduct(product) {
     productYear.value = product.year;
     productPower.value = product.power;
     productSpeed.value = product.speed;
-    productImage.value = product.image;
+    setProductImage(product.image);
     productDescription.value = product.description;
 
     document.getElementById("modalTitle").innerText =

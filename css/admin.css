@@ -411,6 +411,18 @@ td button {
     cursor: default;
 }
 
+.delete-contact-button {
+    width: 100%;
+    max-width: 125px;
+    margin-top: 8px;
+    background: #b42318;
+    white-space: nowrap;
+}
+
+.delete-contact-button:hover {
+    background: #8f1c13;
+}
+
 .empty-contacts {
     margin-top: 15px;
 }
@@ -463,6 +475,14 @@ td button {
 #productForm select,
 #productForm textarea {
     width: 100%;
+}
+
+.product-image-preview {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #f3f4f6;
 }
 
 .form-buttons {
