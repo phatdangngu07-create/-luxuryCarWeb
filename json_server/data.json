@@ -271,6 +271,14 @@
       "role": "user",
       "createdAt": "2026-10-31T08:00:08.917Z",
       "id": "g89sgTK1fsc"
+    },
+    {
+      "name": "phu dep zai",
+      "email": "phu1@gmail.com",
+      "password": "1234567890",
+      "role": "user",
+      "createdAt": "2026-11-03T02:04:17.019Z",
+      "id": "QVq0fU3tDXc"
     }
   ],
   "brands": [
@@ -438,6 +446,62 @@
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Lamborghini_Revuelto_DSC_6984.jpg/1280px-Lamborghini_Revuelto_DSC_6984.jpg",
       "imageCredit": "Alexander Migl",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_DSC_6984.jpg"
+    }
+  ],
+  "news": [
+    {
+      "id": "1",
+      "title": "BYD có hơn 1 triệu nhân viên, gấp 3 lần Toyota",
+      "description": "Quy mô nhân sự của hãng xe Trung Quốc lên tới 1,02 triệu người, vượt qua tổng số nhân viên của Toyota, Ford, General Motors và Tesla cộng lại.",
+      "pubDate": "2026-11-04T07:42:03+07:00",
+      "link": "https://vnexpress.net/byd-co-hon-1-trieu-nhan-vien-gap-3-lan-toyota-5140127.html",
+      "image": "https://vcdn1-vnexpress.vnecdn.net/2026/11/03/BYD2-1793690046-1787-1793690270.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=y5VlsIkSymSC34Q62gUCeg",
+      "source": "vnexpress.net"
+    },
+    {
+      "id": "2",
+      "title": "Yamaha NMAX E - xe ga chạy điện ra mắt thế giới",
+      "description": "Mẫu xe ga lắp môtô điện công suất 10 mã lực và pin lithium-ion 3,5 kWh, phạm vi hoạt động 104 km, thời gian sạc đầy 5,5 giờ.",
+      "pubDate": "2026-11-04T04:30:15+07:00",
+      "link": "https://vnexpress.net/yamaha-nmax-e-xe-ga-chay-dien-ra-mat-the-gioi-5139996.html",
+      "image": "https://vcdn1-vnexpress.vnecdn.net/2026/11/04/Yamaha-1793770450-5878-1793770453.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=m0PNF9cmCBsMRjkSY4QWvA",
+      "source": "vnexpress.net"
+    },
+    {
+      "id": "3",
+      "title": "Xe điện Toyota làm robotaxi cho hãng xe tự lái Mỹ",
+      "description": "Mẫu Toyota bZ trang bị công nghệ tự lái Waymo sẽ bắt đầu chạy dịch vụ robotaxi tại Nhật Bản từ 2027 trước khi mở rộng ra thế giới.",
+      "pubDate": "2026-11-04T02:43:50+07:00",
+      "link": "https://vnexpress.net/xe-dien-toyota-lam-robotaxi-cho-hang-xe-tu-lai-my-5140464.html",
+      "image": "https://vcdn1-vnexpress.vnecdn.net/2026/11/04/ToyotabZ-1793756490-3829-1793757179.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=I30kPAHfwDE4226A5T5pbA",
+      "source": "vnexpress.net"
+    },
+    {
+      "id": "4",
+      "title": "'Đi xe nhỏ như VF 3 nên được trả phí đỗ xe ít hơn xe to'",
+      "description": "Các loại xe điện mini ngày càng phổ biến, với kích thước nhỏ gọn thân thiện tiện lợi nhưng một số dịch vụ vẫn bị áp như những chiếc xe lớn.",
+      "pubDate": "2026-11-04T00:00:00+07:00",
+      "link": "https://vnexpress.net/di-xe-nho-nhu-vf-3-nen-duoc-tra-phi-do-xe-it-hon-xe-to-5140195.html",
+      "image": "https://vcdn1-vnexpress.vnecdn.net/2026/11/03/VF3VnExpress317JPG582417334623-6034-5107-1793721312.webp?w=1200&h=0&q=100&dpr=1&fit=crop&s=zGh75Mjaey83nihlreZdhA",
+      "source": "vnexpress.net"
+    },
+    {
+      "id": "5",
+      "title": "Yamaha XENTER E - xe ga thuần điện mới cho đô thị",
+      "description": "Mẫu xe ga chạy điện kiểu dáng mới của Yamaha lần đầu ra mắt, lắp môtơ điện 10 mã lực, pin 3,5 kWh, phạm vi hoạt động 108 km.",
+      "pubDate": "2026-11-03T23:30:00+07:00",
+      "link": "https://vnexpress.net/yamaha-xenter-e-xe-ga-thuan-dien-moi-cho-do-thi-5140251.html",
+      "image": "https://vcdn1-vnexpress.vnecdn.net/2026/11/03/yamahaxentere20273-1793696903-8220-1793696957.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=6GHSB98XkZ8L1bmZmLuE1g",
+      "source": "vnexpress.net"
+    },
+    {
+      "id": "6",
+      "title": "Chắn bùn khoét lỗ - thiết kế lạ trên xe máy điện VinFast",
+      "description": "Phần chắn bùn sau của xe VinFast Kyo được khoét lỗ để tản nhiệt pin và bộ điều khiển nhưng khiến bùn đất lọt vào bên trong.",
+      "pubDate": "2026-11-04T03:13:37+07:00",
+      "link": "https://vnexpress.net/chan-bun-khoet-lo-thiet-ke-la-tren-xe-may-dien-vinfast-5139683.html",
+      "image": "https://vcdn1-vnexpress.vnecdn.net/2026/11/02/862899256106262228681922081570-5850-6587-1793602220.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=CaYnJBnBj2C_fwJaWudzOg",
+      "source": "vnexpress.net"
     }
   ],
   "contacts": [

@@ -1,7 +1,7 @@
-// Đường dẫn dữ liệu
+// API sản phẩm dùng chung cho trang thư viện và trang quản trị.
 const API_URL = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/products`;
 
-// Lấy danh sách sản phẩm
+// Đọc và kiểm tra danh sách sản phẩm trước khi trả cho giao diện.
 async function getProducts() {
     const response = await fetch(API_URL);
     if (!response.ok) {
@@ -15,7 +15,7 @@ async function getProducts() {
     return data;
 }
 
-// Thêm sản phẩm
+// Tạo sản phẩm mới trên JSON Server.
 async function createProduct(product) {
     await fetch(API_URL, {
         method: "POST",
@@ -26,7 +26,7 @@ async function createProduct(product) {
     });
 }
 
-// Cập nhật sản phẩm
+// Thay thế bản ghi sản phẩm theo ID.
 async function updateProduct(product) {
     await fetch(API_URL + "/" + product.id, {
         method: "PUT",
@@ -37,14 +37,14 @@ async function updateProduct(product) {
     });
 }
 
-// Xóa sản phẩm
+// Xóa bản ghi sản phẩm theo ID.
 async function deleteProduct(id) {
     await fetch(API_URL + "/" + id, {
         method: "DELETE"
     });
 }
 
-// Đưa các hàm ra ngoài
+// Công khai các thao tác dữ liệu để các script trang gọi dùng.
 window.LuxuryCarsProducts = {
     getProducts,
     createProduct,

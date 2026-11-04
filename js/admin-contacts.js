@@ -1,3 +1,4 @@
+// Tải và quản lý yêu cầu liên hệ trên trang admin riêng.
 (() => {
     const apiBase = window.LUXURY_CARS_API_URL || "http://localhost:3000";
     const contactsEndpoint = `${apiBase}/contacts`;
@@ -11,6 +12,7 @@
 
     let contacts = [];
 
+    // Định dạng thời điểm gửi và chuyển mã nhu cầu/ngân sách sang nhãn dễ đọc.
     const formatDate = (value) => {
         const date = new Date(value);
         return Number.isNaN(date.getTime())
@@ -35,6 +37,7 @@
         above_40b: "Trên 40 tỷ VNĐ"
     })[budget] || budget || "Chưa cung cấp";
 
+    // Tạo ô văn bản an toàn bằng textContent, tránh diễn giải dữ liệu khách như HTML.
     const createTextCell = (value, className = "") => {
         const cell = document.createElement("td");
         cell.textContent = value || "Chưa cung cấp";
@@ -42,6 +45,7 @@
         return cell;
     };
 
+    // Dựng hàng thông tin khách, xe, nhu cầu, trạng thái và nút xác nhận.
     const createContactRow = (contact) => {
         const row = document.createElement("tr");
         const customerCell = document.createElement("td");
@@ -111,6 +115,7 @@
         return row;
     };
 
+    // Sắp xếp yêu cầu mới nhất trước, cập nhật bảng và số lượng chờ xác nhận.
     const renderContacts = () => {
         contacts.sort((first, second) => {
             const firstDate = new Date(first.createdAt).getTime() || 0;
@@ -123,6 +128,7 @@
         emptyMessage.hidden = contacts.length > 0;
     };
 
+    // Đọc yêu cầu từ máy chủ và gộp yêu cầu dự phòng cục bộ nếu có.
     const loadContacts = async () => {
         refreshButton.disabled = true;
         statusMessage.textContent = "Đang tải yêu cầu liên hệ...";
@@ -179,6 +185,7 @@
         refreshButton.disabled = false;
     };
 
+    // Lưu trạng thái xác nhận lên API hoặc Local Storage tùy nơi lưu yêu cầu.
     const confirmContact = async (contact, button) => {
         if (contact.status === "confirmed") return;
         button.disabled = true;
@@ -260,6 +267,7 @@
         }
     };
 
+    // Nút làm mới tải lại danh sách; gọi ngay khi trang khởi tạo.
     refreshButton.addEventListener("click", loadContacts);
     loadContacts();
 })();

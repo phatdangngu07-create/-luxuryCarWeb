@@ -1,3 +1,4 @@
+// Thêm hiệu ứng xuất hiện khi cuộn vào tầm nhìn, đồng thời tôn trọng giảm chuyển động.
 (() => {
     const revealSelector = [
         "main > section:not(#home):not(.brand-hero)",
@@ -20,6 +21,7 @@
     }
 
     document.documentElement.classList.add("page-reveal-enabled");
+    // Chỉ bật hiệu ứng cho các phần tử khi chúng đi vào vùng nhìn thấy.
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -30,6 +32,7 @@
     }, { threshold: 0.12 });
 
     const observedTargets = new WeakSet();
+    // Gắn quan sát một lần cho cả nội dung tĩnh và xe được tải bất đồng bộ.
     const observeRevealTargets = () => {
         document.querySelectorAll(revealSelector).forEach((target, index) => {
             if (observedTargets.has(target)) {

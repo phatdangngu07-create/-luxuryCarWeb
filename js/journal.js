@@ -1,36 +1,15 @@
+// Tải tin từ JSON Server và dựng danh sách bài cùng phần xem tóm tắt.
 (() => {
     const journalGrid = document.querySelector("#journalGrid");
     const journalStatus = document.querySelector("#journalStatus");
     const articleDetail = document.querySelector("#journalArticleDetail");
     if (!journalGrid || !journalStatus || !articleDetail) return;
 
-    const feedUrl = "https://vnexpress.net/rss/oto-xe-may.rss";
-    const feedApiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+    const newsApiUrl = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/news`;
     const fallbackImage = "/assets/images/lamboghini.jpg";
-    const marketKeywords = /thị trường|doanh số|doanh thu|bán chạy|giá xe|giá bán|giảm giá|tăng giá|mở bán|ra mắt|xe mới|xe điện|điện hóa|hybrid|mẫu xe|hãng xe|bàn giao|nhà máy|lắp ráp|nhập khẩu|sản lượng|ô tô điện|xe hybrid/i;
-    const trafficIncidentKeywords = /tai nạn|đâm liên hoàn|va chạm|tông trúng|mất lái|cháy xe|cao tốc/i;
     let articles = [];
 
-    const parseDescription = (description) => {
-        let text = String(description || "");
-        for (let attempt = 0; attempt < 3; attempt += 1) {
-            const parsed = new DOMParser().parseFromString(text, "text/html");
-            parsed.querySelectorAll("img, a").forEach((element) => {
-                if (element.tagName === "IMG") {
-                    element.remove();
-                } else {
-                    element.replaceWith(document.createTextNode(element.textContent || ""));
-                }
-            });
-            const decoded = (parsed.body.textContent || "").replace(/\s+/g, " ").trim();
-            if (decoded === text || !/&(?:amp|lt|gt|quot|#\d+);/i.test(decoded)) {
-                return decoded;
-            }
-            text = decoded;
-        }
-        return text;
-    };
-
+    // Chỉ dùng liên kết HTTPS từ dữ liệu JSON cho ảnh và bài viết gốc.
     const safeHttpsUrl = (value) => {
         try {
             const url = new URL(value);
@@ -40,6 +19,24 @@
         }
     };
 
+    // Chuẩn hóa dữ liệu JSON trước khi đưa vào giao diện.
+    const normalizeArticle = (item) => {
+        const link = safeHttpsUrl(item?.link);
+        if (!link || typeof item?.title !== "string" || !item.title.trim()) return null;
+
+        return {
+            link,
+            title: item.title.trim(),
+            summary: typeof item.description === "string" ? item.description.trim() : "",
+            pubDate: item.pubDate,
+            thumbnail: safeHttpsUrl(item.image),
+            source: typeof item.source === "string" && item.source.trim()
+                ? item.source.trim()
+                : "VnExpress"
+        };
+    };
+
+    // Trả về cả giá trị máy đọc được và nhãn ngày giờ theo tiếng Việt.
     const formatDate = (value) => {
         const date = new Date(value);
         if (Number.isNaN(date.getTime())) return null;
@@ -52,6 +49,7 @@
         };
     };
 
+    // Dựng thẻ tin với hình, nguồn, ngày đăng, tóm tắt và liên kết mở bài.
     const createCard = (article, index) => {
         const column = document.createElement("div");
         column.className = "col-md-6 col-xl-4";
@@ -118,6 +116,7 @@
         return column;
     };
 
+    // Đóng phần tóm tắt, khôi phục danh sách và xóa tham số bài khỏi URL.
     const closeArticle = () => {
         articleDetail.hidden = true;
         articleDetail.replaceChildren();
@@ -127,6 +126,7 @@
         window.history.replaceState(null, "", url);
     };
 
+    // Hiển thị tóm tắt, thông tin nguồn và liên kết đọc bài gốc.
     const showArticle = (article) => {
         if (!article) {
             closeArticle();
@@ -199,6 +199,7 @@
         articleDetail.append(sourceLink);
     };
 
+    // Đồng bộ giao diện chi tiết với tham số article khi tải trang/quay lại.
     const updateArticleFromUrl = () => {
         const requestedArticle = new URLSearchParams(window.location.search).get("article");
         if (!requestedArticle) {
@@ -210,6 +211,7 @@
         showArticle(articles.find((article) => article.link === requestedArticle));
     };
 
+    // Thêm hiệu ứng xuất hiện khi cuộn, trừ khi người dùng giảm chuyển động.
     const observeCards = () => {
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (reduceMotion || !("IntersectionObserver" in window)) return;
@@ -227,6 +229,7 @@
         journalGrid.querySelectorAll(".journal-card").forEach((card) => observer.observe(card));
     };
 
+    // Mở bài ngay trong trang và cập nhật lịch sử trình duyệt không reload.
     journalGrid.addEventListener("click", (event) => {
         const link = event.target.closest("a[data-article-index]");
         if (!link) return;
@@ -242,49 +245,27 @@
 
     window.addEventListener("popstate", updateArticleFromUrl);
 
+    // Lấy bài viết từ collection news trong JSON Server và hiển thị mới nhất trước.
     const loadLatestNews = async () => {
         try {
-            const response = await fetch(feedApiUrl, { cache: "no-store" });
+            const response = await fetch(newsApiUrl, { cache: "no-store" });
             if (!response.ok) {
-                throw new Error(`Nguồn tin trả về lỗi HTTP ${response.status}.`);
+                throw new Error(`JSON Server trả về lỗi HTTP ${response.status}.`);
             }
 
-            const feed = await response.json();
-            if (feed.status !== "ok" || !Array.isArray(feed.items)) {
-                throw new Error("Nguồn tin không trả về danh sách bài viết hợp lệ.");
+            const data = await response.json();
+            if (!Array.isArray(data)) {
+                throw new Error("JSON Server không trả về danh sách tin hợp lệ.");
             }
 
-            articles = feed.items
-                .map((item) => {
-                    const link = safeHttpsUrl(item.link);
-                    if (!link) return null;
-
-                    let source = "VnExpress";
-                    try {
-                        source = new URL(link).hostname.replace(/^www\./, "");
-                    } catch {
-                        // Keep the readable default source name.
-                    }
-
-                    return {
-                        link,
-                        title: parseDescription(item.title) || "Tin tức thị trường xe",
-                        summary: parseDescription(item.description),
-                        pubDate: item.pubDate,
-                        thumbnail: item.thumbnail,
-                        source
-                    };
-                })
-                .filter((article) => {
-                    if (!article) return false;
-                    const searchableText = `${article.title} ${article.summary}`;
-                    return marketKeywords.test(searchableText) && !trafficIncidentKeywords.test(searchableText);
-                })
+            articles = data
+                .map(normalizeArticle)
+                .filter((article) => article !== null)
                 .sort((first, second) => new Date(second.pubDate) - new Date(first.pubDate))
                 .slice(0, 12);
 
             if (articles.length === 0) {
-                journalStatus.textContent = "Hiện chưa có tin thị trường xe phù hợp từ nguồn RSS.";
+                journalStatus.textContent = "Hiện chưa có tin thị trường xe trong dữ liệu.";
                 return;
             }
 
@@ -293,9 +274,9 @@
             observeCards();
             updateArticleFromUrl();
         } catch (error) {
-            console.error("Không thể tải tin tức thị trường xe:", error);
+            console.error("Không thể tải dữ liệu tin tức thị trường xe:", error);
             journalStatus.setAttribute("role", "alert");
-            journalStatus.textContent = `Không thể tải tin mới. Hãy thử tải lại trang sau: ${error.message}`;
+            journalStatus.textContent = `Không thể tải danh sách tin. Hãy chạy npm.cmd run dev trong thư mục json_server rồi tải lại trang: ${error.message}`;
         }
     };
 

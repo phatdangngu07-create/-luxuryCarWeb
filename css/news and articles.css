@@ -1,3 +1,5 @@
+/* Kiểu dáng thẻ RSS, phần tóm tắt bài và chuyển động của trang Tin tức. */
+/* Nhãn nguồn, ảnh bìa và bố cục thẻ tin trong danh sách. */
 .journal-category {
     color: var(--luxury-red-dark) !important;
     font-size: 0.75rem;
@@ -93,6 +95,7 @@
     text-decoration: underline;
 }
 
+/* Phân cấp tiêu đề, mô tả, ngày đăng và liên kết đọc tin. */
 .journal-card-content {
     display: flex;
     min-height: 270px;
@@ -140,6 +143,7 @@
     font-size: 0.78rem;
 }
 
+/* Khung xem tóm tắt bài viết và liên kết tới nguồn xuất bản. */
 .journal-article-detail {
     padding: clamp(1.5rem, 5vw, 3rem);
     border: 1px solid rgb(20 24 28 / 8%);
@@ -191,6 +195,7 @@
     font-size: 0.85rem;
 }
 
+/* Trạng thái xuất hiện theo cuộn và tôn trọng tùy chọn giảm chuyển động. */
 .journal-motion-enabled #journalGrid .journal-card:not(.is-visible) {
     opacity: 0;
     transform: translateY(22px);
