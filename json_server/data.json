@@ -107,57 +107,6 @@
       "imageCredit": "Matti Blume",
       "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Bugatti_Chiron,_GIMS_2018,_Le_Grand-Saconnex_(1X7A1765).jpg",
       "detailId": "chiron"
-    },
-    {
-      "id": "db12",
-      "name": "DB12",
-      "brand": "Aston Martin",
-      "engine": "V8",
-      "segment": "Grand tourer",
-      "speed": 325,
-      "power": 680,
-      "year": 2023,
-      "description": "Grand tourer kết hợp phong thái thanh lịch với dáng vẻ thể thao hiện đại.",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Aston_Martin_DB12_1X7A1921.jpg/1280px-Aston_Martin_DB12_1X7A1921.jpg",
-      "imageCredit": "Alexander-93",
-      "imageCreditUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_DB12_1X7A1921.jpg",
-      "detailId": "db12"
-    },
-    {
-      "name": "256",
-      "brand": "Ferrari",
-      "engine": "V10",
-      "segment": "Supercar",
-      "year": 2026,
-      "power": 1500,
-      "speed": 297,
-      "image": "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1000&q=85",
-      "description": "thiết kế bắt mắt",
-      "id": "ZepXI3pQl9g"
-    },
-    {
-      "name": "290bt",
-      "brand": "Ferrari",
-      "engine": "V10",
-      "segment": "Hypercar",
-      "year": 2028,
-      "power": 4567,
-      "speed": 450,
-      "image": "/assets/images/lamboghini.jpg",
-      "description": "ậKJAHKHSKj",
-      "id": "TWHyM2Eu-VQ"
-    },
-    {
-      "name": "789jj",
-      "brand": "Ferrari",
-      "engine": "V8",
-      "segment": "Hypercar",
-      "year": 2027,
-      "power": 467,
-      "speed": 329,
-      "image": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/dataimages/201906/original/images5365809_1.jpg",
-      "description": "Siêu xe màu tím",
-      "id": "LWaV9YKdRtY"
     }
   ],
   "vehicleDetails": [
@@ -499,49 +448,8 @@
       "phone": "0999456789",
       "message": "Tôi muốn nhận thông tin tư vấn mẫu xe Lamborghini Revuelto.",
       "carId": "revuelto",
-      "createdAt": "2026-10-27T10:00:00.000Z"
-    },
-    {
-      "id": "x1WnJT0MFPM",
-      "name": "Quản trị viên",
-      "phone": "0798913295",
-      "email": "admin@luxurycars.vn",
-      "city": "Đà Nẵng",
-      "carId": "750s",
-      "carName": "McLaren 750S (V8)",
-      "serviceType": "deposit",
-      "budget": "unspecified",
-      "message": "",
-      "status": "pending",
-      "createdAt": "2026-10-31T10:13:22.280Z"
-    },
-    {
-      "id": "lfi7el1vnSo",
-      "name": "Quản trị viên",
-      "phone": "0798913295",
-      "email": "admin@luxurycars.vn",
-      "city": "Hồ Chí Minh",
-      "carId": "LWaV9YKdRtY",
-      "carName": "Ferrari 789jj (V8)",
-      "serviceType": "deposit",
-      "budget": "unspecified",
-      "message": "Tôi muốn chiếc xe màu hồng",
-      "status": "pending",
-      "createdAt": "2026-10-31T10:14:49.607Z"
-    },
-    {
-      "id": "YE51XFRZt34",
-      "name": "Quản trị viên 1",
-      "phone": "0344032123",
-      "email": "phat123@gmail.com",
-      "city": "Hà Nội",
-      "carId": "revuelto",
-      "carName": "Lamborghini Revuelto (Hybrid V12)",
-      "serviceType": "test_drive",
-      "budget": "under_20b",
-      "message": "chào shop",
-      "status": "confirmed",
-      "createdAt": "2026-11-02T16:08:19.737Z"
+      "createdAt": "2026-10-27T10:00:00.000Z",
+      "status": "confirmed"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

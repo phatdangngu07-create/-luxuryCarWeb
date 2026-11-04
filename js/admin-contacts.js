@@ -97,6 +97,16 @@
         confirmButton.disabled = confirmed;
         confirmButton.addEventListener("click", () => confirmContact(contact, confirmButton));
         actionCell.appendChild(confirmButton);
+
+        if (confirmed) {
+            const deleteButton = document.createElement("button");
+            deleteButton.type = "button";
+            deleteButton.className = "delete-contact-button";
+            deleteButton.textContent = "Xóa";
+            deleteButton.addEventListener("click", () => deleteContact(contact, deleteButton));
+            actionCell.appendChild(deleteButton);
+        }
+
         row.appendChild(actionCell);
         return row;
     };
@@ -207,6 +217,46 @@
             statusMessage.textContent = `Không thể lưu trạng thái xác nhận: ${error.message}`;
             button.disabled = false;
             button.textContent = "Xác nhận";
+        }
+    };
+
+    const deleteContact = async (contact, button) => {
+        if (contact.status !== "confirmed") return;
+        if (!window.confirm(`Bạn có chắc muốn xóa yêu cầu của ${contact.name || "khách hàng"}?`)) return;
+
+        button.disabled = true;
+        button.textContent = "Đang xóa...";
+
+        try {
+            if (contact.storageOnly) {
+                const stored = JSON.parse(localStorage.getItem(storageKey) || "[]");
+                if (!Array.isArray(stored)) {
+                    throw new Error("Danh sách liên hệ lưu trên trình duyệt không hợp lệ.");
+                }
+                const remainingContacts = stored.filter((item) => String(item.id) !== String(contact.id));
+                if (remainingContacts.length === stored.length) {
+                    throw new Error("Không tìm thấy yêu cầu trong bộ nhớ trình duyệt.");
+                }
+                localStorage.setItem(storageKey, JSON.stringify(remainingContacts));
+            } else {
+                const response = await fetch(`${contactsEndpoint}/${encodeURIComponent(contact.id)}`, {
+                    method: "DELETE"
+                });
+                if (!response.ok) {
+                    throw new Error(`JSON Server trả về lỗi HTTP ${response.status}.`);
+                }
+            }
+
+            contacts = contacts.filter((item) => item !== contact);
+            renderContacts();
+            statusMessage.setAttribute("role", "status");
+            statusMessage.textContent = `Đã xóa yêu cầu của ${contact.name || "khách hàng"}.`;
+        } catch (error) {
+            console.error("Không thể xóa yêu cầu liên hệ:", error);
+            statusMessage.setAttribute("role", "alert");
+            statusMessage.textContent = `Không thể xóa yêu cầu liên hệ: ${error.message}`;
+            button.disabled = false;
+            button.textContent = "Xóa";
         }
     };
 
