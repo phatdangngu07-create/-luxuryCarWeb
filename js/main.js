@@ -413,7 +413,7 @@ if (carDetailPage) {
     });
 }
 
-// Đọc tham số tìm kiếm/lọc từ URL để khôi phục trạng thái thư viện xe.
+// Đọc tham số tìm kiếm/lọc từ URL và đồng bộ nội dung ô tìm kiếm trên thư viện xe.
 const collectionParams = new URLSearchParams(window.location.search);
 const collectionSearch = collectionParams.get("search") || "";
 const searchInput = document.querySelector(".navbar-search input[name='search']");
@@ -470,7 +470,7 @@ if (collectionGrid) {
 
     const updateCollection = () => {
         const carItems = [...collectionGrid.querySelectorAll("[data-car-item]")];
-        const query = collectionSearch.trim().toLocaleLowerCase("vi");
+        const query = (searchInput ? searchInput.value : collectionSearch).trim().toLocaleLowerCase("vi");
         const brand = brandFilter?.value || "";
         const engine = engineFilter?.value || "";
         const segment = segmentFilter?.value || "";
@@ -508,6 +508,7 @@ if (collectionGrid) {
     };
 
     collectionFilters.forEach((filter) => filter.addEventListener("change", updateCollection));
+    searchInput?.addEventListener("input", updateCollection);
     updateCollection();
     document.addEventListener("luxurycars:products-loaded", updateCollection);
 }

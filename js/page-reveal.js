@@ -6,6 +6,8 @@
         "main .knowledge-card",
         "main .brand-card",
         "main .discovery-card",
+        "main .popular-cars-eyebrow-reveal",
+        "main .journal-eyebrow-reveal",
         "main .feature-card",
         "main .editorial-card",
         "main .marque-image-wrap",
@@ -40,6 +42,11 @@
             }
 
             observedTargets.add(target);
+            if (target.matches(".popular-cars-eyebrow-reveal, .journal-eyebrow-reveal")) {
+                revealObserver.observe(target);
+                return;
+            }
+
             target.classList.add("page-reveal");
             target.style.setProperty("--page-reveal-delay", `${(index % 5) * 70}ms`);
             revealObserver.observe(target);
