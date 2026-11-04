@@ -1,6 +1,6 @@
 // Tải và quản lý yêu cầu liên hệ trên trang admin riêng.
 (() => {
-    const apiBase = window.LUXURY_CARS_API_URL || "http://localhost:3000";
+    const apiBase = window.LUXURY_CARS_API_URL || "https://luxurycarweb.onrender.com";
     const contactsEndpoint = `${apiBase}/contacts`;
     const storageKey = "luxuryCarsContacts";
     const tableBody = document.getElementById("contactTableBody");

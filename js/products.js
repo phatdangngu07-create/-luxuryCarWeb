@@ -1,5 +1,5 @@
 // API sản phẩm dùng chung cho trang thư viện và trang quản trị.
-const API_URL = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/products`;
+const API_URL = `${window.LUXURY_CARS_API_URL || "https://luxurycarweb.onrender.com"}/products`;
 
 // Đọc và kiểm tra danh sách sản phẩm trước khi trả cho giao diện.
 async function getProducts() {

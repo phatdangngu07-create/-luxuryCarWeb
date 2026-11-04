@@ -3,7 +3,7 @@
     const STORAGE_USERS_KEY = "luxuryCarsUsers";
     const STORAGE_CURRENT_USER_KEY = "luxuryCarsCurrentUser";
     const STORAGE_MIGRATION_KEY = "luxuryCarsUsersMigrated";
-    const USERS_ENDPOINT = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/users`;
+    const USERS_ENDPOINT = `${window.LUXURY_CARS_API_URL || "https://luxurycarweb.onrender.com"}/users`;
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
         "&": "&amp;",
         "<": "&lt;",

@@ -1,6 +1,6 @@
 // Điều khiển form liên hệ: tải mẫu xe, kiểm tra dữ liệu và lưu yêu cầu mua xe.
 (() => {
-    const API_BASE = window.LUXURY_CARS_API_URL || "http://localhost:3000";
+    const API_BASE = window.LUXURY_CARS_API_URL || "https://luxurycarweb.onrender.com";
     const contactsEndpoint = `${API_BASE}/contacts`;
     const productsEndpoint = `${API_BASE}/products`;
     const STORAGE_KEY = "luxuryCarsContacts";

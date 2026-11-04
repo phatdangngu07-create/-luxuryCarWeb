@@ -248,7 +248,7 @@ if (carDetailPage) {
     const requestedCar = new URLSearchParams(window.location.search).get("id")
         || new URLSearchParams(window.location.search).get("car")
         || "revuelto";
-    const apiUrl = window.LUXURY_CARS_API_URL || "http://localhost:3000";
+    const apiUrl = window.LUXURY_CARS_API_URL || "https://luxurycarweb.onrender.com";
     const fallbackImage = "/assets/images/lamboghini.jpg";
     const galleryPhotos = {
         revuelto: [

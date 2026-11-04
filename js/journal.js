@@ -5,7 +5,7 @@
     const articleDetail = document.querySelector("#journalArticleDetail");
     if (!journalGrid || !journalStatus || !articleDetail) return;
 
-    const newsApiUrl = `${window.LUXURY_CARS_API_URL || "http://localhost:3000"}/news`;
+    const newsApiUrl = `${window.LUXURY_CARS_API_URL || "https://luxurycarweb.onrender.com"}/news`;
     const fallbackImage = "/assets/images/lamboghini.jpg";
     let articles = [];
 
