@@ -57,8 +57,18 @@
 @media (prefers-reduced-motion: reduce) {
     /* Giữ nội dung hiện đầy đủ nhưng tắt chuyển động theo cài đặt trợ năng. */
     .page-reveal,
-    .brand-card.page-reveal {
+    .brand-card.page-reveal,
+    .discovery-card {
         transition: none;
+    }
+
+    .discovery-card:hover,
+    .page-reveal-enabled .discovery-card.is-visible:hover {
+        transform: none;
+    }
+
+    .discovery-card:hover::after {
+        animation: none;
     }
 
     .page-reveal-enabled :is(.knowledge-card, .brand-card, .discovery-card, .feature-card, .editorial-card, .card).is-visible > * {

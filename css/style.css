@@ -424,6 +424,39 @@ main:not(.home-main) {
     margin-bottom: 3rem;
 }
 
+.popular-cars-eyebrow-reveal {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.journal-eyebrow-reveal {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.page-reveal-enabled :is(.popular-cars-eyebrow-reveal, .journal-eyebrow-reveal).is-visible {
+    animation: discovery-eyebrow-reveal 1.2s 120ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.discovery-eyebrow-reveal {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    animation: discovery-eyebrow-reveal 1.2s 500ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes discovery-eyebrow-reveal {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
 .section-eyebrow {
     margin-bottom: 1rem;
     font-weight: 700;
@@ -439,6 +472,11 @@ main:not(.home-main) {
     line-height: 1.08;
 }
 
+.discovery-heading h2.collection-title-effect {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
 .section-intro {
     max-width: 470px;
     margin: 0 0 0 auto;
@@ -447,25 +485,75 @@ main:not(.home-main) {
 }
 
 .discovery-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     height: 100%;
     min-height: 220px;
     padding: clamp(1.4rem, 3vw, 2rem);
-    background: #f5f5f3;
-    transition: background-color 180ms ease, transform 180ms ease;
+    border-top: 2px solid transparent;
+    background: linear-gradient(135deg, #f5f5f3 0%, #f5f5f3 70%, #f0eeec 100%);
+    box-shadow: 0 8px 24px rgb(16 18 20 / 3%);
+    transition: background 300ms ease, border-color 300ms ease, box-shadow 300ms ease, transform 300ms cubic-bezier(0.2, 0.75, 0.25, 1);
 }
 
+.discovery-card::before {
+    position: absolute;
+    z-index: -1;
+    top: -5rem;
+    right: -5rem;
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(220 38 38 / 10%), transparent 68%);
+    content: "";
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 350ms ease, transform 500ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.discovery-card::after {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgb(255 255 255 / 62%), transparent);
+    content: "";
+    pointer-events: none;
+    transform: skewX(-18deg);
+}
+
+.page-reveal-enabled .discovery-card.is-visible:hover,
 .discovery-card:hover {
-    transform: translateY(-4px);
-    background: #efefec;
+    border-top-color: var(--luxury-red);
+    background: linear-gradient(135deg, #fff 0%, #f8f6f5 72%, #f6eeee 100%);
+    box-shadow: 0 18px 38px rgb(16 18 20 / 11%);
+    transform: translateY(-8px);
+}
+
+.discovery-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.discovery-card:hover::after {
+    animation: discovery-card-shine 750ms ease-out;
 }
 
 .discovery-number {
     display: inline-block;
     margin-bottom: 2.5rem;
+    transition: color 250ms ease, transform 350ms cubic-bezier(0.2, 0.75, 0.25, 1);
     color: var(--luxury-red);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
+}
+
+.discovery-card:hover .discovery-number {
+    color: var(--luxury-dark);
+    transform: translateX(5px);
 }
 
 .discovery-card h3 {
@@ -473,6 +561,11 @@ main:not(.home-main) {
     color: var(--luxury-dark);
     font-size: 1.3rem;
     font-weight: 700;
+    transition: transform 250ms ease;
+}
+
+.discovery-card:hover h3 {
+    transform: translateX(3px);
 }
 
 .discovery-card p {
@@ -481,6 +574,78 @@ main:not(.home-main) {
     color: #656a6f;
     font-size: 0.92rem;
     line-height: 1.7;
+}
+
+.discovery-motion-lane {
+    position: relative;
+    height: 72px;
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+    overflow: hidden;
+}
+
+.discovery-motion-track {
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgb(29 32 35 / 16%) 12%, rgb(29 32 35 / 16%) 88%, transparent);
+}
+
+.discovery-motion-track::after {
+    position: absolute;
+    top: -2px;
+    right: 12%;
+    left: 12%;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, rgb(29 32 35 / 20%) 0 12px, transparent 12px 24px);
+    content: "";
+}
+
+.discovery-motion-car {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    width: clamp(92px, 10vw, 132px);
+    overflow: visible;
+    filter: drop-shadow(0 7px 5px rgb(22 24 27 / 18%));
+    animation: discovery-car-drive 12s linear infinite;
+}
+
+.motion-car-speedline {
+    fill: none;
+    stroke: var(--luxury-red);
+    stroke-linecap: round;
+    stroke-width: 2;
+    animation: discovery-car-speed 700ms ease-in-out infinite alternate;
+}
+
+@keyframes discovery-car-drive {
+    from {
+        transform: translateX(-150px);
+    }
+
+    to {
+        transform: translateX(calc(100vw + 150px));
+    }
+}
+
+@keyframes discovery-car-speed {
+    from {
+        opacity: 0.25;
+        transform: translateX(4px);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes discovery-card-shine {
+    to {
+        left: 135%;
+    }
 }
 
 .card-text-link,
@@ -508,6 +673,18 @@ main:not(.home-main) {
     margin-top: 1rem;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .discovery-motion-car,
+    .motion-car-speedline {
+        animation: none;
+    }
+
+    .discovery-motion-car {
+        left: calc(50% - 66px);
+        transform: none;
+    }
+}
+
 /* Các khối xe nổi bật và tin tức được dựng dữ liệu trên trang chủ. */
 .home-content-section {
     padding: clamp(4rem, 8vw, 6.5rem) 0;
@@ -532,17 +709,21 @@ main:not(.home-main) {
 }
 
 .feature-card {
+    position: relative;
     height: 100%;
     overflow: hidden;
     border: 1px solid rgb(20 24 28 / 8%);
     border-radius: 0.75rem;
     background: #fff;
-    transition: transform 180ms ease, box-shadow 180ms ease;
+    box-shadow: 0 8px 26px rgb(20 24 28 / 5%);
+    transition: transform 350ms cubic-bezier(0.2, 0.75, 0.25, 1), box-shadow 350ms ease, border-color 350ms ease;
 }
 
-.feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 1rem 2.5rem rgb(20 24 28 / 12%);
+.feature-card:hover,
+.feature-card:focus-within {
+    border-color: rgb(190 24 35 / 28%);
+    box-shadow: 0 1.25rem 3rem rgb(20 24 28 / 14%);
+    transform: translateY(-8px);
 }
 
 .feature-card > img {
@@ -550,6 +731,25 @@ main:not(.home-main) {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: filter 350ms ease, transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.feature-card:hover > img,
+.feature-card:focus-within > img {
+    filter: saturate(1.12) contrast(1.04);
+    transform: scale(1.045);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature-card:hover,
+    .feature-card:focus-within {
+        transform: none;
+    }
+
+    .feature-card:hover > img,
+    .feature-card:focus-within > img {
+        transform: none;
+    }
 }
 
 .feature-card-body {
@@ -608,6 +808,50 @@ main:not(.home-main) {
     font-size: clamp(2.3rem, 5vw, 4rem);
     font-weight: 700;
     letter-spacing: -0.055em;
+}
+
+.collection-title-effect {
+    display: inline-block;
+    background: linear-gradient(
+        110deg,
+        #17191b 0%,
+        #17191b 34%,
+        #888d92 44%,
+        #f7f7f7 49%,
+        #bd2028 54%,
+        #17191b 66%,
+        #17191b 100%
+    );
+    background-size: 250% 100%;
+    background-position: 100% 50%;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: collection-title-sheen 4s ease-in-out infinite;
+}
+
+@keyframes collection-title-sheen {
+    0%,
+    18% {
+        background-position: 100% 50%;
+    }
+
+    82%,
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .collection-title-effect {
+        background-position: 50% 50%;
+        animation: none;
+    }
+
+    .discovery-eyebrow-reveal {
+        animation: none;
+    }
 }
 
 .page-intro p:last-child {
